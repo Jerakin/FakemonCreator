@@ -1,0 +1,20 @@
+{
+  "title": "pokedex_extra.json",
+  "type": "object",
+  "patternProperties": {
+    "^.*$": {
+      "required": [],
+      "title": "Dex Entry",
+      "properties": {
+        "flavor": {"type": "string"},
+        "height": {"type": "integer"},
+        "weight": {"type": "integer"},
+        "genus": {
+          "type": "string",
+          "pattern": "[-\\s\\w]*\\sPokémon",
+          "error": "Genus is often specified as 'Duck Pokémon'"
+        }
+      }
+    }
+  }
+}

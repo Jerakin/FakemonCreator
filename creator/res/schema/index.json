@@ -1,0 +1,33 @@
+{
+  "title": "index",
+  "type": "object",
+  "required": [
+    "name",
+    "author",
+    "description",
+    "version"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the Package",
+      "minLength": 4,
+      "default": "",
+      "error": "The name of the package is too short"
+    },
+    "author": {
+      "type": "string",
+      "description": "Name of the Author",
+      "minLength": 3,
+      "default": "",
+      "error": "Please provide a Author name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description",
+      "minLength": 10,
+      "default": "",
+      "error": "Please add a short description"
+    }
+  }
+}

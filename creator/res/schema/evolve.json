@@ -1,0 +1,22 @@
+{
+  "title": "evolve.json",
+  "type": "object",
+  "patternProperties": {
+    "^.*$": {
+      "required": ["current_stage", "total_stages"],
+      "title": "Evolve Entry",
+      "properties": {
+        "current_stage": {"type": "integer"},
+        "total_stages": {"type": "integer"},
+        "points": {"type": "integer"},
+        "level": {"type": "integer"},
+        "into": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

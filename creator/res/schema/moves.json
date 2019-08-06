@@ -1,0 +1,102 @@
+{
+  "definitions": {
+    "damage": {
+      "amount": {
+        "type": "integer",
+        "error": "PP is lower than 3"
+      },
+      "dice_max": {
+        "type": "integer",
+        "enum": [4, 6, 8, 10, 12, 20],
+        "error": "Incorrect dice amount"
+      },
+      "move": {
+        "type": "bool",
+        "error": "Incorrect use move flag, expected bool"
+      },
+      "level": {
+        "type": "bool",
+        "error": "Incorrect use level flag, expected bool"
+      }
+    }
+  },
+  "title": "moves.json",
+  "type": "object",
+  "patternProperties": {
+    "^.*$": {
+      "title": "move",
+      "type": "object",
+      "required": [
+        "Type",
+        "Move Time",
+        "Duration",
+        "Range",
+        "Description",
+        "PP"
+      ],
+      "properties": {
+        "Type": {
+          "type": "string",
+          "enum": ["Normal", "Fighting", "Flying", "Poison", "Ground", "Rock", "Bug", "Ghost", "Steel", "Fire", "Water", "Grass", "Electric", "Psychic", "Ice", "Dragon", "Dark", "Fairy", "Varies"],
+          "error": "Invalid Move Type"
+        },
+        "Move Power": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["STR", "DEX", "CON", "INT", "WIS", "CHA", "Any", "Varies"]
+          },
+          "error": "Invalid Move Power",
+          "maxItems": 3
+        },
+        "Move Time": {
+          "type": "string",
+          "minLength": 3,
+          "error": "Please provide a valid Move Time"
+        },
+        "Duration": {
+          "type": "string",
+          "minLength": 3,
+          "error": "Please provide a valid Duration"
+        },
+        "Range": {
+          "type": "string",
+          "minLength": 3,
+          "error": "Please provide a valid Range"
+        },
+        "Description": {
+          "type": "string",
+          "minLength": 10,
+          "error": "Please add a description"
+        },
+        "PP": {
+          "type": "integer"
+        },
+        "Damage": {
+          "title": "Damage",
+          "type": "object",
+          "required": [
+            "1",
+            "5",
+            "10",
+            "17"
+          ],
+          "properties": {
+            "1": {
+              "$ref": "#/definitions/damage"
+            },
+            "5": {
+              "$ref": "#/definitions/damage"
+            },
+            "10": {
+              "$ref": "#/definitions/damage"
+            },
+            "17": {
+              "$ref": "#/definitions/damage"
+            }
+          }
+        }
+      }
+    }
+  }
+}

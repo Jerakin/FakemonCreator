@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1148</width>
+    <height>1135</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_11">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="_tab_pokemon">
+       <attribute name="title">
+        <string>Pokémon</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="tab_pokemon_layout"/>
+      </widget>
+      <widget class="QWidget" name="_tab_move">
+       <attribute name="title">
+        <string>Moves</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="tab_move_layout"/>
+      </widget>
+      <widget class="QWidget" name="_tab_abilities">
+       <attribute name="title">
+        <string>Abilities</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="tab_abilities_layout"/>
+      </widget>
+      <widget class="QWidget" name="_tab_settings">
+       <attribute name="title">
+        <string>Meta data</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="tab_settings_layout"/>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1148</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="actionValidate"/>
+    <addaction name="separator"/>
+    <addaction name="actionNew_Pokemon"/>
+    <addaction name="actionNew_Move"/>
+    <addaction name="actionNew_Ability"/>
+    <addaction name="separator"/>
+    <addaction name="actionOpen_Standard_Pokemon"/>
+    <addaction name="actionOpen_Move"/>
+    <addaction name="actionOpen_Ability"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout_Hp_Calculation"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNew_Pokemon">
+   <property name="text">
+    <string>New Pokemon</string>
+   </property>
+  </action>
+  <action name="actionNew_Move">
+   <property name="text">
+    <string>New Move</string>
+   </property>
+  </action>
+  <action name="actionNew_Ability">
+   <property name="text">
+    <string>New Ability</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionOpen_Standard_Pokemon">
+   <property name="text">
+    <string>Open Pokemon</string>
+   </property>
+  </action>
+  <action name="actionOpen_Move">
+   <property name="text">
+    <string>Open Move</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionOpen_Ability">
+   <property name="text">
+    <string>Open Ability</string>
+   </property>
+  </action>
+  <action name="actionAbout_Hp_Calculation">
+   <property name="text">
+    <string>About Hp Calculation</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+  </action>
+  <action name="actionValidate">
+   <property name="text">
+    <string>Validate</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
