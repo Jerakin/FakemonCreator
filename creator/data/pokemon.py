@@ -102,7 +102,11 @@ class Pokemon:
 
         evolve_path = Path(root / "res/data/evolve.json")
         with evolve_path.open("r", encoding="utf-8") as f:
-            self.evolve = json.load(f)[species]
+            data = json.load(f)
+            if species in data:
+                self.evolve = data[species]
+            else:
+                self.evolve = copy.deepcopy(_NEW_EVOLVE)
 
         self.edited = False
         self.__initialized = True
