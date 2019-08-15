@@ -6,7 +6,10 @@
  
 ### Download
 Find the release for your OS under [latest releases](https://github.com/Jerakin/FakemonCreator/releases/latest).
-You might have to trust it before your OS want's to ru it.
+`Fakemon.Creator.exe` is for Windows
+`Fakemon.Creator.OSX.zip` is for mac, unzip it first.
+
+You might have to trust it before your OS want's to run it.
 
 ### Use
 As there is a lot of fields to fill I recommend that you start with a similar Pokémon or Move. You do this by going 
