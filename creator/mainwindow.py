@@ -10,7 +10,8 @@ from creator.child_views import ability_tab
 from creator.child_views import pokemon_tab
 from creator.child_views import metadata_tab
 from creator.child_views import shared
-
+from creator import __version__ as version
+from creator.child_views import exception
 import qtmodern.windows
 import qtmodern.styles
 
@@ -249,6 +250,34 @@ class MainWindow(QtWidgets.QMainWindow):
             QtWidgets.QMessageBox.about(None, "Validate", "No Errors found")
 
 
+def handle_exception(extype, value, tb):
+    log.critical(
+        'Global error:\n'
+          'Launcher version: {version}\n'
+          'Type: {extype}\n'
+          'Value: {value}\n'
+          'Traceback:\n{traceback}'
+        .format(version=version, extype=str(extype), value=str(value),traceback=tb_io.getvalue())
+    )
+    ui_exception(extype, value, tb)
+
+def ui_exception(extype, value, tb):
+    main_app = QtWidgets.QApplication.instance()
+
+    if main_app is not None:
+        main_app_still_up = True
+        main_app.closeAllWindows()
+    else:
+        main_app_still_up = False
+        main_app = QtWidgets.QApplication(sys.argv)
+
+    ex_win = exception.ExceptionWindow(main_app, extype, value, tb)
+    ex_win.show()
+    main_app.ex_win = ex_win
+
+    if not main_app_still_up:
+        sys.exit(main_app.exec_())
+
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
 
@@ -264,5 +293,5 @@ def main():
 
 if __name__ == "__main__":
     log.getLogger().setLevel(log.INFO)
-    sys.excepthook = except_hook
+    sys.excepthook = ui_exception
     main()
