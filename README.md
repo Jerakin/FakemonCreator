@@ -6,7 +6,9 @@
  
 ### Download
 Find the release for your OS under [latest releases](https://github.com/Jerakin/FakemonCreator/releases/latest).
+
 `Fakemon.Creator.exe` is for Windows
+
 `Fakemon.Creator.OSX.zip` is for mac, unzip it first.
 
 You might have to trust it before your OS want's to run it.
