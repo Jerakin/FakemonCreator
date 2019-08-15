@@ -33,8 +33,6 @@ _NEW_DATA = {
       "CHA": 0
     },
     "MIN LVL FD": 1,
-    "saving_throws": [
-    ],
     "Skill": [],
     "Res": [],
     "Vul": [
@@ -157,7 +155,7 @@ class Pokemon:
     @saving_throw2.setter
     def saving_throw2(self, value):
         if "saving_throws" not in self.data:
-            self.data["saving_throws"] = []
+            self.data["saving_throws"] = ["None", value]
         else:
             if len(self.data["saving_throws"]) == 1:
                 self.data["saving_throws"].append(value)
@@ -175,6 +173,8 @@ class Pokemon:
 
     @saving_throw1.setter
     def saving_throw1(self, value):
+        if "saving_throws" not in self.data:
+            self.data["saving_throws"] = ["None"]
         self.data["saving_throws"][0] = value
 
     def update_type_res(self):
