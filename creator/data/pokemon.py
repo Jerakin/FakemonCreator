@@ -511,6 +511,7 @@ class Pokemon:
 
     @weight.setter
     def weight(self, value):
+        value = value.replace(",", ".")
         self.extra["weight"] = float(value if value else 0)
 
     @property
@@ -519,7 +520,10 @@ class Pokemon:
 
     @height.setter
     def height(self, value):
+        value = value.replace(",", ".")
+
         self.extra["height"] = float(value if value else 0)
+        print(self.extra["height"])
 
     @property
     def genus(self):
