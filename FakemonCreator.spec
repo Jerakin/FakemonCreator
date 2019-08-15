@@ -44,7 +44,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='Fakemon Creator',
+          name='Fakemon.Creator.WIN',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
@@ -53,6 +53,6 @@ exe = EXE(pyz,
           console=console)
 
 app = BUNDLE(exe,
-             name='Fakémon Creator.app',
+             name='Fakemon.Creator.OSX.app',
              icon=None,
              bundle_identifier=None)
