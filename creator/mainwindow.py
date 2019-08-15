@@ -281,8 +281,8 @@ def ui_exception(extype, value, tb):
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
 
-
 def main():
+    sys.excepthook = ui_exception
     app = QtWidgets.QApplication(sys.argv)  # Create an instance of QtWidgets.QApplication
     win = MainWindow()  # Create an instance of our class
     qtmodern.styles.dark(app)
@@ -293,5 +293,5 @@ def main():
 
 if __name__ == "__main__":
     log.getLogger().setLevel(log.INFO)
-    sys.excepthook = ui_exception
+
     main()
