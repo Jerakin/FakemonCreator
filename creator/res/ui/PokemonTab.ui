@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>838</width>
+    <width>1104</width>
     <height>1059</height>
    </rect>
   </property>
@@ -1222,6 +1222,63 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>species</tabstop>
+  <tabstop>type1_pokemon</tabstop>
+  <tabstop>type2_pokemon</tabstop>
+  <tabstop>sr_pokemon</tabstop>
+  <tabstop>level</tabstop>
+  <tabstop>index_number</tabstop>
+  <tabstop>STR</tabstop>
+  <tabstop>DEX</tabstop>
+  <tabstop>CON</tabstop>
+  <tabstop>INT</tabstop>
+  <tabstop>WIS</tabstop>
+  <tabstop>CHA</tabstop>
+  <tabstop>hit_points</tabstop>
+  <tabstop>armor_class</tabstop>
+  <tabstop>hit_dice</tabstop>
+  <tabstop>saving_throw1_pokemon</tabstop>
+  <tabstop>saving_throw2_pokemon</tabstop>
+  <tabstop>hidden_ability</tabstop>
+  <tabstop>walking</tabstop>
+  <tabstop>climbing</tabstop>
+  <tabstop>flying</tabstop>
+  <tabstop>swimming</tabstop>
+  <tabstop>darkvision</tabstop>
+  <tabstop>blindsight</tabstop>
+  <tabstop>truesight</tabstop>
+  <tabstop>tremorsense</tabstop>
+  <tabstop>add_ability</tabstop>
+  <tabstop>add_skill</tabstop>
+  <tabstop>pokedex_entry</tabstop>
+  <tabstop>genus</tabstop>
+  <tabstop>pokemon_height</tabstop>
+  <tabstop>weight</tabstop>
+  <tabstop>add_evolution</tabstop>
+  <tabstop>evolve_level_gain</tabstop>
+  <tabstop>evolve_points_gain</tabstop>
+  <tabstop>current_stage</tabstop>
+  <tabstop>total_stages</tabstop>
+  <tabstop>add_starting_moves</tabstop>
+  <tabstop>add_tms</tabstop>
+  <tabstop>add_level_6_moves</tabstop>
+  <tabstop>add_level_10_moves</tabstop>
+  <tabstop>add_level_14_moves</tabstop>
+  <tabstop>add_level_18_moves</tabstop>
+  <tabstop>abilities_list</tabstop>
+  <tabstop>skills_list</tabstop>
+  <tabstop>evolve_into_list</tabstop>
+  <tabstop>moves_starting_list</tabstop>
+  <tabstop>moves_tm_list</tabstop>
+  <tabstop>moves_6_list</tabstop>
+  <tabstop>moves_10_list</tabstop>
+  <tabstop>moves_14_list</tabstop>
+  <tabstop>moves_18_list</tabstop>
+  <tabstop>list_pokemon</tabstop>
+  <tabstop>browse_sprite</tabstop>
+  <tabstop>browse_icon</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

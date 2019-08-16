@@ -137,6 +137,11 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>ability_name</tabstop>
+  <tabstop>ability_entry</tabstop>
+  <tabstop>list_abilities</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -100,6 +100,12 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>package_name</tabstop>
+  <tabstop>package_author</tabstop>
+  <tabstop>package_description</tabstop>
+  <tabstop>update_existing</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

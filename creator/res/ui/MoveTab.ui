@@ -534,6 +534,44 @@ p, li { white-space: pre-wrap; }
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>move_name</tabstop>
+  <tabstop>move_type</tabstop>
+  <tabstop>move_power1</tabstop>
+  <tabstop>move_power2</tabstop>
+  <tabstop>move_power3</tabstop>
+  <tabstop>move_save</tabstop>
+  <tabstop>move_pp</tabstop>
+  <tabstop>move_casting_time</tabstop>
+  <tabstop>move_duration</tabstop>
+  <tabstop>move_range</tabstop>
+  <tabstop>move_entry</tabstop>
+  <tabstop>die_at_1</tabstop>
+  <tabstop>die_type_1</tabstop>
+  <tabstop>move_1</tabstop>
+  <tabstop>level_1</tabstop>
+  <tabstop>times_1</tabstop>
+  <tabstop>die_at_5</tabstop>
+  <tabstop>die_type_5</tabstop>
+  <tabstop>move_5</tabstop>
+  <tabstop>level_5</tabstop>
+  <tabstop>times_5</tabstop>
+  <tabstop>die_at_10</tabstop>
+  <tabstop>die_type_10</tabstop>
+  <tabstop>move_10</tabstop>
+  <tabstop>level_10</tabstop>
+  <tabstop>times_10</tabstop>
+  <tabstop>die_at_17</tabstop>
+  <tabstop>die_type_17</tabstop>
+  <tabstop>move_17</tabstop>
+  <tabstop>level_17</tabstop>
+  <tabstop>times_17</tabstop>
+  <tabstop>textBrowser_3</tabstop>
+  <tabstop>textBrowser_2</tabstop>
+  <tabstop>textBrowser</tabstop>
+  <tabstop>list_moves</tabstop>
+  <tabstop>delete_damage</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
