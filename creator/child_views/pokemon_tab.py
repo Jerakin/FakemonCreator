@@ -89,6 +89,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
 
         self.add_skill.addItems(fields.SKILLS)
 
+        self.add_level_2_moves.addItems(self.move_list.list)
         self.add_level_6_moves.addItems(self.move_list.list)
         self.add_starting_moves.addItems(self.move_list.list)
         self.add_level_10_moves.addItems(self.move_list.list)
@@ -109,6 +110,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.list_pokemon.itemDoubleClicked.connect(self.open_fakemon)
 
         self.add_tms.currentTextChanged.connect(lambda x: self.set_item_list("moves_tm", self.moves_tm_list, self.add_tms, x))
+        self.add_level_2_moves.currentTextChanged.connect(lambda x: self.set_item_list("moves_level2", self.moves_2_list, self.add_level_2_moves, x))
         self.add_level_6_moves.currentTextChanged.connect(lambda x: self.set_item_list("moves_level6", self.moves_6_list, self.add_level_6_moves, x))
         self.add_level_10_moves.currentTextChanged.connect(lambda x: self.set_item_list("moves_level10", self.moves_10_list, self.add_level_10_moves, x))
         self.add_level_14_moves.currentTextChanged.connect(lambda x: self.set_item_list("moves_level14", self.moves_14_list, self.add_level_14_moves, x))
@@ -155,6 +157,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.total_stages.textEdited.connect(lambda x: self.setattr(self.data.datamon, "evolve_total_stages", x))
         self.current_stage.textEdited.connect(lambda x: self.setattr(self.data.datamon, "evolve_current_stages", x))
 
+        self.moves_2_list.itemDoubleClicked.connect(lambda x: self.remove_level_move(self.moves_2_list, "2", x))
         self.moves_6_list.itemDoubleClicked.connect(lambda x: self.remove_level_move(self.moves_6_list, "6", x))
         self.moves_10_list.itemDoubleClicked.connect(lambda x: self.remove_level_move(self.moves_10_list, "10", x))
         self.moves_14_list.itemDoubleClicked.connect(lambda x: self.remove_level_move(self.moves_14_list, "14", x))
@@ -244,6 +247,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.hidden_ability.setCurrentText("None")
         self.hit_dice.setCurrentText("6")
 
+        self.moves_2_list.clear()
         self.moves_6_list.clear()
         self.moves_10_list.clear()
         self.moves_14_list.clear()
@@ -317,6 +321,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.level.setText(self.data.datamon.level)
         self.index_number.setText(self.data.datamon.index)
 
+        self.moves_2_list.addItems(self.data.datamon.moves_level2)
         self.moves_6_list.addItems(self.data.datamon.moves_level6)
         self.moves_10_list.addItems(self.data.datamon.moves_level10)
         self.moves_14_list.addItems(self.data.datamon.moves_level14)
@@ -450,6 +455,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.move_list.extend(data["moves.json"])
         self.ability_list.extend(data["abilities.json"])
 
+        self.add_level_2_moves.clear()
         self.add_level_6_moves.clear()
         self.add_starting_moves.clear()
         self.add_level_10_moves.clear()
@@ -459,6 +465,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.add_ability.clear()
         self.hidden_ability.clear()
 
+        self.add_level_2_moves.addItems(self.move_list.list)
         self.add_level_6_moves.addItems(self.move_list.list)
         self.add_starting_moves.addItems(self.move_list.list)
         self.add_level_10_moves.addItems(self.move_list.list)

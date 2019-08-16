@@ -80,6 +80,7 @@ class Pokemon:
         for st in self.data["saving_throws"][::-1]:
             if st == "None":
                 self.data["saving_throws"].remove(st)
+
     def fakemon(self, data, species):
         self.data = data["pokemon.json"][species]
         self.extra = data["pokedex_extra.json"][self.index]
@@ -305,6 +306,14 @@ class Pokemon:
     def remove_entry(self, t, entry):
         self.edited = True
         self.data[t].remove(entry)
+
+    @property
+    def moves_level2(self):
+        return self.get_level_moves("2")
+
+    @moves_level2.setter
+    def moves_level2(self, value):
+        self.add_move("2", value)
 
     @property
     def moves_level6(self):
