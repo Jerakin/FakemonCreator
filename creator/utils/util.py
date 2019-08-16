@@ -23,7 +23,8 @@ class JsonToList:
             data = json.load(f)
 
             for entry, _ in data.items():
-                self.list.append(entry)
+                if entry not in ["Error", "MissingNo", ""]:
+                    self.list.append(entry)
 
     def extend(self, file_dict):
         for entry, _ in file_dict.items():

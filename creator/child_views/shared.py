@@ -7,6 +7,7 @@ root = Path()
 if getattr(sys, 'frozen', False):
     root = Path(sys._MEIPASS)
 
+
 class HPHelp(QtWidgets.QWidget):
     def __init__(self, parent):
         super(HPHelp, self).__init__()

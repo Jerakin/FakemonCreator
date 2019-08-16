@@ -6,6 +6,7 @@ root = Path()
 if getattr(sys, 'frozen', False):
     root = Path(sys._MEIPASS)
 
+
 class ListView(QtWidgets.QWidget):
     def __init__(self, list_class):
         super(ListView, self).__init__()
@@ -17,7 +18,8 @@ class ListView(QtWidgets.QWidget):
 
         # Skip the error entries
         for entry in list_class.list:
-            self.listWidget.addItem(entry)
+            if entry:
+                self.listWidget.addItem(entry)
 
         self.pushButton.clicked.connect(self.open)
         self.listWidget.itemDoubleClicked.connect(self.open)
