@@ -160,7 +160,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.start()
         path = QtWidgets.QFileDialog.getSaveFileName(None, "Open Selected file", '', 'FKMN(*.fkmn)', None, QtWidgets.QFileDialog.DontUseNativeDialog)
         if path[0] != '':
-            path = Path(path[0])
+            path = Path(path[0] if path[0].endswith(".fkmn") else path[0] + ".fkmn")
             if self.data.container is None or self.data.container.is_empty:
                 log.info("No container found")
                 self.data.new_container()
