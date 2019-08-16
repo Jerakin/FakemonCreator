@@ -18,6 +18,7 @@ root = Path()
 if getattr(sys, 'frozen', False):
     root = Path(sys._MEIPASS)
 
+
 class PokemonTab(QtWidgets.QWidget, shared.Tab):
     def __init__(self, data):
         super(PokemonTab, self).__init__()
@@ -386,6 +387,10 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
 
     def set_item_list(self, value, to_list, dropdown, item):
         if item:
+            for i in range(to_list.count()):
+                if to_list.item(i).text() == item:
+                    dropdown.setCurrentText("")
+                    return
             self.setattr(self.data.datamon, value, item)
             to_list.addItem(item)
             dropdown.setCurrentText("")
