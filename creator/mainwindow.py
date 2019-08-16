@@ -71,6 +71,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.move_tab = move_tab.MoveTab(self.data)
         self.ability_tab = ability_tab.AbilityTab(self.data)
         self.metadata_tab = metadata_tab.MetaDataTab(self.data)
+        self.metadata_tab = metadata_tab.MetaDataTab(self.data)
 
         self.tab_pokemon_layout.addWidget(self.pokemon_tab)
         self.tab_move_layout.addWidget(self.move_tab)
@@ -155,6 +156,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.save_as()
 
     def save_as(self):
+        if not self.data.container:
+            self.start()
         path = QtWidgets.QFileDialog.getSaveFileName(None, "Open Selected file", '', 'FKMN(*.fkmn)', None, QtWidgets.QFileDialog.DontUseNativeDialog)
         if path[0] != '':
             path = Path(path[0])
@@ -261,6 +264,7 @@ def handle_exception(extype, value, tb):
     )
     ui_exception(extype, value, tb)
 
+
 def ui_exception(extype, value, tb):
     main_app = QtWidgets.QApplication.instance()
 
@@ -278,8 +282,6 @@ def ui_exception(extype, value, tb):
     if not main_app_still_up:
         sys.exit(main_app.exec_())
 
-def except_hook(cls, exception, traceback):
-    sys.__excepthook__(cls, exception, traceback)
 
 def main():
     sys.excepthook = ui_exception

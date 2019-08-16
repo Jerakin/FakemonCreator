@@ -109,6 +109,8 @@ class AbilityTab(QtWidgets.QWidget, shared.Tab):
 
     def update_custom_list(self):
         data = self.data.container.data()
+        if not data:
+            return
         ability_data = data["abilities.json"]
 
         self.list_abilities.clear()

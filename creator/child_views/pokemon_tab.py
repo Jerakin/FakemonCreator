@@ -433,6 +433,8 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
 
     def update_custom_list(self):
         data = self.data.container.data()
+        if not data:
+            return
         fakemon_data = data["pokemon.json"]
 
         self.list_pokemon.clear()
@@ -442,6 +444,8 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
 
     def reload_lists(self):
         data = self.data.container.data()
+        if not data:
+            return
         self.pkmn_list.extend(data["pokemon.json"])
         self.move_list.extend(data["moves.json"])
         self.ability_list.extend(data["abilities.json"])

@@ -101,9 +101,12 @@ class Container:
         self.__DATA = __TEMP
 
     def data(self):
-        with zipfile.ZipFile(self.__DATA).open("data.json") as f:
-            data = json.load(f)
-        return data
+        z = zipfile.ZipFile(self.__DATA)
+        if "data.json" in [x.filename for x in z.filelist]:
+            with z.open("data.json") as f:
+                data = json.load(f)
+            return data
+        return None
 
     def index(self):
         z = zipfile.ZipFile(self.__DATA)
