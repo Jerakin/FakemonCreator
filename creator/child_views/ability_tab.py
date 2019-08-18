@@ -77,7 +77,7 @@ class AbilityTab(QtWidgets.QWidget, shared.Tab):
                 return
 
         self.data.new_ability()
-        self.data.ability.custom(self.container.data(), name)
+        self.data.ability.custom(self.data.container.data(), name)
         self.load_ability_view()
 
     def new_ability(self):
@@ -97,7 +97,7 @@ class AbilityTab(QtWidgets.QWidget, shared.Tab):
                                                       QtWidgets.QMessageBox.Cancel)
 
         if button_reply == QtWidgets.QMessageBox.Yes:
-            self.container.delete_entry("moves.json", ability_name)
+            self.data.container.delete_entry("moves.json", ability_name)
             self.list_abilities.takeItem(self.list_abilities.currentRow())
             self.data._edited = True
             if ability_name == self.data.ability.name:
