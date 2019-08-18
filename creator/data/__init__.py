@@ -68,8 +68,13 @@ class Data:
 
     def save(self):
         log.info("Saving")
-        if self.container.is_empty:
-            data = {"pokemon.json": {}, "evolve.json": {}, "pokedex_extra.json": {}, "moves.json": {}, "abilities.json":{}}
+        if not self.container:
+            self.new_container()
+            data = {"pokemon.json": {}, "evolve.json": {}, "pokedex_extra.json": {}, "moves.json": {},
+                    "abilities.json": {}}
+        elif self.container.is_empty:
+            data = {"pokemon.json": {}, "evolve.json": {}, "pokedex_extra.json": {}, "moves.json": {},
+                    "abilities.json": {}}
         else:
             data = self.container.data()
 

@@ -77,9 +77,10 @@ class Pokemon:
         if not self.species and self.edited:
             now = datetime.now()
             self.species = now.strftime("%m%d%Y%H%M%S")
-        for st in self.data["saving_throws"][::-1]:
-            if st == "None":
-                self.data["saving_throws"].remove(st)
+        if "saving_throws" in self.data:
+            for st in self.data["saving_throws"][::-1]:
+                if st == "None":
+                    self.data["saving_throws"].remove(st)
 
     def fakemon(self, data, species):
         self.data = data["pokemon.json"][species]

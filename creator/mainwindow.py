@@ -129,7 +129,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.data.edited:
             button_reply = self.save_on_quit()
             if button_reply == QtWidgets.QMessageBox.Yes:
-                self._save()
+                self.save()
                 event.accept()
             elif button_reply == QtWidgets.QMessageBox.No:
                 event.accept()
@@ -157,7 +157,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def save_as(self):
         if not self.data.container:
-            self.start()
+            self.data.new_container()
         path = QtWidgets.QFileDialog.getSaveFileName(None, "Open Selected file", '', 'FKMN(*.fkmn)', None, QtWidgets.QFileDialog.DontUseNativeDialog)
         if path[0] != '':
             path = Path(path[0] if path[0].endswith(".fkmn") else path[0] + ".fkmn")
