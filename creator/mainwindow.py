@@ -24,6 +24,8 @@ if getattr(sys, 'frozen', False):
 
 
 class MainWindow(QtWidgets.QMainWindow):
+    ModernWindow = None
+
     def __init__(self):
         super(MainWindow, self).__init__()
         sys.excepthook = self.handle_exception
@@ -63,6 +65,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.actionAbout_Hp_Calculation.triggered.connect(self.hp_help)
 
         self.actionValidate.triggered.connect(self.validate)
+
+    def setWindowTitle(self, p_str):
+        if self.ModernWindow:
+            self.ModernWindow.setWindowTitle(p_str)
+        else:
+            super(MainWindow, self).setWindowTitle(p_str)
 
     def start(self):
         self.started = True
