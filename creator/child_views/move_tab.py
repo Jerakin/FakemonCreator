@@ -256,7 +256,7 @@ class MoveTab(QtWidgets.QWidget, shared.Tab):
         self.level_17.setChecked(False)
 
     def update_custom_list(self):
-        data = self.data.container.data()
+        data = self.data.container.data() if self.data.container else None
         if not data:
             return
         moves_data = data["moves.json"]

@@ -284,7 +284,7 @@ def ui_exception(extype, value, tb):
 
 
 def main():
-    sys.excepthook = ui_exception
+    sys.excepthook = handle_exception
     app = QtWidgets.QApplication(sys.argv)  # Create an instance of QtWidgets.QApplication
     win = MainWindow()  # Create an instance of our class
     qtmodern.styles.dark(app)

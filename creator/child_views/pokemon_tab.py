@@ -437,7 +437,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
             self.icon_image.setPixmap(QtGui.QPixmap(str(image)))
 
     def update_custom_list(self):
-        data = self.data.container.data()
+        data = self.data.container.data() if self.data.container else None
         if not data:
             return
         fakemon_data = data["pokemon.json"]
@@ -448,7 +448,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
             self.list_pokemon.addItem(species)
 
     def reload_lists(self):
-        data = self.data.container.data()
+        data = self.data.container.data() if self.data.container else None
         if not data:
             return
         self.pkmn_list.extend(data["pokemon.json"])

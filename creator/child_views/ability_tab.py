@@ -86,7 +86,6 @@ class AbilityTab(QtWidgets.QWidget, shared.Tab):
                 return
         self.data.new_ability()
         self.data.ability.new()
-        self.tabWidget.setCurrentIndex(2)
         self.update_list_signal.emit()
         self.load_ability_view()
 
@@ -108,7 +107,7 @@ class AbilityTab(QtWidgets.QWidget, shared.Tab):
             log.info("Deleted {}".format(ability_name))
 
     def update_custom_list(self):
-        data = self.data.container.data()
+        data = self.data.container.data() if self.data.container else None
         if not data:
             return
         ability_data = data["abilities.json"]
