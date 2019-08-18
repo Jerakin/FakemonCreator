@@ -15,6 +15,7 @@ import qtmodern.windows
 import qtmodern.styles
 
 from zipfile import BadZipFile
+from creator import __version__ as version
 
 root = Path()
 if getattr(sys, 'frozen', False):
@@ -65,6 +66,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.actionAbout_Hp_Calculation.triggered.connect(self.hp_help)
 
         self.actionValidate.triggered.connect(self.validate)
+        self.statusBar().showMessage(version)
 
     def setWindowTitle(self, p_str):
         if self.ModernWindow:

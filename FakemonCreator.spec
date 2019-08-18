@@ -16,7 +16,7 @@ block_cipher = None
 if sys.platform.startswith('win'):
     script = ['creator\\__main__.py']
     pathex = ['C:\\Windows\\WinSxS', Path().cwd()]
-    console = True
+    console = False
 elif sys.platform.startswith('darwin'):
     script = ['creator/__main__.py']
     pathex = [Path().cwd()]
