@@ -1,3 +1,4 @@
+import sys
 import html
 import platform
 import traceback
@@ -10,6 +11,7 @@ from PyQt5.QtCore import Qt
 from PyQt5 import QtWidgets
 
 from creator import __version__ as version
+from creator.utils import util
 
 class ExceptionWindow(QtWidgets.QWidget):
     def __init__(self, app, extype, value, tb):
@@ -21,7 +23,8 @@ class ExceptionWindow(QtWidgets.QWidget):
 
         information_label = QtWidgets.QLabel()
         information_label.setText('The Fakemon Creator just crashed. An '
-            'unhandled exception was raised. Here are the details.')
+            'unhandled exception was raised. Here are the details.\n'
+                                  'Tried to save recovery file to: {}'.format(util.get_recovery_file_name()))
         layout.addWidget(information_label, 0, 0)
         self.information_label = information_label
 
@@ -79,3 +82,21 @@ class ExceptionWindow(QtWidgets.QWidget):
         self.setLayout(layout)
         self.setWindowTitle('Something went wrong')
         self.setMinimumSize(350, 0)
+
+
+def ui_exception(extype, value, tb):
+    main_app = QtWidgets.QApplication.instance()
+
+    if main_app is not None:
+        main_app_still_up = True
+        main_app.closeAllWindows()
+    else:
+        main_app_still_up = False
+        main_app = QtWidgets.QApplication(sys.argv)
+
+    ex_win = ExceptionWindow(main_app, extype, value, tb)
+    ex_win.show()
+    main_app.ex_win = ex_win
+
+    if not main_app_still_up:
+        sys.exit(main_app.exec_())

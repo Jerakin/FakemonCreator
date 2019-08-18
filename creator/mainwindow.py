@@ -1,16 +1,15 @@
 import sys
 from pathlib import Path
 import logging as log
-
 from PyQt5 import QtWidgets, uic, QtGui
 
 from creator.data import Data
+from creator.utils import util
 from creator.child_views import move_tab
 from creator.child_views import ability_tab
 from creator.child_views import pokemon_tab
 from creator.child_views import metadata_tab
 from creator.child_views import shared
-from creator import __version__ as version
 from creator.child_views import exception
 import qtmodern.windows
 import qtmodern.styles
@@ -27,13 +26,14 @@ if getattr(sys, 'frozen', False):
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        sys.excepthook = self.handle_exception
         uic.loadUi(root / 'res/ui/FakemonCreator.ui', self)
         exit_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("Esc"), self)
         exit_shortcut.activated.connect(self.close)
         debug_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("."), self)
         debug_shortcut.activated.connect(self.update_tab_names)
         self.data = Data(self)
-
+        self.crashed = False
         self.started = False
         self.hp_help_window = None
         self.pokemon_tab = None
@@ -127,14 +127,18 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def closeEvent(self, event):
         if self.data.edited:
-            button_reply = self.save_on_quit()
-            if button_reply == QtWidgets.QMessageBox.Yes:
-                self.save()
+            if self.crashed:
+                self.crash_save()
                 event.accept()
-            elif button_reply == QtWidgets.QMessageBox.No:
-                event.accept()
-            elif button_reply == QtWidgets.QMessageBox.Cancel:
-                event.ignore()
+            else:
+                button_reply = self.save_on_quit()
+                if button_reply == QtWidgets.QMessageBox.Yes:
+                    self.save()
+                    event.accept()
+                elif button_reply == QtWidgets.QMessageBox.No:
+                    event.accept()
+                elif button_reply == QtWidgets.QMessageBox.Cancel:
+                    event.ignore()
         else:
             event.accept()
 
@@ -154,6 +158,17 @@ class MainWindow(QtWidgets.QMainWindow):
             self._save()
         else:
             self.save_as()
+
+    def crash_save(self):
+        path = util.get_recovery_file_name()
+        if path:
+            if self.data.container is None or self.data.container.is_empty:
+                log.info("No container found")
+                self.data.new_container()
+                self.data.container.new(path)
+            else:
+                self.data.container.path = path
+            self._save()
 
     def save_as(self):
         if not self.data.container:
@@ -252,45 +267,19 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             QtWidgets.QMessageBox.about(None, "Validate", "No Errors found")
 
-
-def handle_exception(extype, value, tb):
-    log.critical(
-        'Global error:\n'
-          'Launcher version: {version}\n'
-          'Type: {extype}\n'
-          'Value: {value}\n'
-          'Traceback:\n{traceback}'
-        .format(version=version, extype=str(extype), value=str(value),traceback=tb_io.getvalue())
-    )
-    ui_exception(extype, value, tb)
-
-
-def ui_exception(extype, value, tb):
-    main_app = QtWidgets.QApplication.instance()
-
-    if main_app is not None:
-        main_app_still_up = True
-        main_app.closeAllWindows()
-    else:
-        main_app_still_up = False
-        main_app = QtWidgets.QApplication(sys.argv)
-
-    ex_win = exception.ExceptionWindow(main_app, extype, value, tb)
-    ex_win.show()
-    main_app.ex_win = ex_win
-
-    if not main_app_still_up:
-        sys.exit(main_app.exec_())
+    def handle_exception(self, extype, value, tb):
+        self.crashed = True
+        util.log_exception(extype, value, tb)
+        exception.ui_exception(extype, value, tb)
 
 
 def main():
-    sys.excepthook = handle_exception
-    app = QtWidgets.QApplication(sys.argv)  # Create an instance of QtWidgets.QApplication
-    win = MainWindow()  # Create an instance of our class
+    app = QtWidgets.QApplication(sys.argv)
+    win = MainWindow()
     qtmodern.styles.dark(app)
     mw = qtmodern.windows.ModernWindow(win)
     mw.show()
-    sys.exit(app.exec_())  # Start the application
+    sys.exit(app.exec_())
 
 
 if __name__ == "__main__":

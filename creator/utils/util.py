@@ -4,7 +4,14 @@ import struct
 import imghdr
 import requests
 import jsonschema
+import os
+import getpass
+from datetime import datetime
+import traceback
+from io import StringIO
+import logging as log
 
+from creator import __version__ as version
 
 class SimpleList:
     # To be able to use the  list_view.ListView interface
@@ -66,3 +73,26 @@ def validate(_data, schema_url):
         jsonschema.validate(_data, schema)
     except jsonschema.ValidationError as e:
         return e.schema["error"]
+
+def get_recovery_file_name():
+    username = getpass.getuser()
+    now = datetime.now()
+    file_name = username + "." + now.strftime("%d%m%Y.%H%M") + ".fkmn"
+    if os.name == "nt":
+        return Path(os.getenv("LOCALAPPDATA")) / "Temp" / file_name
+    elif os.name == "posix":
+        return Path().home() / "Documents" / "tmp" / file_name
+    else:
+        return None
+
+def log_exception(extype, value, tb):
+    tb_io = StringIO()
+    traceback.print_tb(tb, file=tb_io)
+    log.critical(
+        'Global error:\n'
+        'Launcher version: {version}\n'
+        'Type: {extype}\n'
+        'Value: {value}\n'
+        'Traceback:\n{traceback}'
+            .format(version=version, extype=str(extype), value=str(value), traceback=tb_io.getvalue())
+    )
