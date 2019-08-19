@@ -97,7 +97,7 @@ class AbilityTab(QtWidgets.QWidget, shared.Tab):
                                                       QtWidgets.QMessageBox.Cancel)
 
         if button_reply == QtWidgets.QMessageBox.Yes:
-            self.data.container.delete_entry("moves.json", ability_name)
+            self.data.container.delete_entry("abilities.json", ability_name)
             self.list_abilities.takeItem(self.list_abilities.currentRow())
             self.data._edited = True
             if ability_name == self.data.ability.name:
