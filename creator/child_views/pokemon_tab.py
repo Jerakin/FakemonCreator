@@ -131,6 +131,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.hidden_ability.activated[str].connect(lambda x: self.setattr(self.data.datamon, "hidden_ability", x))
 
         self.species.textEdited.connect(lambda x: self.setattr(self.data.datamon, "species", x))
+        self.hit_points.textEdited.connect(lambda x: self.setattr(self.data.datamon, "hit_points", x))
         self.armor_class.textEdited.connect(lambda x: self.setattr(self.data.datamon, "armor_class", x))
         self.level.textEdited.connect(lambda x: self.setattr(self.data.datamon, "level", x))
         self.index_number.textEdited.connect(lambda x: self.setattr(self.data.datamon, "index", x))

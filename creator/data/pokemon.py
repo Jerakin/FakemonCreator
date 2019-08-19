@@ -241,7 +241,6 @@ class Pokemon:
     @hit_dice.setter
     def hit_dice(self, value):
         self.data["Hit Dice"] = int(value if value else 0)
-        self.data["HP"] = int(self.hit_points)
 
     @property
     def armor_class(self):
@@ -483,7 +482,6 @@ class Pokemon:
             for s in self.data["Senses"]:
                 if sense in s:
                     digits = [n for n in s if n.isdigit()]
-                    print(s, digits)
                     return ''.join(digits)
         return ""
 
@@ -537,7 +535,6 @@ class Pokemon:
         value = value.replace(",", ".")
 
         self.extra["height"] = float(value if value else 0)
-        print(self.extra["height"])
 
     @property
     def genus(self):
@@ -584,7 +581,6 @@ class Pokemon:
     @CON.setter
     def CON(self, value):
         self.set_attributes("CON", value)
-        self.data["HP"] = int(self.hit_points)
 
     @property
     def WIS(self):
