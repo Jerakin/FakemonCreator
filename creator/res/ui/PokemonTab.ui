@@ -327,32 +327,7 @@
        </item>
        <item row="3" column="0">
         <layout class="QGridLayout" name="gridLayout_14">
-         <item row="1" column="2">
-          <widget class="QLineEdit" name="DEX">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-            </font>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="4">
-          <widget class="QLabel" name="label_39">
-           <property name="text">
-            <string>INT</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
+         <item row="5" column="1">
           <widget class="QLabel" name="label_52">
            <property name="minimumSize">
             <size>
@@ -365,22 +340,41 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="6">
-          <widget class="QLineEdit" name="CHA">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-            </font>
+         <item row="4" column="2" colspan="2">
+          <widget class="QLineEdit" name="walking">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="22" column="1" colspan="6">
+         <item row="6" column="2" colspan="2">
+          <widget class="QLineEdit" name="flying">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="5" colspan="2">
+          <widget class="QLineEdit" name="darkvision">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="4">
+          <widget class="QLabel" name="label_49">
+           <property name="minimumSize">
+            <size>
+             <width>85</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Tremorsense</string>
+           </property>
+          </widget>
+         </item>
+         <item row="23" column="1" colspan="6">
           <widget class="QLabel" name="label">
            <property name="font">
             <font>
@@ -392,8 +386,11 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="4">
-          <widget class="QLabel" name="label_53">
+         <item row="24" column="1" colspan="6">
+          <widget class="QListWidget" name="skills_list"/>
+         </item>
+         <item row="7" column="4">
+          <widget class="QLabel" name="label_54">
            <property name="minimumSize">
             <size>
              <width>85</width>
@@ -401,11 +398,62 @@
             </size>
            </property>
            <property name="text">
-            <string>Darkvision</string>
+            <string>Truesight</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="4">
+         <item row="5" column="2" colspan="2">
+          <widget class="QLineEdit" name="climbing">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="2" colspan="2">
+          <widget class="QLineEdit" name="swimming">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="21" column="1" colspan="6">
+          <widget class="QComboBox" name="add_ability">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="3" colspan="2">
+          <widget class="QLineEdit" name="hit_points"/>
+         </item>
+         <item row="10" column="1" colspan="2">
+          <widget class="QLabel" name="label_18">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Armor Class</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="5" colspan="2">
+          <widget class="QComboBox" name="saving_throw2_pokemon">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
+         </item>
+         <item row="25" column="1" colspan="6">
+          <widget class="QComboBox" name="add_skill">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="4">
           <widget class="QLabel" name="label_48">
            <property name="minimumSize">
             <size>
@@ -418,10 +466,83 @@
            </property>
           </widget>
          </item>
-         <item row="19" column="1" colspan="6">
-          <widget class="QListWidget" name="abilities_list"/>
+         <item row="11" column="3" colspan="2">
+          <widget class="QComboBox" name="hit_dice">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
-         <item row="10" column="1" colspan="2">
+         <item row="6" column="5" colspan="2">
+          <widget class="QLineEdit" name="tremorsense">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLabel" name="label_47">
+           <property name="minimumSize">
+            <size>
+             <width>65</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Walking</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLabel" name="label_50">
+           <property name="minimumSize">
+            <size>
+             <width>65</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Flying</string>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="1">
+          <spacer name="verticalSpacer_9">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Expanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="12" column="1" colspan="2">
+          <widget class="QLabel" name="label_25">
+           <property name="text">
+            <string>Saving Throws</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="4">
+          <widget class="QLabel" name="label_53">
+           <property name="minimumSize">
+            <size>
+             <width>85</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Darkvision</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="1" colspan="2">
           <widget class="QLabel" name="label_20">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -440,180 +561,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="3">
-          <widget class="QLineEdit" name="CON">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-            </font>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="3" colspan="2">
-          <widget class="QLineEdit" name="hit_points"/>
-         </item>
          <item row="9" column="1" colspan="2">
-          <widget class="QLabel" name="label_18">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Armor Class</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="4">
-          <widget class="QLineEdit" name="INT">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-            </font>
-           </property>
-          </widget>
-         </item>
-         <item row="12" column="3" colspan="2">
-          <widget class="QComboBox" name="hidden_ability">
-           <property name="maxVisibleItems">
-            <number>20</number>
-           </property>
-          </widget>
-         </item>
-         <item row="20" column="1" colspan="6">
-          <widget class="QComboBox" name="add_ability">
-           <property name="maxVisibleItems">
-            <number>20</number>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QLabel" name="label_47">
-           <property name="minimumSize">
-            <size>
-             <width>65</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Walking</string>
-           </property>
-          </widget>
-         </item>
-         <item row="11" column="3" colspan="2">
-          <widget class="QComboBox" name="saving_throw1_pokemon">
-           <property name="maxVisibleItems">
-            <number>20</number>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="3" colspan="2">
-          <widget class="QLineEdit" name="armor_class"/>
-         </item>
-         <item row="6" column="4">
-          <widget class="QLabel" name="label_54">
-           <property name="minimumSize">
-            <size>
-             <width>85</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Truesight</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="5">
-          <widget class="QLabel" name="label_41">
-           <property name="text">
-            <string>WIS</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="5">
-          <widget class="QLineEdit" name="WIS">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-            </font>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="4">
-          <widget class="QLabel" name="label_49">
-           <property name="minimumSize">
-            <size>
-             <width>85</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Tremorsense</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
-          <widget class="QLabel" name="label_50">
-           <property name="minimumSize">
-            <size>
-             <width>65</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Flying</string>
-           </property>
-          </widget>
-         </item>
-         <item row="23" column="1" colspan="6">
-          <widget class="QListWidget" name="skills_list"/>
-         </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="label_38">
-           <property name="text">
-            <string>DEX</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="21" column="1">
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="8" column="1" colspan="2">
           <widget class="QLabel" name="label_19">
            <property name="minimumSize">
             <size>
@@ -626,36 +574,14 @@
            </property>
           </widget>
          </item>
-         <item row="10" column="3" colspan="2">
-          <widget class="QComboBox" name="hit_dice">
+         <item row="13" column="3" colspan="2">
+          <widget class="QComboBox" name="hidden_ability">
            <property name="maxVisibleItems">
             <number>20</number>
            </property>
           </widget>
          </item>
-         <item row="0" column="6">
-          <widget class="QLabel" name="label_42">
-           <property name="text">
-            <string>CHA</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="18" column="1" colspan="6">
-          <widget class="QLabel" name="label_7">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Abilities</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1">
+         <item row="7" column="1">
           <widget class="QLabel" name="label_51">
            <property name="minimumSize">
             <size>
@@ -668,69 +594,24 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="3">
-          <widget class="QLabel" name="label_40">
-           <property name="text">
-            <string>CON</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
+         <item row="7" column="5" colspan="2">
+          <widget class="QLineEdit" name="truesight">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="11" column="5" colspan="2">
-          <widget class="QComboBox" name="saving_throw2_pokemon">
+         <item row="12" column="3" colspan="2">
+          <widget class="QComboBox" name="saving_throw1_pokemon">
            <property name="maxVisibleItems">
             <number>20</number>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="label_6">
-           <property name="text">
-            <string>STR</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="11" column="1" colspan="2">
-          <widget class="QLabel" name="label_25">
-           <property name="text">
-            <string>Saving Throws</string>
-           </property>
-          </widget>
-         </item>
-         <item row="24" column="1" colspan="6">
-          <widget class="QComboBox" name="add_skill">
-           <property name="maxVisibleItems">
-            <number>20</number>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="STR">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-            </font>
-           </property>
-          </widget>
-         </item>
-         <item row="13" column="1">
-          <spacer name="verticalSpacer_9">
+         <item row="8" column="1">
+          <spacer name="verticalSpacer_10">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Expanding</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -740,7 +621,58 @@
            </property>
           </spacer>
          </item>
-         <item row="12" column="1" colspan="2">
+         <item row="22" column="1">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="20" column="1" colspan="6">
+          <widget class="QListWidget" name="abilities_list"/>
+         </item>
+         <item row="19" column="1" colspan="6">
+          <widget class="QLabel" name="label_7">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Abilities</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="3" colspan="2">
+          <widget class="QLineEdit" name="armor_class"/>
+         </item>
+         <item row="3" column="1">
+          <spacer name="verticalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="5" column="5" colspan="2">
+          <widget class="QLineEdit" name="blindsight">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="1" colspan="2">
           <widget class="QLabel" name="label_46">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -759,87 +691,165 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
-          <spacer name="verticalSpacer_8">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
+         <item row="2" column="1" colspan="6">
+          <layout class="QGridLayout" name="gridLayout_4">
+           <property name="topMargin">
+            <number>5</number>
            </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
+           <property name="rightMargin">
+            <number>5</number>
            </property>
-          </spacer>
-         </item>
-         <item row="7" column="1">
-          <spacer name="verticalSpacer_10">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="3" column="2" colspan="2">
-          <widget class="QLineEdit" name="walking">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="2" colspan="2">
-          <widget class="QLineEdit" name="climbing">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="2" colspan="2">
-          <widget class="QLineEdit" name="flying">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="2" colspan="2">
-          <widget class="QLineEdit" name="swimming">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="5" colspan="2">
-          <widget class="QLineEdit" name="truesight">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="5" colspan="2">
-          <widget class="QLineEdit" name="tremorsense">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="5" colspan="2">
-          <widget class="QLineEdit" name="blindsight">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="5" colspan="2">
-          <widget class="QLineEdit" name="darkvision">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
+           <item row="1" column="4">
+            <widget class="QLineEdit" name="WIS">
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>18</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="DEX">
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>18</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="5">
+            <widget class="QLineEdit" name="CHA">
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>18</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLineEdit" name="INT">
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>18</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="STR">
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>18</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="CON">
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>18</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>STR</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_38">
+             <property name="text">
+              <string>DEX</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_40">
+             <property name="text">
+              <string>CON</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_39">
+             <property name="text">
+              <string>INT</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>WIS</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="5">
+            <widget class="QLabel" name="label_42">
+             <property name="text">
+              <string>CHA</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>
@@ -1156,12 +1166,6 @@
   <tabstop>sr_pokemon</tabstop>
   <tabstop>level</tabstop>
   <tabstop>index_number</tabstop>
-  <tabstop>STR</tabstop>
-  <tabstop>DEX</tabstop>
-  <tabstop>CON</tabstop>
-  <tabstop>INT</tabstop>
-  <tabstop>WIS</tabstop>
-  <tabstop>CHA</tabstop>
   <tabstop>hit_points</tabstop>
   <tabstop>armor_class</tabstop>
   <tabstop>hit_dice</tabstop>
