@@ -126,12 +126,16 @@ class MoveTab(QtWidgets.QWidget, shared.Tab):
         self.data.new_move()
         self.data.move.load(_move)
         self.load_move_view()
+        self.child = None
 
     def open_move(self):
         if self.data.move.edited:
             response = self.save_and_continue()
             if response == QtWidgets.QMessageBox.Cancel:
                 return
+
+        if self.child:
+            self.child.close()
 
         self.child = list_view.ListView(util.JsonToList(root / "res/data/moves.json"))
         modern = qtmodern.windows.ModernWindow(self.child)

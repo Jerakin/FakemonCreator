@@ -260,6 +260,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.data.new_pokemon()
         self.data.datamon.load(species)
         self.load_fakemon_view()
+        self.child = None
 
     def open_pokemon(self):
         if self.data.datamon.edited:

@@ -13,6 +13,7 @@ import logging as log
 
 from creator import __version__ as version
 
+
 class SimpleList:
     # To be able to use the  list_view.ListView interface
     def __init__(self, _list):
@@ -74,16 +75,21 @@ def validate(_data, schema_url):
     except jsonschema.ValidationError as e:
         return e.schema["error"]
 
+
 def get_recovery_file_name():
     username = getpass.getuser()
     now = datetime.now()
     file_name = username + "." + now.strftime("%d%m%Y.%H%M") + ".fkmn"
     if os.name == "nt":
-        return Path(os.getenv("LOCALAPPDATA")) / "Temp" / file_name
+        base_path = Path(os.getenv("LOCALAPPDATA")) / "Temp"
     elif os.name == "posix":
-        return Path().home() / "Documents" / "tmp" / file_name
+        base_path = Path().home() / "Documents" / "tmp"
     else:
         return None
+    if not base_path.exists():
+        base_path.mkdir()
+    return base_path / file_name
+
 
 def log_exception(extype, value, tb):
     tb_io = StringIO()

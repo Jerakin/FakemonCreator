@@ -57,12 +57,16 @@ class AbilityTab(QtWidgets.QWidget, shared.Tab):
         self.data.new_ability()
         self.data.ability.load(_ability)
         self.load_ability_view()
+        self.child = None
 
     def open_ability(self):
         if self.data.ability.edited:
             response = self.save_and_continue()
             if response == QtWidgets.QMessageBox.Cancel:
                 return
+
+        if self.child:
+            self.child.close()
 
         self.child = list_view.ListView(util.JsonToList(root / "res/data/abilities.json"))
         modern = qtmodern.windows.ModernWindow(self.child)
