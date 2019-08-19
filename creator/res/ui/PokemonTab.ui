@@ -215,7 +215,11 @@
           </widget>
          </item>
          <item row="1" column="1" colspan="3">
-          <widget class="QComboBox" name="add_evolution"/>
+          <widget class="QComboBox" name="add_evolution">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="9" column="1" colspan="3">
           <widget class="QLineEdit" name="genus"/>
@@ -348,13 +352,6 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="5">
-          <widget class="QLineEdit" name="darkvision">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
          <item row="4" column="1">
           <widget class="QLabel" name="label_52">
            <property name="minimumSize">
@@ -424,20 +421,6 @@
          <item row="19" column="1" colspan="6">
           <widget class="QListWidget" name="abilities_list"/>
          </item>
-         <item row="4" column="2">
-          <widget class="QLineEdit" name="climbing">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="5">
-          <widget class="QLineEdit" name="tremorsense">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
          <item row="10" column="1" colspan="2">
           <widget class="QLabel" name="label_20">
            <property name="sizePolicy">
@@ -504,10 +487,18 @@
           </widget>
          </item>
          <item row="12" column="3" colspan="2">
-          <widget class="QComboBox" name="hidden_ability"/>
+          <widget class="QComboBox" name="hidden_ability">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="20" column="1" colspan="6">
-          <widget class="QComboBox" name="add_ability"/>
+          <widget class="QComboBox" name="add_ability">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="3" column="1">
           <widget class="QLabel" name="label_47">
@@ -523,7 +514,11 @@
           </widget>
          </item>
          <item row="11" column="3" colspan="2">
-          <widget class="QComboBox" name="saving_throw1_pokemon"/>
+          <widget class="QComboBox" name="saving_throw1_pokemon">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="9" column="3" colspan="2">
           <widget class="QLineEdit" name="armor_class"/>
@@ -538,13 +533,6 @@
            </property>
            <property name="text">
             <string>Truesight</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="5">
-          <widget class="QLineEdit" name="truesight">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -573,13 +561,6 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="2">
-          <widget class="QLineEdit" name="walking">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
          <item row="5" column="4">
           <widget class="QLabel" name="label_49">
            <property name="minimumSize">
@@ -590,13 +571,6 @@
            </property>
            <property name="text">
             <string>Tremorsense</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="2">
-          <widget class="QLineEdit" name="swimming">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -653,7 +627,11 @@
           </widget>
          </item>
          <item row="10" column="3" colspan="2">
-          <widget class="QComboBox" name="hit_dice"/>
+          <widget class="QComboBox" name="hit_dice">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="0" column="6">
           <widget class="QLabel" name="label_42">
@@ -662,13 +640,6 @@
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="2">
-          <widget class="QLineEdit" name="flying">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -708,7 +679,11 @@
           </widget>
          </item>
          <item row="11" column="5" colspan="2">
-          <widget class="QComboBox" name="saving_throw2_pokemon"/>
+          <widget class="QComboBox" name="saving_throw2_pokemon">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="0" column="1">
           <widget class="QLabel" name="label_6">
@@ -728,7 +703,11 @@
           </widget>
          </item>
          <item row="24" column="1" colspan="6">
-          <widget class="QComboBox" name="add_skill"/>
+          <widget class="QComboBox" name="add_skill">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="1" column="1">
           <widget class="QLineEdit" name="STR">
@@ -793,13 +772,6 @@
            </property>
           </spacer>
          </item>
-         <item row="4" column="5">
-          <widget class="QLineEdit" name="blindsight">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
          <item row="7" column="1">
           <spacer name="verticalSpacer_10">
            <property name="orientation">
@@ -812,6 +784,62 @@
             </size>
            </property>
           </spacer>
+         </item>
+         <item row="3" column="2" colspan="2">
+          <widget class="QLineEdit" name="walking">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2" colspan="2">
+          <widget class="QLineEdit" name="climbing">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2" colspan="2">
+          <widget class="QLineEdit" name="flying">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2" colspan="2">
+          <widget class="QLineEdit" name="swimming">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="5" colspan="2">
+          <widget class="QLineEdit" name="truesight">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="5" colspan="2">
+          <widget class="QLineEdit" name="tremorsense">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="5" colspan="2">
+          <widget class="QLineEdit" name="blindsight">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="5" colspan="2">
+          <widget class="QLineEdit" name="darkvision">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In feet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -837,10 +865,18 @@
           </spacer>
          </item>
          <item row="11" column="1" colspan="2">
-          <widget class="QComboBox" name="add_level_2_moves"/>
+          <widget class="QComboBox" name="add_level_2_moves">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="19" column="1" colspan="2">
-          <widget class="QComboBox" name="add_level_14_moves"/>
+          <widget class="QComboBox" name="add_level_14_moves">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="9" column="1" colspan="2">
           <widget class="QLabel" name="label_57">
@@ -860,7 +896,11 @@
           </widget>
          </item>
          <item row="15" column="3" colspan="2">
-          <widget class="QComboBox" name="add_level_10_moves"/>
+          <widget class="QComboBox" name="add_level_10_moves">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="14" column="1" colspan="2">
           <widget class="QListWidget" name="moves_6_list"/>
@@ -873,10 +913,18 @@
           </widget>
          </item>
          <item row="19" column="3" colspan="2">
-          <widget class="QComboBox" name="add_level_18_moves"/>
+          <widget class="QComboBox" name="add_level_18_moves">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="11" column="3" colspan="2">
-          <widget class="QComboBox" name="add_tms"/>
+          <widget class="QComboBox" name="add_tms">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="14" column="3" colspan="2">
           <widget class="QListWidget" name="moves_10_list"/>
@@ -899,7 +947,11 @@
           </widget>
          </item>
          <item row="7" column="1" colspan="2">
-          <widget class="QComboBox" name="add_starting_moves"/>
+          <widget class="QComboBox" name="add_starting_moves">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="12" column="1">
           <spacer name="verticalSpacer_11">
@@ -932,7 +984,11 @@
           <widget class="QListWidget" name="moves_2_list"/>
          </item>
          <item row="15" column="1" colspan="2">
-          <widget class="QComboBox" name="add_level_6_moves"/>
+          <widget class="QComboBox" name="add_level_6_moves">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item row="16" column="1">
           <spacer name="verticalSpacer_12">
@@ -959,10 +1015,18 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="type1_pokemon"/>
+          <widget class="QComboBox" name="type1_pokemon">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="type2_pokemon"/>
+          <widget class="QComboBox" name="type2_pokemon">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item>
           <spacer name="horizontalSpacer_3">
@@ -985,7 +1049,11 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="sr_pokemon"/>
+          <widget class="QComboBox" name="sr_pokemon">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+          </widget>
          </item>
          <item>
           <spacer name="horizontalSpacer_5">
