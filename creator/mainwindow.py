@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 import logging as log
-from PyQt5 import QtWidgets, uic, QtGui
+from PyQt5 import QtWidgets, uic, QtGui, QtCore
 
 from creator.data import Data
 from creator.utils import util
@@ -35,8 +35,8 @@ class MainWindow(QtWidgets.QMainWindow):
         exit_shortcut.activated.connect(self.close)
         debug_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("."), self)
         debug_shortcut.activated.connect(self.update_tab_names)
+        self.settings = QtCore.QSettings("Pokedex5E", "FakemonCreator")
         self.setGeometry(0, 0, 1100, 800)
-
         self.data = Data(self)
         self.crashed = False
         self.started = False
@@ -67,6 +67,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.actionExit.triggered.connect(self.close)
         self.actionAbout_Hp_Calculation.triggered.connect(self.hp_help)
         self.actionRestore_window_size.triggered.connect(self.restore_size)
+        self.actionDark_Theme.triggered.connect(self.dark_theme)
+        self.actionLight_Theme.triggered.connect(self.light_theme)
 
         self.actionValidate.triggered.connect(self.validate)
         self.statusBar().showMessage(version)
@@ -76,6 +78,23 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ModernWindow.setWindowTitle(p_str)
         else:
             super(MainWindow, self).setWindowTitle(p_str)
+
+    def set_theme(self, theme):
+        # 0=Dark, 1=Light
+        if theme == 0:
+            qtmodern.styles.dark(QtWidgets.QApplication.instance())
+        elif theme == 1:
+            qtmodern.styles.light(QtWidgets.QApplication.instance())
+
+        self.settings.setValue("activeTheme", theme)
+        self.actionLight_Theme.setChecked(theme == 1)
+        self.actionDark_Theme.setChecked(theme == 0)
+
+    def light_theme(self):
+        self.set_theme(1)
+
+    def dark_theme(self):
+        self.set_theme(0)
 
     def restore_size(self):
         if self.ModernWindow:
@@ -144,6 +163,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.tabWidget.setTabText(3, "Meta data")
 
     def closeEvent(self, event):
+        self.settings.sync()
         if self.data.edited:
             if self.crashed:
                 self.crash_save()
@@ -285,16 +305,19 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             QtWidgets.QMessageBox.about(None, "Validate", "No Errors found")
 
-    def handle_exception(self, extype, value, tb):
+    def handle_exception(self, ex_type, value, tb):
         self.crashed = True
-        util.log_exception(extype, value, tb)
-        exception.ui_exception(extype, value, tb)
+        util.log_exception(ex_type, value, tb)
+        exception.ui_exception(ex_type, value, tb)
 
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
     win = MainWindow()
     qtmodern.styles.dark(app)
+    settings = QtCore.QSettings("Pokedex5E", "FakemonCreator")
+    theme = settings.value("activeTheme", 0)
+    win.set_theme(theme)
     mw = qtmodern.windows.ModernWindow(win)
     mw.show()
     sys.exit(app.exec_())
