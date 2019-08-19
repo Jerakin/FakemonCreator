@@ -81,6 +81,8 @@
      <string>Help</string>
     </property>
     <addaction name="actionAbout_Hp_Calculation"/>
+    <addaction name="separator"/>
+    <addaction name="actionRestore_window_size"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
@@ -150,6 +152,14 @@
   <action name="actionValidate">
    <property name="text">
     <string>Validate</string>
+   </property>
+  </action>
+  <action name="actionRestore_window_size">
+   <property name="text">
+    <string>Restore window size</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
    </property>
   </action>
  </widget>

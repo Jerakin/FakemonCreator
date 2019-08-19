@@ -35,6 +35,8 @@ class MainWindow(QtWidgets.QMainWindow):
         exit_shortcut.activated.connect(self.close)
         debug_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("."), self)
         debug_shortcut.activated.connect(self.update_tab_names)
+        self.setGeometry(0, 0, 1100, 800)
+
         self.data = Data(self)
         self.crashed = False
         self.started = False
@@ -64,6 +66,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.actionExit.triggered.connect(self.close)
         self.actionAbout_Hp_Calculation.triggered.connect(self.hp_help)
+        self.actionRestore_window_size.triggered.connect(self.restore_size)
 
         self.actionValidate.triggered.connect(self.validate)
         self.statusBar().showMessage(version)
@@ -73,6 +76,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ModernWindow.setWindowTitle(p_str)
         else:
             super(MainWindow, self).setWindowTitle(p_str)
+
+    def restore_size(self):
+        if self.ModernWindow:
+            size = self.centralWidget().minimumSizeHint()
+            self.ModernWindow.setGeometry(0, 0, max(1100, size.width()), max(800, size.height()))
 
     def start(self):
         self.started = True
