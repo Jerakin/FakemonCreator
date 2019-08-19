@@ -24,6 +24,9 @@ To make your custom moves and Fakemons be available for other Fakemons you have 
 2. Then send the `*.fkmn` file to [pokedex5e@gmail.com](mailto:pokedex5e@gmail.com) as an attachment. The subject should be "_Pokemon Package_".
 3. Wait for it to be approved¹
 
+### License
+By submitting a package created with Fakemon Creator you are agreeing to that it is under the MIT License and can be distributed freely under it.
+
 ____
 
 ¹ I will have to check the content and make sure if follows Apple and Google's rules for user content (sorry no vulgar language or images),

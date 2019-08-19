@@ -22,6 +22,7 @@ def options():
 
     return input_args
 
+
 def add(package_path, package_index):
     package_path = Path(package_path)
     package_index = Path(package_index)
@@ -49,6 +50,7 @@ def add(package_path, package_index):
     with package_index_file.open("w") as fp:
         json.dump(package_index_json, fp, indent="  ", ensure_ascii=False)
 
+
 def print_help():
     print("Usage: publisher <command> [<args>]\n")
     print("The commands are:")
@@ -56,6 +58,7 @@ def print_help():
     print("    peek    NotImplementedError")
 
     print("See `publisher <command> --help` for information on a specific command.")
+
 
 def main():
     _options = options()
@@ -65,7 +68,7 @@ def main():
         raise NotImplementedError
     else:
         print_help()
-        # add(r"C:\Users\Jerakin\fake.fkmn", r"D:\Repo\FakemonPackages")
+        add(r"C:\Users\Mattias\Downloads\Red Federation.fkmn", r"D:\repositories\FakemonPackages")
 
 
 if __name__ == "__main__":
