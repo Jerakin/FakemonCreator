@@ -3,7 +3,6 @@ import json
 from pathlib import Path
 from creator.utils import util
 import logging as log
-import zipfile
 
 
 def _errors(sorted_errors):

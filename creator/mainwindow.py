@@ -71,7 +71,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.actionLight_Theme.triggered.connect(self.light_theme)
 
         self.actionValidate.triggered.connect(self.validate)
-        self.statusBar().showMessage(version)
+        self.statusBar().addPermanentWidget(QtWidgets.QLabel("v{}".format(version)))
 
     def setWindowTitle(self, p_str):
         if self.ModernWindow:
