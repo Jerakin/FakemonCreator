@@ -4,8 +4,7 @@ import json
 import zipfile
 from pathlib import Path
 import logging as log
-
-from creator.utils import util
+import datetime
 from creator.utils import validate
 
 root = Path()
@@ -36,21 +35,13 @@ class Container:
 
     def validate(self):
         errors = list()
+        errors.extend(validate.clean_container(self))
         data = self.data()
         errors.extend(validate.validate(root / "res/schema/pokemon.json", data["pokemon.json"]))
         errors.extend(validate.validate(root / "res/schema/pokedex_extra.json", data["pokedex_extra.json"]))
         errors.extend(validate.validate(root / "res/schema/moves.json", data["moves.json"]))
         errors.extend(validate.validate(root / "res/schema/evolve.json", data["evolve.json"]))
-
-        index = util.get_package_index()
-        if index:
-            metadata = self.index()
-            for entry in index:
-                if entry["name"] == metadata["name"]:
-                    if entry["version"] >= metadata["version"]:
-                        errors.append(
-                            "The name of the package is taken, if this is an update to an existing package\n"
-                            "then click the Update Existing button and select the package.")
+        errors.extend(validate.validate_package_name(self))
 
         return errors
 
@@ -73,19 +64,21 @@ class Container:
             f.write(self.__DATA.getvalue())
 
     def add(self, path, data=None):
+        log.info("Adding file")
         if path in [x.filename for x in zipfile.ZipFile(self.__DATA).filelist]:
-            log.info("Removed file {} from zip".format(path))
+            log.info("  Removed file {} from zip".format(path))
             self.remove(path)
         if not data:
             with zipfile.ZipFile(self.__DATA, "a") as f:
-                log.info("Writing file {} to zip".format(path))
+                log.info("  Writing file {} to zip".format(path))
                 f.write(str(path), path.name)
         else:
             with zipfile.ZipFile(self.__DATA, "a") as f:
-                log.info("Writing json {} to zip".format(path))
+                log.info("  Writing json {} to zip".format(path))
                 f.writestr(str(path), json.dumps(data, ensure_ascii=False))
 
     def remove(self, filename):
+        log.info("Removing file")
         if isinstance(filename, Path):
             filename = filename.name
         __TEMP = io.BytesIO()
@@ -94,11 +87,36 @@ class Container:
         for item in zin.infolist():
             buffer = zin.read(item.filename)
             if item.filename != filename:
-                log.info("Keeping {}".format(filename))
+                log.info("  Keeping {}".format(item.filename))
                 zout.writestr(item, buffer)
             else:
-                log.info("Skipped adding {}".format(filename))
+                log.info("  Skipped adding {}".format(item.filename))
         self.__DATA = __TEMP
+
+    def clean(self):
+        _duplicate_found = False
+        log.info("Cleaning container")
+        zin = zipfile.ZipFile(self.__DATA)
+        __TEMP = io.BytesIO()
+        zout = zipfile.ZipFile(__TEMP, "a")
+
+        file_index = {}
+        for item in zin.infolist():
+            if item.filename not in file_index:
+                file_index[item.filename] = datetime.datetime(*item.date_time)
+            file_index[item.filename] = max(datetime.datetime(*item.date_time), file_index[item.filename])
+
+        for item in zin.infolist():
+            buffer = zin.read(item.filename)
+            if file_index[item.filename] == datetime.datetime(*item.date_time) and item.filename not in [x.filename for x in zout.filelist]:
+                log.info("  Keeping {}".format(item.filename))
+                zout.writestr(item, buffer)
+            else:
+                _duplicate_found = True
+                log.info("  Skipped adding {}".format(item.filename))
+            self.__DATA = __TEMP
+
+        return _duplicate_found
 
     def data(self):
         z = zipfile.ZipFile(self.__DATA)
