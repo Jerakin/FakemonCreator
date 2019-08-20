@@ -101,46 +101,6 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.hidden_ability.addItems(self.ability_list.list)
         self.add_tms.addItems(self.tm_list)
 
-        # Add scrollbars to QComboBoxes
-        self.add_tms.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.type1_pokemon.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.type2_pokemon.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.sr_pokemon.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.saving_throw1_pokemon.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.saving_throw2_pokemon.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.hit_dice.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.add_skill.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.add_level_2_moves.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.add_level_6_moves.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.add_starting_moves.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.add_level_10_moves.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.add_level_14_moves.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.add_level_18_moves.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.add_evolution.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.add_ability.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.hidden_ability.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.add_tms.view().setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-
-        # Make the QComboBoxes adhere to MaxVisibleItems
-        self.add_tms.setStyleSheet("combobox-popup: 0;")
-        self.type1_pokemon.setStyleSheet("combobox-popup: 0;")
-        self.type2_pokemon.setStyleSheet("combobox-popup: 0;")
-        self.sr_pokemon.setStyleSheet("combobox-popup: 0;")
-        self.saving_throw1_pokemon.setStyleSheet("combobox-popup: 0;")
-        self.saving_throw2_pokemon.setStyleSheet("combobox-popup: 0;")
-        self.hit_dice.setStyleSheet("combobox-popup: 0;")
-        self.add_skill.setStyleSheet("combobox-popup: 0;")
-        self.add_level_2_moves.setStyleSheet("combobox-popup: 0;")
-        self.add_level_6_moves.setStyleSheet("combobox-popup: 0;")
-        self.add_starting_moves.setStyleSheet("combobox-popup: 0;")
-        self.add_level_10_moves.setStyleSheet("combobox-popup: 0;")
-        self.add_level_14_moves.setStyleSheet("combobox-popup: 0;")
-        self.add_level_18_moves.setStyleSheet("combobox-popup: 0;")
-        self.add_evolution.setStyleSheet("combobox-popup: 0;")
-        self.add_ability.setStyleSheet("combobox-popup: 0;")
-        self.hidden_ability.setStyleSheet("combobox-popup: 0;")
-        self.add_tms.setStyleSheet("combobox-popup: 0;")
-
         # add interactions
         self.list_pokemon.setContextMenuPolicy(Qt.CustomContextMenu)
         self.list_pokemon.customContextMenuRequested.connect(self.context_menu)
@@ -149,18 +109,29 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.browse_sprite.clicked.connect(self.add_sprite)
         self.list_pokemon.itemDoubleClicked.connect(self.open_fakemon)
 
-        self.add_tms.currentTextChanged.connect(lambda x: self.set_item_list("moves_tm", self.moves_tm_list, self.add_tms, x))
-        self.add_level_2_moves.currentTextChanged.connect(lambda x: self.set_item_list("moves_level2", self.moves_2_list, self.add_level_2_moves, x))
-        self.add_level_6_moves.currentTextChanged.connect(lambda x: self.set_item_list("moves_level6", self.moves_6_list, self.add_level_6_moves, x))
-        self.add_level_10_moves.currentTextChanged.connect(lambda x: self.set_item_list("moves_level10", self.moves_10_list, self.add_level_10_moves, x))
-        self.add_level_14_moves.currentTextChanged.connect(lambda x: self.set_item_list("moves_level14", self.moves_14_list, self.add_level_14_moves, x))
-        self.add_level_18_moves.currentTextChanged.connect(lambda x: self.set_item_list("moves_level18", self.moves_18_list, self.add_level_18_moves, x))
-        self.add_starting_moves.currentTextChanged.connect(lambda x: self.set_item_list("moves_starting", self.moves_starting_list, self.add_starting_moves, x))
+        # ComboBox Enter pressed
+        self.add_tms.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_tm", self.moves_tm_list, self.add_tms, self.add_tms.currentText()))
+        self.add_level_2_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_level2", self.moves_2_list, self.add_level_2_moves, self.add_level_2_moves.currentText()))
+        self.add_level_6_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_level6", self.moves_6_list, self.add_level_6_moves, self.add_level_6_moves.currentText()))
+        self.add_level_10_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_level10", self.moves_10_list, self.add_level_10_moves, self.add_level_10_moves.currentText()))
+        self.add_level_14_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_level14", self.moves_14_list, self.add_level_14_moves, self.add_level_14_moves.currentText()))
+        self.add_level_18_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_level18", self.moves_18_list, self.add_level_18_moves, self.add_level_18_moves.currentText()))
+        self.add_starting_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_starting", self.moves_starting_list, self.add_starting_moves, self.add_starting_moves.currentText()))
+        self.add_ability.lineEdit().returnPressed.connect(lambda: self.set_item_list("abilities", self.abilities_list, self.add_ability, self.add_ability.currentText()))
+        self.add_evolution.lineEdit().returnPressed.connect(lambda: self.set_item_list("evolve_into", self.evolve_into_list, self.add_evolution, self.add_evolution.currentText()))
+        self.add_skill.lineEdit().returnPressed.connect(lambda: self.set_item_list("skills", self.skills_list, self.add_skill, self.add_skill.currentText()))
 
-        self.add_skill.currentTextChanged.connect(lambda x:   self.set_item_list("skills",    self.skills_list,     self.add_skill, x))
-        self.add_ability.currentTextChanged.connect(lambda x: self.set_item_list("abilities", self.abilities_list,  self.add_ability, x))
-
-        self.add_evolution.currentTextChanged.connect(lambda x: self.set_item_list("evolve_into", self.evolve_into_list, self.add_evolution, x))
+        # Item selected with mouse
+        self.add_tms.view().pressed.connect(lambda x: self.set_item_list("moves_tm", self.moves_tm_list, self.add_tms, self.add_tms.model().itemFromIndex(x).text()))
+        self.add_level_2_moves.view().pressed.connect(lambda x: self.set_item_list("moves_level2", self.moves_2_list, self.add_level_2_moves, self.add_level_2_moves.model().itemFromIndex(x).text()))
+        self.add_level_6_moves.view().pressed.connect(lambda x: self.set_item_list("moves_level6", self.moves_6_list, self.add_level_6_moves, self.add_level_6_moves.model().itemFromIndex(x).text()))
+        self.add_level_10_moves.view().pressed.connect(lambda x: self.set_item_list("moves_level10", self.moves_10_list, self.add_level_10_moves, self.add_level_10_moves.model().itemFromIndex(x).text()))
+        self.add_level_14_moves.view().pressed.connect(lambda x: self.set_item_list("moves_level14", self.moves_14_list, self.add_level_14_moves, self.add_level_14_moves.model().itemFromIndex(x).text()))
+        self.add_level_18_moves.view().pressed.connect(lambda x: self.set_item_list("moves_level18", self.moves_18_list, self.add_level_18_moves, self.add_level_18_moves.model().itemFromIndex(x).text()))
+        self.add_starting_moves.view().pressed.connect(lambda x: self.set_item_list("moves_starting", self.moves_starting_list, self.add_starting_moves, self.add_starting_moves.model().itemFromIndex(x).text()))
+        self.add_ability.view().pressed.connect(lambda x: self.set_item_list("abilities", self.abilities_list, self.add_ability, self.add_ability.model().itemFromIndex(x).text()))
+        self.add_evolution.view().pressed.connect(lambda x: self.set_item_list("evolve_into", self.evolve_into_list, self.add_evolution, self.add_evolution.model().itemFromIndex(x).text()))
+        self.add_skill.view().pressed.connect(lambda x: self.set_item_list("skills", self.skills_list, self.add_skill, self.add_skill.model().itemFromIndex(x).text()))
 
         self.type1_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "type1", x))
         self.type2_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "type2", x))
@@ -433,7 +404,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.attribute_changed_signal.emit()
 
     def set_item_list(self, value, to_list, dropdown, item):
-        if item:
+        if item and item in [dropdown.itemText(i) for i in range(dropdown.count())]:
             for i in range(to_list.count()):
                 if to_list.item(i).text() == item:
                     dropdown.setCurrentText("")
