@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets, uic, QtCore, QtGui
 
+
 class ExtendedComboBox(QtWidgets.QComboBox):
     def __init__(self, parent=None):
         super(ExtendedComboBox, self).__init__(parent)
@@ -34,13 +35,11 @@ class ExtendedComboBox(QtWidgets.QComboBox):
             self.setCurrentIndex(index)
             self.activated[str].emit(self.itemText(index))
 
-
     # on model change, update the models of the filter and completer as well
     def setModel(self, model):
         super(ExtendedComboBox, self).setModel(model)
         self.pFilterModel.setSourceModel(model)
         self.completer.setModel(self.pFilterModel)
-
 
     # on model column change, update the model column of the filter and completer as well
     def setModelColumn(self, column):

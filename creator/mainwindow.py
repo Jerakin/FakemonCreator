@@ -313,7 +313,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 def main():
-    QtWidgets.QComboBox = creator.components.ExtendedComboBox
     app = QtWidgets.QApplication(sys.argv)
     win = MainWindow()
     qtmodern.styles.dark(app)
