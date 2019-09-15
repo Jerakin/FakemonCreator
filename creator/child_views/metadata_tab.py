@@ -51,6 +51,8 @@ class MetaDataTab(QtWidgets.QWidget, shared.Tab):
 
     def update_package(self):
         self.data.package_index = util.get_package_index()
+        if self.data.package_index is None:
+            return
         _list = [entry["name"] for entry in self.data.package_index]
         list_class = util.SimpleList(_list)
 
