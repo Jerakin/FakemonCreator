@@ -2,7 +2,9 @@ name: Publish
 
 on:
   push:
-    tags: "v*"
+    tags:
+      - 'v\d+\.\d+\.\d+'
+
 
 jobs:
   build:
