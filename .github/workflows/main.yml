@@ -4,7 +4,8 @@ on:
   push:
     tags:
       - 'v\d+\.\d+\.\d+'
-
+    branches:
+      - workflow
 
 jobs:
   build:
