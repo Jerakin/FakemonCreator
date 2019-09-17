@@ -14,15 +14,11 @@ for package, files in package_imports:
 block_cipher = None
 
 if sys.platform.startswith('win'):
-    script = ['creator\\__main__.py']
     pathex = ['C:\\Windows\\WinSxS', Path().cwd()]
-    console = False
 elif sys.platform.startswith('darwin'):
-    script = ['creator/__main__.py']
     pathex = [Path().cwd()]
-    console = False
 
-a = Analysis(script,
+a = Analysis('creator/__main__.py',
              pathex=pathex,
              binaries=[],
              datas=added_file,
@@ -50,9 +46,16 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           runtime_tmpdir=None,
-          console=console)
+          console=False)
 
 app = BUNDLE(exe,
              name='Fakemon.Creator.OSX.app',
              icon=None,
              bundle_identifier=None)
+
+if sys.platform.startswith('darwin'):
+    output_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.zip")
+    input_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.app")
+    with zipfile.ZipFile(output_filename, "w", zipfile.ZIP_DEFLATED) as zip:
+        zip.write("Fakemon.Creator.OSX.app", input_filename)
+    print("Created", output_filename)
