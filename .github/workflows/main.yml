@@ -50,8 +50,8 @@ jobs:
 
     steps:
       - name: Create Release
-         uses: frankjuniorr/github-create-release-action@master
-         secrets: GITHUB_TOKEN
+        uses: frankjuniorr/github-create-release-action@master
+        secrets: GITHUB_TOKEN
 
   upload:
     runs-on: ${{ matrix.os }}
@@ -62,12 +62,12 @@ jobs:
       - name: download artifact win
         uses: actions/download-artifact@master
         with:
-            name: build-win
+          name: build-win
 
       - name: download artifact osx
         uses: actions/download-artifact@master
         with:
-            name: build-osx
+          name: build-osx
 
       - name: unzip win
         run: gunzip -c ./build-win
