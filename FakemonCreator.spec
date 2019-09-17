@@ -65,7 +65,7 @@ if sys.platform.startswith('darwin'):
         print(os.path.realpath("./dist/Fakemon.Creator.OSX.app"))
         if os.path.exists(input_filename):
             with zipfile.ZipFile(output_filename, "w", zipfile.ZIP_DEFLATED) as zip:
-                zip.write("Fakemon.Creator.OSX.app", input_filename)
+                zip.write(input_filename)
             print("Created", output_filename)
             break
         time.sleep(1)
