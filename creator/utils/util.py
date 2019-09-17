@@ -61,10 +61,12 @@ def is_png(path):
 
 
 def get_package_index():
-    r = requests.get("https://raw.githubusercontent.com/Jerakin/FakemonPackages/master/index.json")
-    if r.status_code in [200, 304]:
-        return json.loads(r.content)
-    return None
+    try:
+        r = requests.get("https://raw.githubusercontent.com/Jerakin/FakemonPackages/master/index.json")
+        if r.status_code in [200, 304]:
+            return json.loads(r.content)
+    except:
+        return None
 
 
 def validate(_data, schema_url):
