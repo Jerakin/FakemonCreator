@@ -19,7 +19,7 @@ if sys.platform.startswith('win'):
 elif sys.platform.startswith('darwin'):
     pathex = [Path().cwd()]
 
-print("System:", sys.platform.startswith)
+print("System:", sys.platform)
 
 a = Analysis(['creator/__main__.py'],
              pathex=pathex,
