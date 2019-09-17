@@ -14,15 +14,13 @@ for package, files in package_imports:
 block_cipher = None
 
 if sys.platform.startswith('win'):
-    script = ['creator\\__main__.py']
     pathex = ['C:\\Windows\\WinSxS', Path().cwd()]
-    console = False
 elif sys.platform.startswith('darwin'):
-    script = ['creator/__main__.py']
     pathex = [Path().cwd()]
-    console = False
 
-a = Analysis(script,
+print("System:", sys.platform)
+
+a = Analysis(['creator/__main__.py'],
              pathex=pathex,
              binaries=[],
              datas=added_file,
@@ -50,9 +48,24 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           runtime_tmpdir=None,
-          console=console)
+          console=False)
 
 app = BUNDLE(exe,
              name='Fakemon.Creator.OSX.app',
              icon=None,
              bundle_identifier=None)
+
+if sys.platform.startswith('darwin'):
+    import zipfile
+    input_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.app")
+    output_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.zip")
+    relroot = os.path.abspath(os.path.join(input_filename, os.pardir))
+    with zipfile.ZipFile(output_filename, "w", zipfile.ZIP_DEFLATED) as zip:
+        for root, dirs, files in os.walk(input_filename):
+        # add directory (needed for empty dirs)
+            zip.write(root, os.path.relpath(root, relroot))
+            for file in files:
+                filename = os.path.join(root, file)
+                if os.path.isfile(filename):  # regular files only
+                    arcname = os.path.join(os.path.relpath(root, relroot), file)
+        zip.write(filename, arcname)
