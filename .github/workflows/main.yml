@@ -1,10 +1,12 @@
 name: Publish
 
-on: [push]
+on:
+  push:
+    tags:
+      - v\d+\.\d+\.\d+
 
 jobs:
   build:
-    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
