@@ -37,19 +37,20 @@ a = Analysis(['creator/__main__.py'],
 pyz = PYZ(a.pure, a.zipped_data,
           cipher=block_cipher)
 
-exe = EXE(pyz,
-          a.scripts,
-          a.binaries,
-          a.zipfiles,
-          a.datas,
-          [],
-          name='Fakemon.Creator.WIN',
-          debug=False,
-          bootloader_ignore_signals=False,
-          strip=False,
-          upx=True,
-          runtime_tmpdir=None,
-          console=False)
+if sys.platform.startswith('win'):
+    exe = EXE(pyz,
+              a.scripts,
+              a.binaries,
+              a.zipfiles,
+              a.datas,
+              [],
+              name='Fakemon.Creator.WIN',
+              debug=False,
+              bootloader_ignore_signals=False,
+              strip=False,
+              upx=True,
+              runtime_tmpdir=None,
+              console=False)
 
 app = BUNDLE(exe,
              name='Fakemon.Creator.OSX.app',
