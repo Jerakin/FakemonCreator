@@ -61,6 +61,8 @@ if sys.platform.startswith('darwin'):
     while True:
         input_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.app")
         output_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.zip")
+        print(input_filename)
+        print(os.path.realpath("./dist/Fakemon.Creator.OSX.app"))
         if os.path.exists(input_filename):
             with zipfile.ZipFile(output_filename, "w", zipfile.ZIP_DEFLATED) as zip:
                 zip.write("Fakemon.Creator.OSX.app", input_filename)
