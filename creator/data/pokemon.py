@@ -216,7 +216,7 @@ class Pokemon:
                 del self.data["Type"][1]
             else:
                 self.data["Type"][1] = value
-            self.update_type_res()
+        self.update_type_res()
 
     @property
     def sr(self):
