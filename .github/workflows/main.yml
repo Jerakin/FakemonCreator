@@ -6,14 +6,6 @@ on:
       - 'v\d+\.\d+\.\d+'
 
 jobs:
-  make_release:
-    runs-on: ubuntu-latest
-    needs: [build]
-
-    steps:
-      - name: Create Release
-         uses: frankjuniorr/github-create-release-action@master
-         secrets: GITHUB_TOKEN
 
   build:
     runs-on: ${{ matrix.os }}
@@ -51,6 +43,15 @@ jobs:
       with:
           name: build-osx
           path: "./dist/Fakemon.Creator.OSX.zip"
+
+  make_release:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Create Release
+         uses: frankjuniorr/github-create-release-action@master
+         secrets: GITHUB_TOKEN
 
   upload:
     runs-on: ${{ matrix.os }}
