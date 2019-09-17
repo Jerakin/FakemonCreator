@@ -29,3 +29,15 @@ jobs:
 
     - name: pyinstall
       run: pyinstaller "FakemonCreator.spec"
+
+    - name: add artifact win
+      uses: actions/upload-artifact@master
+      with:
+          name: build-win
+          path: "./dist/Fakemon.Creator.WIN.exe"
+
+    - name: add artifact osx
+      uses: actions/upload-artifact@master
+      with:
+          name: build-osx
+          path: "./dist/Fakemon.Creator.OSX.zip"
