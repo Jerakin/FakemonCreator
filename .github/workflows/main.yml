@@ -58,6 +58,8 @@ jobs:
         with:
             name: build-osx
 
-      - name: unzip
+      - name: unzip win
         run: gunzip -c ./build-win
+
+      - name: unzip osx
         run: gunzip -c ./build-osx
