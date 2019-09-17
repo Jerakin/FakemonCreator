@@ -2,7 +2,6 @@
 from pathlib import Path
 import sys
 import importlib
-import zipfile
 
 package_imports = [['qtmodern', ['resources/frameless.qss', 'resources/style.qss']]]
 
@@ -37,20 +36,19 @@ a = Analysis(['creator/__main__.py'],
 pyz = PYZ(a.pure, a.zipped_data,
           cipher=block_cipher)
 
-if sys.platform.startswith('win'):
-    exe = EXE(pyz,
-              a.scripts,
-              a.binaries,
-              a.zipfiles,
-              a.datas,
-              [],
-              name='Fakemon.Creator.WIN',
-              debug=False,
-              bootloader_ignore_signals=False,
-              strip=False,
-              upx=True,
-              runtime_tmpdir=None,
-              console=False)
+exe = EXE(pyz,
+          a.scripts,
+          a.binaries,
+          a.zipfiles,
+          a.datas,
+          [],
+          name='Fakemon.Creator.WIN',
+          debug=False,
+          bootloader_ignore_signals=False,
+          strip=False,
+          upx=True,
+          runtime_tmpdir=None,
+          console=False)
 
 app = BUNDLE(exe,
              name='Fakemon.Creator.OSX.app',
@@ -58,8 +56,14 @@ app = BUNDLE(exe,
              bundle_identifier=None)
 
 if sys.platform.startswith('darwin'):
-    output_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.zip")
-    input_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.app")
-    with zipfile.ZipFile(output_filename, "w", zipfile.ZIP_DEFLATED) as zip:
-        zip.write("Fakemon.Creator.OSX.app", input_filename)
-    print("Created", output_filename)
+    import zipfile
+    import time
+    while True:
+        input_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.app")
+        output_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.zip")
+        if os.path.exists(input_filename):
+            with zipfile.ZipFile(output_filename, "w", zipfile.ZIP_DEFLATED) as zip:
+                zip.write("Fakemon.Creator.OSX.app", input_filename)
+            print("Created", output_filename)
+            break
+        time.sleep(1)
