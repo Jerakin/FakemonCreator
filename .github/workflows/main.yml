@@ -43,3 +43,21 @@ jobs:
       with:
           name: build-osx
           path: "./dist/Fakemon.Creator.OSX.zip"
+  upload:
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@master
+
+      - name: download artifact win
+        uses: actions/download-artifact@master
+        with:
+            name: build-win
+
+      - name: download artifact osx
+        uses: actions/download-artifact@master
+        with:
+            name: build-osx
+
+      - name: unzip
+        run: gunzip -c ./build-win
+        run: gunzip -c ./build-osx
