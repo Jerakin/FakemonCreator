@@ -2,6 +2,7 @@
 from pathlib import Path
 import sys
 import importlib
+import zipfile
 
 package_imports = [['qtmodern', ['resources/frameless.qss', 'resources/style.qss']]]
 
