@@ -93,14 +93,15 @@ class Container:
                 log.info("  Skipped adding {}".format(item.filename))
         self.__DATA = __TEMP
 
-    def clean(self):
+    def clean_duplicates(self):
         _duplicate_found = False
-        log.info("Cleaning container")
+        log.info("Cleaning duplicates from container")
         zin = zipfile.ZipFile(self.__DATA)
         __TEMP = io.BytesIO()
         zout = zipfile.ZipFile(__TEMP, "a")
 
         file_index = {}
+
         for item in zin.infolist():
             if item.filename not in file_index:
                 file_index[item.filename] = datetime.datetime(*item.date_time)
@@ -117,6 +118,33 @@ class Container:
             self.__DATA = __TEMP
 
         return _duplicate_found
+
+    def clean_old_images(self):
+        _old_images_found = False
+        log.info("Cleaning old images from container")
+        zin = zipfile.ZipFile(self.__DATA)
+        __TEMP = io.BytesIO()
+        zout = zipfile.ZipFile(__TEMP, "a")
+
+        file_index = []
+        data = self.data()
+        for poke, data in data['pokemon.json'].items():
+            if "sprite" in data:
+                file_index.append(data["sprite"])
+            if "icon" in data:
+                file_index.append(data["icon"])
+
+        for item in zin.infolist():
+            buffer = zin.read(item.filename)
+            if item.filename in file_index or item.filename.endswith(".json"):
+                log.info("  Keeping {}".format(item.filename))
+                zout.writestr(item, buffer)
+            else:
+                _old_images_found = True
+                log.info("  Skipped adding {}".format(item.filename))
+            self.__DATA = __TEMP
+
+        return _old_images_found
 
     def data(self):
         z = zipfile.ZipFile(self.__DATA)

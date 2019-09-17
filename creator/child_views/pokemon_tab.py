@@ -438,6 +438,8 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
     def add_sprite(self):
         image = self._get_image(126, 126)
         if image:
+            new_name = ".".join([self.data.datamon.species, "sprite", image.suffix[1:]])
+            image = util.copy_image_to_temp_dir(image, new_name)
             self.data.container.add(image)
             self.data.datamon.sprite = image.name
             self.sprite_image.setPixmap(QtGui.QPixmap(str(image)))
@@ -445,6 +447,8 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
     def add_icon(self):
         image = self._get_image(30, 40)
         if image:
+            new_name = ".".join([self.data.datamon.species, "icon", image.suffix[1:]])
+            image = util.copy_image_to_temp_dir(image, new_name)
             self.data.container.add(image)
             self.data.datamon.icon = image.name
             self.icon_image.setPixmap(QtGui.QPixmap(str(image)))
@@ -487,4 +491,3 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.add_evolution.addItems(self.pkmn_list.list)
         self.add_ability.addItems(self.ability_list.list)
         self.hidden_ability.addItems(self.ability_list.list)
-

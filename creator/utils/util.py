@@ -10,6 +10,8 @@ from datetime import datetime
 import traceback
 from io import StringIO
 import logging as log
+import tempfile
+import shutil
 
 from creator import __version__ as version
 
@@ -104,3 +106,13 @@ def log_exception(extype, value, tb):
         'Traceback:\n{traceback}'
             .format(version=version, extype=str(extype), value=str(value), traceback=tb_io.getvalue())
     )
+
+def tempdir():
+    p = Path(tempfile.gettempdir()) / "FakemonCreator"
+    if not p.exists():
+        p.mkdir()
+    return p
+
+def copy_image_to_temp_dir(image, new_name):
+    shutil.copy(image, tempdir() / new_name)
+    return tempdir() / new_name
