@@ -32,12 +32,16 @@ jobs:
 
     - name: add artifact win
       uses: actions/upload-artifact@master
+      strategy:
+        fail-fast: false
       with:
           name: build-win
           path: "./dist/Fakemon.Creator.WIN.exe"
 
     - name: add artifact osx
       uses: actions/upload-artifact@master
+      strategy:
+        fail-fast: false
       with:
           name: build-osx
           path: "./dist/Fakemon.Creator.OSX.zip"
