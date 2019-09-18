@@ -314,7 +314,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
             self.sprite_image.setPixmap(px)
         if self.data.datamon.icon:
             px = QtGui.QPixmap()
-            px.loadFromData(bytearray(self.data.container.image(self.data.datamon.sprite)))
+            px.loadFromData(bytearray(self.data.container.image(self.data.datamon.icon)))
             self.icon_image.setPixmap(px)
 
         self.species.setText(self.data.datamon.species)
