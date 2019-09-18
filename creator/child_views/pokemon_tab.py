@@ -438,7 +438,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
     def add_sprite(self):
         image = self._get_image(126, 126)
         if image:
-            new_name = ".".join([self.data.datamon.species, "sprite", image.suffix[1:]])
+            new_name = "{}-{}.{}".format(self.data.datamon.species, "sprite", image.suffix[1:])
             image = util.copy_image_to_temp_dir(image, new_name)
             self.data.container.add(image)
             self.data.datamon.sprite = image.name
@@ -447,7 +447,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
     def add_icon(self):
         image = self._get_image(30, 40)
         if image:
-            new_name = ".".join([self.data.datamon.species, "icon", image.suffix[1:]])
+            new_name = "{}-{}.{}".format(self.data.datamon.species, "icon", image.suffix[1:])
             image = util.copy_image_to_temp_dir(image, new_name)
             self.data.container.add(image)
             self.data.datamon.icon = image.name

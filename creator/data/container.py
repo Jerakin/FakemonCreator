@@ -61,17 +61,21 @@ class Container:
         if not self.__DATA or not self.path:
             return True
         try:
-        with open(self.path, "wb") as f:
-            f.write(self.__DATA.getvalue())
+            with open(self.path, "wb") as f:
+                f.write(self.__DATA.getvalue())
                 return True
         except PermissionError:
             return False
 
     def add(self, path, data=None):
         log.info("Adding file")
-        if path in [x.filename for x in zipfile.ZipFile(self.__DATA).filelist]:
-            log.info("  Removed file {} from zip".format(path))
-            self.remove(path)
+        filename = path
+        if isinstance(path, Path):
+            filename = path.name
+
+        if filename in [x.filename for x in zipfile.ZipFile(self.__DATA).filelist]:
+            log.info("  Removed file {} from zip".format(filename))
+            self.remove(filename)
         if not data:
             with zipfile.ZipFile(self.__DATA, "a") as f:
                 log.info("  Writing file {} to zip".format(path))
@@ -83,8 +87,6 @@ class Container:
 
     def remove(self, filename):
         log.info("Removing file")
-        if isinstance(filename, Path):
-            filename = filename.name
         __TEMP = io.BytesIO()
         zin = zipfile.ZipFile(self.__DATA)
         zout = zipfile.ZipFile(__TEMP, "a")
@@ -168,7 +170,7 @@ class Container:
 
     def image(self, name):
         with zipfile.ZipFile(self.__DATA).open(name) as f:
-            data = f.read()
+                    data = f.read()
         return data
 
     def delete_entry(self, file, entry):
