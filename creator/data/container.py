@@ -59,9 +59,13 @@ class Container:
 
     def save(self):
         if not self.__DATA or not self.path:
-            return
+            return True
+        try:
         with open(self.path, "wb") as f:
             f.write(self.__DATA.getvalue())
+                return True
+        except PermissionError:
+            return False
 
     def add(self, path, data=None):
         log.info("Adding file")

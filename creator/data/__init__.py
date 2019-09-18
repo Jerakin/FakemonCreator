@@ -68,6 +68,8 @@ class Data:
 
     def save(self):
         log.info("Saving")
+        metadata_edited = self.metadata.edited
+        _edited = self._edited
         if not self.container:
             self.new_container()
             data = {"pokemon.json": {}, "evolve.json": {}, "pokedex_extra.json": {}, "moves.json": {},
@@ -124,4 +126,8 @@ class Data:
 
         self._edited = False
         self.container.add("data.json", data)
-        self.container.save()
+        res = self.container.save()
+        if not res:
+            self.metadata.edited = metadata_edited
+            self._edited =_edited
+            QtWidgets.QMessageBox.about(None, "Failed", "Saving failed because file is locked")
