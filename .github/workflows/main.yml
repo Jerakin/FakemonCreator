@@ -75,12 +75,12 @@ jobs:
         run: gunzip -c ./build-osx
 
       - name: upload win
-        secrets: GITHUB_TOKEN
         uses: "JasonEtco/upload-to-release@master"
+        secrets: GITHUB_TOKEN
         args: "./Fakemon.Creator.WIN.exe"
 
       - name: upload osx
-        secrets: GITHUB_TOKEN
         uses: "JasonEtco/upload-to-release@master"
+        secrets: GITHUB_TOKEN
         args: "./Fakemon.Creator.OSX.zip"
 
