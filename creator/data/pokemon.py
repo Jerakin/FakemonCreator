@@ -381,11 +381,11 @@ class Pokemon:
 
     @property
     def skills(self):
-        return self.data["Skill"] if "Skills" in self.data else []
+        return self.data["Skill"] if "Skill" in self.data else []
 
     @skills.setter
     def skills(self, value):
-        if "Skills" not in self.data:
+        if "Skill" not in self.data:
             self.data["Skill"] = []
         if value not in self.data["Skill"]:
             self.data["Skill"].append(value)
