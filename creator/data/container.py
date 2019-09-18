@@ -16,6 +16,7 @@ class Container:
     def __init__(self):
         self.__DATA = None
         self.path = None
+        self.cleaned = False
 
     @property
     def is_empty(self):
@@ -110,12 +111,13 @@ class Container:
 
         for item in zin.infolist():
             if item.filename not in file_index:
-                file_index[item.filename] = datetime.datetime(*item.date_time)
-            file_index[item.filename] = max(datetime.datetime(*item.date_time), file_index[item.filename])
+                file_index[item.filename] = {"date": datetime.datetime(*item.date_time), "count": 1}
+            file_index[item.filename]["date"] = max(datetime.datetime(*item.date_time), file_index[item.filename]["date"])
+            file_index[item.filename]["count"] += 1
 
         for item in zin.infolist():
             buffer = zin.read(item.filename)
-            if file_index[item.filename] == datetime.datetime(*item.date_time) and item.filename not in [x.filename for x in zout.filelist]:
+            if file_index[item.filename]["count"] == 1 or file_index[item.filename]["date"] == datetime.datetime(*item.date_time):
                 log.info("  Keeping {}".format(item.filename))
                 zout.writestr(item, buffer)
             else:

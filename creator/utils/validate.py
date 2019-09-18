@@ -65,16 +65,22 @@ def clean_container(container):
                 _changed = True
         if _changed:
             container.add("data.json", data)
+            return True
 
     def clean_zip():
-        errors = container.clean_duplicates()
-        if errors:
-            return ["Removed duplicated images, make sure that your images are still correct"]
+        errors = []
+        dup = container.clean_duplicates()
+        if dup:
+            errors.append("Removed duplicated images, make sure that your images are still correct")
 
-        errors = container.clean_old_images()
-        if errors:
-            return ["Cleaned package"]
-        return []
+        old = container.clean_old_images()
+        if old:
+            errors.append("Cleaned package")
+        return errors
 
-    clean_pokedex_extra()
-    return clean_zip()
+    changed = clean_pokedex_extra()
+    cleaned = clean_zip()
+    if changed or cleaned:
+        container.cleaned = True
+
+    return cleaned

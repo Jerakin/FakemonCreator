@@ -189,7 +189,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def save(self, force=False):
         log.info("Saving project")
-        if not force and not self.data.edited:
+        if not force and not self.data.edited and not self.data.container.cleaned:
             log.info("No changes found")
             return
         if self.data.container:
