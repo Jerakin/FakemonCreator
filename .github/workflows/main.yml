@@ -40,8 +40,8 @@ jobs:
           path: "./dist/Fakemon.Creator.WIN.exe"
 
     - name: add artifact osx
-      if: matrix.os == 'macOS-latest'
       uses: actions/upload-artifact@master
+      if: matrix.os == 'macOS-latest'
       with:
           name: build-osx
           path: "./dist/Fakemon.Creator.OSX.zip"
@@ -49,14 +49,15 @@ jobs:
   make_release:
     runs-on: ubuntu-latest
 
-    needs: build
+    needs: [build]
 
     timeout-minutes: 1
 
     steps:
       - name: Create Release
         uses: frankjuniorr/github-create-release-action@master
-        secrets: GITHUB_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   upload:
     runs-on: ubuntu-latest
@@ -69,12 +70,12 @@ jobs:
       - uses: actions/checkout@master
 
       - name: download artifact win
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@master"
         with:
           name: build-win
 
       - name: download artifact osx
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@master"
         with:
           name: build-osx
 
@@ -85,12 +86,14 @@ jobs:
         run: gunzip -c ./build-osx
 
       - name: upload win
-        uses: "JasonEtco/upload-to-release@master"
-        secrets: GITHUB_TOKEN
+        uses: JasonEtco/upload-to-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         args: "./Fakemon.Creator.WIN.exe"
 
       - name: upload osx
-        uses: "JasonEtco/upload-to-release@master"
-        secrets: GITHUB_TOKEN
+        uses: JasonEtco/upload-to-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         args: "./Fakemon.Creator.OSX.zip"
 
