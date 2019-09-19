@@ -11,6 +11,8 @@ from creator.utils import util
 from creator.child_views import shared
 from creator.child_views import list_view
 
+import creator.components  ## This needs to be here for the promoted QComboBoxes
+
 import qtmodern.windows
 import qtmodern.styles
 

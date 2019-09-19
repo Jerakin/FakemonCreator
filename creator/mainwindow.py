@@ -11,7 +11,6 @@ from creator.child_views import pokemon_tab
 from creator.child_views import metadata_tab
 from creator.child_views import shared
 from creator.child_views import exception
-import creator.components
 import qtmodern.windows
 import qtmodern.styles
 

@@ -1178,7 +1178,7 @@
   <customwidget>
    <class>ExtendedComboBox</class>
    <extends>QComboBox</extends>
-   <header>components</header>
+   <header>creator/components</header>
   </customwidget>
  </customwidgets>
  <tabstops>
