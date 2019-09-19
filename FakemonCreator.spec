@@ -42,6 +42,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
+          icon="creator/res/icon_96.ico",
           name='Fakemon.Creator.WIN',
           debug=False,
           bootloader_ignore_signals=False,
@@ -52,7 +53,6 @@ exe = EXE(pyz,
 
 app = BUNDLE(exe,
              name='Fakemon.Creator.OSX.app',
-             icon=None,
              bundle_identifier=None)
 
 if sys.platform.startswith('darwin'):
