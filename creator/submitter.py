@@ -6,8 +6,10 @@ from pathlib import Path
 
 __version__ = "0.1"
 
+
 class IncompletePackage(Exception):
     pass
+
 
 def options():
     parser = argparse.ArgumentParser(description='Commandline tool to publish Fakemon Package')
@@ -42,10 +44,11 @@ def add(package_path, package_index):
 
     for package in package_index_json:
         if package["name"] == index_json["name"]:
-            package_index_json.remove(package)
+            package["name"] = index_json["name"]
+            package["author"] = index_json["author"]
+            package["description"] = index_json["description"]
+            package["version"] = index_json["version"]
             break
-
-    package_index_json.append(index_json)
 
     with package_index_file.open("w") as fp:
         json.dump(package_index_json, fp, indent="  ", ensure_ascii=False)
@@ -68,7 +71,7 @@ def main():
         raise NotImplementedError
     else:
         print_help()
-        add(r"C:\Users\Mattias\Downloads\Red Federation.fkmn", r"D:\repositories\FakemonPackages")
+        add("/Users/mattias.hedberg/Downloads/AdodsOPEmporium.fkmn", "/Users/mattias.hedberg/Documents/repositories/FakemonPackages")
 
 
 if __name__ == "__main__":
