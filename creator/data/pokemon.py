@@ -184,6 +184,9 @@ class Pokemon:
         self.data["saving_throws"][0] = value
 
     def update_type_res(self):
+        for t in ["Imm", "Res", "Vul"]:
+            if t in self.data:
+                self.data[t] = []
         for imm in self.immunities:
             self.set_res("Imm", imm)
         for res in self.resistances:
