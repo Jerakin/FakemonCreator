@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="_tab_pokemon">
        <attribute name="title">
@@ -37,6 +37,12 @@
         <string>Abilities</string>
        </attribute>
        <layout class="QHBoxLayout" name="tab_abilities_layout"/>
+      </widget>
+      <widget class="QWidget" name="_tab_items">
+       <attribute name="title">
+        <string>Items</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="tab_items_layout"/>
       </widget>
       <widget class="QWidget" name="_tab_settings">
        <attribute name="title">
@@ -69,10 +75,12 @@
     <addaction name="actionNew_Pokemon"/>
     <addaction name="actionNew_Move"/>
     <addaction name="actionNew_Ability"/>
+    <addaction name="actionNew_Item"/>
     <addaction name="separator"/>
     <addaction name="actionOpen_Standard_Pokemon"/>
     <addaction name="actionOpen_Move"/>
     <addaction name="actionOpen_Ability"/>
+    <addaction name="actionOpen_Item"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -186,6 +194,16 @@
    </property>
    <property name="text">
     <string>Light Theme</string>
+   </property>
+  </action>
+  <action name="actionNew_Item">
+   <property name="text">
+    <string>New Item</string>
+   </property>
+  </action>
+  <action name="actionOpen_Item">
+   <property name="text">
+    <string>Open Item</string>
    </property>
   </action>
  </widget>

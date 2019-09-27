@@ -9,6 +9,7 @@ from creator.child_views import move_tab
 from creator.child_views import ability_tab
 from creator.child_views import pokemon_tab
 from creator.child_views import metadata_tab
+from creator.child_views import item_tab
 from creator.child_views import shared
 from creator.child_views import exception
 import qtmodern.windows
@@ -45,6 +46,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.move_tab = None
         self.ability_tab = None
         self.metadata_tab = None
+        self.item_tab = None
 
         self.setWindowTitle("untitled | Fakemon Creator")
         self.menubar.setNativeMenuBar(False)
@@ -63,6 +65,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.actionOpen_Move.triggered.connect(self.open_move)
         self.actionNew_Move.triggered.connect(self.new_move)
+
+        self.actionOpen_Item.triggered.connect(self.open_item)
+        self.actionNew_Item.triggered.connect(self.new_item)
 
         self.actionExit.triggered.connect(self.close)
         self.actionAbout_Hp_Calculation.triggered.connect(self.hp_help)
@@ -108,21 +113,24 @@ class MainWindow(QtWidgets.QMainWindow):
         self.move_tab = move_tab.MoveTab(self.data)
         self.ability_tab = ability_tab.AbilityTab(self.data)
         self.metadata_tab = metadata_tab.MetaDataTab(self.data)
-        self.metadata_tab = metadata_tab.MetaDataTab(self.data)
+        self.item_tab = item_tab.ItemTab(self.data)
 
         self.tab_pokemon_layout.addWidget(self.pokemon_tab)
         self.tab_move_layout.addWidget(self.move_tab)
         self.tab_abilities_layout.addWidget(self.ability_tab)
         self.tab_settings_layout.addWidget(self.metadata_tab)
+        self.tab_items_layout.addWidget(self.item_tab)
 
         self.pokemon_tab.attribute_changed_signal.connect(self.update_tab_names)
         self.move_tab.attribute_changed_signal.connect(self.update_tab_names)
         self.ability_tab.attribute_changed_signal.connect(self.update_tab_names)
         self.metadata_tab.attribute_changed_signal.connect(self.update_tab_names)
+        self.item_tab.attribute_changed_signal.connect(self.update_tab_names)
 
         self.pokemon_tab.update_list_signal.connect(self.update_user_lists)
         self.move_tab.update_list_signal.connect(self.update_user_lists)
         self.ability_tab.update_list_signal.connect(self.update_user_lists)
+        self.item_tab.update_list_signal.connect(self.update_user_lists)
 
         self.ability_tab.save_project_signal.connect(self._save)
 
@@ -158,9 +166,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.tabWidget.setTabText(2, "Abilities")
 
         if self.data.metadata.edited:
-            self.tabWidget.setTabText(3, "Meta data*")
+            self.tabWidget.setTabText(4, "Meta data*")
         else:
-            self.tabWidget.setTabText(3, "Meta data")
+            self.tabWidget.setTabText(4, "Meta data")
+
+        if self.data.item.edited:
+            self.tabWidget.setTabText(3, "Items*")
+        else:
+            self.tabWidget.setTabText(3, "Item")
 
     def closeEvent(self, event):
         self.settings.sync()
@@ -287,6 +300,18 @@ class MainWindow(QtWidgets.QMainWindow):
         self.move_tab.new_move()
         self.tabWidget.setCurrentIndex(1)
 
+    def open_item(self):
+        if not self.started:
+            self.start()
+        self.item_tab.open_item()
+        self.tabWidget.setCurrentIndex(3)
+
+    def new_item(self):
+        if not self.started:
+            self.start()
+        self.item_tab.new_item()
+        self.tabWidget.setCurrentIndex(3)
+
     def hp_help(self):
         self.hp_help_window = qtmodern.windows.ModernWindow(shared.HPHelp(self))
         self.hp_help_window.show()
@@ -295,6 +320,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pokemon_tab.update_custom_list()
         self.move_tab.update_custom_list()
         self.ability_tab.update_custom_list()
+        self.item_tab.update_custom_list()
 
     def validate(self):
         errors = self.data.validate()
