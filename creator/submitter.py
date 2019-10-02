@@ -32,7 +32,7 @@ def add(package_path, package_index):
     if "index.json" not in [x.filename for x in z.filelist]:
         raise IncompletePackage
     try:
-    shutil.copy(str(package_path), str(package_index / "packages"))
+        shutil.copy(str(package_path), str(package_index / "packages"))
     except shutil.SameFileError:
         print("Skipping moving becasue of SameFileError")
 
