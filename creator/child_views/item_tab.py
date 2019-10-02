@@ -101,7 +101,7 @@ class ItemTab(QtWidgets.QWidget, shared.Tab):
                                                       QtWidgets.QMessageBox.Cancel)
 
         if button_reply == QtWidgets.QMessageBox.Yes:
-            self.data.container.delete_entry("abilities.json", item_name)
+            self.data.container.delete_entry("items.json", item_name)
             self.list_items.takeItem(self.list_items.currentRow())
             self.data._edited = True
             if item_name == self.data.item.name:
@@ -112,8 +112,9 @@ class ItemTab(QtWidgets.QWidget, shared.Tab):
 
     def update_custom_list(self):
         data = self.data.container.data() if self.data.container else None
-        if not data:
+        if not data or "items.json" not in data:
             return
+
         item_data = data["items.json"]
 
         self.list_items.clear()

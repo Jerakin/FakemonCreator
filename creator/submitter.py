@@ -31,8 +31,10 @@ def add(package_path, package_index):
     z = zipfile.ZipFile(package_path)
     if "index.json" not in [x.filename for x in z.filelist]:
         raise IncompletePackage
-
+    try:
     shutil.copy(str(package_path), str(package_index / "packages"))
+    except shutil.SameFileError:
+        print("Skipping moving becasue of SameFileError")
 
     package_index_file = package_index / "index.json"
     with package_index_file.open() as fp:

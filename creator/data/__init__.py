@@ -62,7 +62,8 @@ class Data:
 
     @property
     def edited(self):
-        return self._edited or self.datamon.edited or self.ability.edited or self.move.edited or self.metadata.edited
+        return any([self._edited, self.datamon.edited, self.ability.edited,
+                   self.move.edited, self.metadata.edited, self.item.edited])
 
     def load(self, path):
         path = Path(path)
@@ -126,9 +127,8 @@ class Data:
             self.move.serialize()
             self.move.edited = False
             data["moves.json"][self.move.name] = self.move.data
-
         if self.item.edited:
-            if self.item.name in data["items.json"]:
+            if "items.json" in data and self.item.name in data["items.json"]:
                 button_reply = QtWidgets.QMessageBox.question(self.window, 'Overwrite',
                                                     "Overwrite existing Item?",
                                                     QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel,
@@ -137,6 +137,8 @@ class Data:
                     return
             self.item.serialize()
             self.item.edited = False
+            if "items.json" not in data:
+                data["items.json"] = {}
             data["items.json"][self.item.name] = self.item.data
 
         if self.metadata.edited:
