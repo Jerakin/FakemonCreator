@@ -107,11 +107,13 @@ def log_exception(extype, value, tb):
             .format(version=version, extype=str(extype), value=str(value), traceback=tb_io.getvalue())
     )
 
+
 def tempdir():
     p = Path(tempfile.gettempdir()) / "FakemonCreator"
     if not p.exists():
         p.mkdir()
     return p
+
 
 def copy_image_to_temp_dir(image, new_name):
     shutil.copy(image, tempdir() / new_name)

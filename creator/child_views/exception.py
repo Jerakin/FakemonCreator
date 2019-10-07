@@ -13,6 +13,7 @@ from PyQt5 import QtWidgets
 from creator import __version__ as version
 from creator.utils import util
 
+
 class ExceptionWindow(QtWidgets.QWidget):
     def __init__(self, app, extype, value, tb):
         super(ExceptionWindow, self).__init__()
@@ -100,3 +101,33 @@ def ui_exception(extype, value, tb):
 
     if not main_app_still_up:
         sys.exit(main_app.exec_())
+
+
+def tkinter_exception(extype, value, tb):
+    import tempfile
+    from tkinter import messagebox as mbox
+    import tkinter as tk
+
+    _, temp_path = tempfile.mkstemp()
+
+    root = tk.Tk()
+    root.withdraw()
+
+    tb_io = StringIO()
+    traceback.print_tb(tb, file=tb_io)
+
+    content = '''
+           Version: {version}
+           OS: {os}
+           Type: {extype}
+           Value: {value}
+           Traceback:
+           {traceback}
+           '''.format(version=version, extype=str(extype),
+                      value=str(value), os=platform.platform(),
+                      traceback=tb_io.getvalue())
+
+    with open(temp_path, "w") as fp:
+        fp.write(content)
+
+    mbox.showerror("Error", "An error occurred, error saved to \n{}".format(temp_path))
