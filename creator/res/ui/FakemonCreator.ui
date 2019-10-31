@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="_tab_pokemon">
        <attribute name="title">
@@ -97,6 +97,8 @@
     <addaction name="actionRestore_window_size"/>
     <addaction name="actionDark_Theme"/>
     <addaction name="actionLight_Theme"/>
+    <addaction name="separator"/>
+    <addaction name="actionStat_Calculator"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -204,6 +206,11 @@
   <action name="actionOpen_Item">
    <property name="text">
     <string>Open Item</string>
+   </property>
+  </action>
+  <action name="actionStat_Calculator">
+   <property name="text">
+    <string>Stat Calculator</string>
    </property>
   </action>
  </widget>

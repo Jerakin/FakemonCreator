@@ -10,6 +10,7 @@ from creator.child_views import ability_tab
 from creator.child_views import pokemon_tab
 from creator.child_views import metadata_tab
 from creator.child_views import item_tab
+from creator.child_views import stats_calculator
 from creator.child_views import shared
 from creator.child_views import exception
 import qtmodern.windows
@@ -74,6 +75,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.actionRestore_window_size.triggered.connect(self.restore_size)
         self.actionDark_Theme.triggered.connect(self.dark_theme)
         self.actionLight_Theme.triggered.connect(self.light_theme)
+
+        self.actionStat_Calculator.triggered.connect(self.open_stat_calculator)
 
         self.actionValidate.triggered.connect(self.validate)
         self.statusBar().addPermanentWidget(QtWidgets.QLabel("v{}".format(version)))
@@ -263,6 +266,13 @@ class MainWindow(QtWidgets.QMainWindow):
             self.metadata_tab.reload()
 
             log.info("Opened {}".format(path))
+
+    def open_stat_calculator(self):
+        if not self.started:
+            self.start()
+        self.tabWidget.setCurrentIndex(0)
+        self.hp_help_window = qtmodern.windows.ModernWindow(stats_calculator.StatsCalculator(self.pokemon_tab))
+        self.hp_help_window.show()
 
     def open_pokemon(self):
         if not self.started:

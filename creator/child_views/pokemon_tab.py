@@ -183,6 +183,20 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.abilities_list.itemDoubleClicked.connect(lambda x: self.remove_entry(self.abilities_list, "Abilities", x))
         self.evolve_into_list.itemDoubleClicked.connect(lambda x: self.remove_evolution(self.evolve_into_list, x))
 
+    def set_attributes(self, attributes):
+        self.setattr(self.data.datamon, "STR", attributes[0])
+        self.setattr(self.data.datamon, "DEX", attributes[1])
+        self.setattr(self.data.datamon, "CON", attributes[2])
+        self.setattr(self.data.datamon, "INT", attributes[3])
+        self.setattr(self.data.datamon, "WIS", attributes[4])
+        self.setattr(self.data.datamon, "CHA", attributes[5])
+        self.STR.setText(attributes[0])
+        self.DEX.setText(attributes[1])
+        self.CON.setText(attributes[2])
+        self.INT.setText(attributes[3])
+        self.WIS.setText(attributes[4])
+        self.CHA.setText(attributes[5])
+
     def context_menu(self, pos):
         context = QtWidgets.QMenu()
         remove_fakemon = context.addAction("delete")

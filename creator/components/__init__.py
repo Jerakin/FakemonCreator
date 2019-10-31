@@ -59,3 +59,13 @@ class ExtendedComboBox(QtWidgets.QComboBox):
         if self.active:
             return super(ExtendedComboBox, self).eventFilter(obj, event)
         return False
+
+
+class ExtendedLabel(QtWidgets.QLabel):
+    clicked = QtCore.pyqtSignal()
+
+    def __init__(self, parent=None):
+        QtWidgets.QLabel.__init__(self, parent)
+
+    def mousePressEvent(self, ev):
+        self.clicked.emit()
