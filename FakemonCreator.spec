@@ -57,15 +57,11 @@ app = BUNDLE(exe,
 
 if sys.platform.startswith('darwin'):
     import zipfile
-    input_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.app")
-    output_filename = os.path.abspath("./dist/Fakemon.Creator.OSX.zip")
-    relroot = os.path.abspath(os.path.join(input_filename, os.pardir))
-    with zipfile.ZipFile(output_filename, "w", zipfile.ZIP_DEFLATED) as zip:
-        for root, dirs, files in os.walk(input_filename):
-        # add directory (needed for empty dirs)
-            zip.write(root, os.path.relpath(root, relroot))
-            for file in files:
-                filename = os.path.join(root, file)
-                if os.path.isfile(filename):  # regular files only
-                    arcname = os.path.join(os.path.relpath(root, relroot), file)
-        zip.write(filename, arcname)
+    input_filename = Path("./dist/Fakemon.Creator.OSX.app")
+    output_filename = Path("./dist/Fakemon.Creator.OSX.zip")
+    directory = input_filename.parent
+    with zipfile.ZipFile(output_filename, "w") as zip:
+        for file in input_filename.glob("**/*.*"):
+            # add directory (needed for empty dirs)
+            zip.write(file.parent, file.parent.relative_to(directory))
+            zip.write(file, file.relative_to(directory))
