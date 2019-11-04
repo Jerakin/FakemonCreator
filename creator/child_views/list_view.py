@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-from PyQt5 import QtWidgets, uic, QtGui
+from PyQt5 import QtWidgets, uic, QtGui, QtCore
 
 root = Path()
 if getattr(sys, 'frozen', False):
@@ -13,9 +13,8 @@ class ListView(QtWidgets.QWidget):
         uic.loadUi(root / 'res/ui/ListSelector.ui', self)  # Load the .ui file
         exit_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("Esc"), self)
         exit_shortcut.activated.connect(self.close)
-
+        self.setAttribute(QtCore.Qt.WA_DeleteOnClose, True)
         self.finish_function = None
-
         # Skip the error entries
         for entry in list_class.list:
             if entry:

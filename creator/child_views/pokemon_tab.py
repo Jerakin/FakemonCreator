@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import logging as log
 
-from PyQt5 import QtWidgets, uic, QtGui
+from PyQt5 import QtWidgets, uic, QtGui, sip
 from PyQt5.QtCore import Qt
 
 from creator.data import fields
@@ -255,7 +255,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
             if response == QtWidgets.QMessageBox.Cancel:
                 return
 
-        if self.child:
+        if self.child and not sip.isdeleted(self.child):
             self.child.close()
 
         self.child = list_view.ListView(util.JsonToList(root / "res/data/pokemon.json"))
