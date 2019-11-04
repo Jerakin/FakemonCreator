@@ -40,13 +40,16 @@ class StatsCalculator(QtWidgets.QWidget):
         self.STR.textEdited.connect(lambda: self.overrule_value("strength_overruled", self.STR_label))
         self.DEX.textEdited.connect(lambda: self.overrule_value("dexterity_overruled", self.DEX_label))
         self.CON.textEdited.connect(lambda: self.overrule_value("constitution_overruled", self.CON_label))
+        self.AC.textEdited.connect(lambda: self.overrule_value("ac_overruled", self.AC_label))
         self.STR.setValidator(QtGui.QIntValidator())
         self.DEX.setValidator(QtGui.QIntValidator())
         self.CON.setValidator(QtGui.QIntValidator())
+        self.AC.setValidator(QtGui.QIntValidator())
 
         self.STR_label.clicked.connect(lambda: self.restore_value("strength_overruled", self.STR_label))
         self.DEX_label.clicked.connect(lambda: self.restore_value("dexterity_overruled", self.DEX_label))
         self.CON_label.clicked.connect(lambda: self.restore_value("constitution_overruled", self.CON_label))
+        self.AC_label.clicked.connect(lambda: self.restore_value("ac_overruled", self.AC_label))
 
     def overrule_value(self, attribute, label):
         self.__dict__[attribute] = True
@@ -68,17 +71,21 @@ class StatsCalculator(QtWidgets.QWidget):
         strength = 0.2 * attack + 0.4*defense + 0.4*s_defense/0.8
         dexterity = 0.1 * attack + 0.4*s_attack + 0.4*speed/0.8
         constitution = 0.7 * health + 0.05*defense + 0.25*s_defense/0.8
+        ac = (0.4*defense + 0.4*s_defense + 0.2*speed/10.5) + 8
         if not self.strength_overruled:
             self.STR.setText(str(static_remap(strength)))
         if not self.dexterity_overruled:
             self.DEX.setText(str(static_remap(dexterity)))
         if not self.constitution_overruled:
             self.CON.setText(str(static_remap(constitution)))
+        if not self.ac_overruled:
+            self.AC.setText(str(static_remap(ac)))
 
     def copy_to_active_pokemon(self):
         if self.parent:
             self.parent.set_attributes(
-                [self.STR.text(), self.DEX.text(), self.CON.text(), self.INT.text(), self.WIS.text(), self.CHA.text()])
+                [self.STR.text(), self.DEX.text(), self.CON.text(), self.INT.text(), self.WIS.text(), self.CHA.text(),
+                 self.AC.text()])
 
 
 def get_value(text_edit):

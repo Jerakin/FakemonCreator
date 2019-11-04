@@ -190,12 +190,14 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.setattr(self.data.datamon, "INT", attributes[3])
         self.setattr(self.data.datamon, "WIS", attributes[4])
         self.setattr(self.data.datamon, "CHA", attributes[5])
+        self.setattr(self.data.datamon, "armor_class", attributes[6])
         self.STR.setText(attributes[0])
         self.DEX.setText(attributes[1])
         self.CON.setText(attributes[2])
         self.INT.setText(attributes[3])
         self.WIS.setText(attributes[4])
         self.CHA.setText(attributes[5])
+        self.armor_class.setText(attributes[6])
 
     def context_menu(self, pos):
         context = QtWidgets.QMenu()
