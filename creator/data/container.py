@@ -6,6 +6,7 @@ from pathlib import Path
 import logging as log
 import datetime
 from creator.utils import validate
+from creator import __version__ as editor_version
 
 root = Path()
 if getattr(sys, 'frozen', False):
@@ -34,6 +35,9 @@ class Container:
 
         return mem_zip
 
+    def _add_metadata(self):
+        self.add("meta.json", {"editor_version": editor_version})
+
     def validate(self):
         errors = list()
         errors.extend(validate.clean_container(self))
@@ -61,6 +65,7 @@ class Container:
     def save(self):
         if not self.__DATA or not self.path:
             return True
+        self._add_metadata()
         try:
             with open(self.path, "wb") as f:
                 f.write(self.__DATA.getvalue())
