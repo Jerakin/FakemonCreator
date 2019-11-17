@@ -116,7 +116,6 @@ class Move:
     def PP(self, value):
         self.data["PP"] = int(value or 0)
 
-
     @property
     def casting_time(self):
         return self.data["Move Time"]

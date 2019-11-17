@@ -85,7 +85,7 @@ class Container:
         if not data:
             with zipfile.ZipFile(self.__DATA, "a") as f:
                 log.info("  Writing file {} to zip".format(path))
-                f.write(str(path), path.name)
+                f.write(str(path), filename)
         else:
             with zipfile.ZipFile(self.__DATA, "a") as f:
                 log.info("  Writing json {} to zip".format(path))

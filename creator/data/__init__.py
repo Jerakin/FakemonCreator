@@ -6,6 +6,7 @@ from creator.data import pokemon
 from creator.data import ability
 from creator.data import container
 from creator.data import metadata
+from creator.data import gender
 from creator.data import item
 from creator.utils import util
 import logging as log
@@ -23,6 +24,7 @@ class Data:
         self.datamon = None
         self.metadata = None
         self.item = None
+        self.gender = None
 
         self.package_index = util.get_package_index()
 
@@ -31,6 +33,7 @@ class Data:
         self.new_pokemon()
         self.new_metadata()
         self.new_item()
+        self.new_gender()
 
     def validate(self):
         if self.container:
@@ -60,10 +63,14 @@ class Data:
         self.item = item.Item()
         self.item.new()
 
+    def new_gender(self):
+        self.gender = gender.Gender()
+        self.gender.new()
+
     @property
     def edited(self):
         return any([self._edited, self.datamon.edited, self.ability.edited,
-                   self.move.edited, self.metadata.edited, self.item.edited])
+                   self.move.edited, self.metadata.edited, self.item.edited, self.gender.edited])
 
     def load(self, path):
         path = Path(path)
@@ -74,6 +81,7 @@ class Data:
         self.ability.edited = False
         self.move.edited = False
         self.item.edited = False
+        self.gender.edited = False
 
     def save(self):
         log.info("Saving")
@@ -82,10 +90,10 @@ class Data:
         if not self.container:
             self.new_container()
             data = {"pokemon.json": {}, "evolve.json": {}, "pokedex_extra.json": {}, "moves.json": {},
-                    "abilities.json": {}, "items.json": {}}
+                    "abilities.json": {}, "items.json": {}, "gender.json": {}}
         elif self.container.is_empty:
             data = {"pokemon.json": {}, "evolve.json": {}, "pokedex_extra.json": {}, "moves.json": {},
-                    "abilities.json": {}, "items.json": {}}
+                    "abilities.json": {}, "items.json": {}, "gender.json": {}}
         else:
             data = self.container.data()
 
@@ -140,6 +148,20 @@ class Data:
             if "items.json" not in data:
                 data["items.json"] = {}
             data["items.json"][self.item.name] = self.item.data
+
+        if self.gender.edited:
+            if "gender.json" in data and self.item.name in data["gender.json"]:
+                button_reply = QtWidgets.QMessageBox.question(self.window, 'Overwrite',
+                                                    "Overwrite existing Gender restrictions?",
+                                                    QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel,
+                                                    QtWidgets.QMessageBox.Cancel)
+                if button_reply == QtWidgets.QMessageBox.Cancel:
+                    return
+            self.item.serialize()
+            self.item.edited = False
+            if "gender.json" not in data:
+                data["gender.json"] = {}
+            data["gender.json"] = self.gender.data
 
         if self.metadata.edited:
             self.metadata.validate()

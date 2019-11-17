@@ -9,6 +9,7 @@ from creator.child_views import move_tab
 from creator.child_views import ability_tab
 from creator.child_views import pokemon_tab
 from creator.child_views import metadata_tab
+from creator.child_views import gender_tab
 from creator.child_views import item_tab
 from creator.child_views import stats_calculator
 from creator.child_views import shared
@@ -48,6 +49,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ability_tab = None
         self.metadata_tab = None
         self.item_tab = None
+        self.gender_tab = None
 
         self.setWindowTitle("untitled | Fakemon Creator")
         self.menubar.setNativeMenuBar(False)
@@ -117,23 +119,27 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ability_tab = ability_tab.AbilityTab(self.data)
         self.metadata_tab = metadata_tab.MetaDataTab(self.data)
         self.item_tab = item_tab.ItemTab(self.data)
+        self.gender_tab = gender_tab.GenderTab(self.data)
 
         self.tab_pokemon_layout.addWidget(self.pokemon_tab)
         self.tab_move_layout.addWidget(self.move_tab)
         self.tab_abilities_layout.addWidget(self.ability_tab)
         self.tab_settings_layout.addWidget(self.metadata_tab)
         self.tab_items_layout.addWidget(self.item_tab)
+        self.tab_gender_layout.addWidget(self.gender_tab)
 
         self.pokemon_tab.attribute_changed_signal.connect(self.update_tab_names)
         self.move_tab.attribute_changed_signal.connect(self.update_tab_names)
         self.ability_tab.attribute_changed_signal.connect(self.update_tab_names)
         self.metadata_tab.attribute_changed_signal.connect(self.update_tab_names)
         self.item_tab.attribute_changed_signal.connect(self.update_tab_names)
+        self.gender_tab.attribute_changed_signal.connect(self.update_tab_names)
 
         self.pokemon_tab.update_list_signal.connect(self.update_user_lists)
         self.move_tab.update_list_signal.connect(self.update_user_lists)
         self.ability_tab.update_list_signal.connect(self.update_user_lists)
         self.item_tab.update_list_signal.connect(self.update_user_lists)
+        self.gender_tab.update_list_signal.connect(self.update_user_lists)
 
         self.ability_tab.save_project_signal.connect(self._save)
 
@@ -177,6 +183,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.tabWidget.setTabText(3, "Items*")
         else:
             self.tabWidget.setTabText(3, "Item")
+
+        if self.data.gender.edited:
+            self.tabWidget.setTabText(5, "Genders*")
+        else:
+            self.tabWidget.setTabText(5, "Genders")
 
     def closeEvent(self, event):
         self.settings.sync()
@@ -331,6 +342,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.move_tab.update_custom_list()
         self.ability_tab.update_custom_list()
         self.item_tab.update_custom_list()
+        self.gender_tab.update_custom_list()
 
     def validate(self):
         errors = self.data.validate()
