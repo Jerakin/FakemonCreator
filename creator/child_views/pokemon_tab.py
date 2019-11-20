@@ -463,7 +463,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
             self.sprite_image.setPixmap(QtGui.QPixmap(str(image)))
 
     def add_icon(self):
-        image = self._get_image(30, 40)
+        image = self._get_image(40, 30)
         if image:
             new_name = "{}-{}.{}".format(self.data.datamon.species, "icon", image.suffix[1:])
             image = util.copy_image_to_temp_dir(image, new_name)
