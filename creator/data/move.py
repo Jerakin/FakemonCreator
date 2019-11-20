@@ -82,6 +82,8 @@ class Move:
 
     @move_power1.setter
     def move_power1(self, value):
+        while len(self.data["Move Power"]) < 1:
+            self.data["Move Power"].append("None")
         self.data["Move Power"][0] = value
 
     @property
@@ -90,6 +92,8 @@ class Move:
 
     @move_power2.setter
     def move_power2(self, value):
+        while len(self.data["Move Power"]) < 2:
+            self.data["Move Power"].append("None")
         self.data["Move Power"][1] = value
 
     @property
@@ -98,6 +102,8 @@ class Move:
 
     @move_power3.setter
     def move_power3(self, value):
+        while len(self.data["Move Power"]) < 3:
+            self.data["Move Power"].append("None")
         self.data["Move Power"][2] = value
 
     @property

@@ -26,18 +26,23 @@ class GenderTab(QtWidgets.QWidget, shared.Tab):
         super(GenderTab, self).__init__()
         uic.loadUi(root / 'res/ui/GenderTab.ui', self)
         self.data = data
-
+        self.extended = False
         self.list_gender.setContextMenuPolicy(Qt.CustomContextMenu)
         self.list_gender.customContextMenuRequested.connect(self.context_menu)
-        # self.list_gender.itemDoubleClicked.connect(self.open_custom_ability)
 
         self.pkmn_list = util.JsonToList(root / "res/data/pokemon.json")
-        data = self.data.container.data() if self.data and self.data.container else None
-        if data:
-            self.pkmn_list.extend(data["pokemon.json"])
-        self.speciesDropdown.addItems(self.pkmn_list.list)
 
+        self.speciesDropdown.addItems(self.pkmn_list.list)
+        self.speciesDropdown.activated.connect(self.extend_dropdown)
         self.add_button.clicked.connect(self.add)
+
+    def extend_dropdown(self):
+        data = self.data.container.data() if self.data and self.data.container else None
+        if data and not self.extended:
+            self.pkmn_list.extend(data["pokemon.json"])
+            self.extended = True
+            self.speciesDropdown.clear()
+            self.speciesDropdown.addItems(self.pkmn_list.list)
 
     def add(self):
         species = self.speciesDropdown.currentText()
@@ -47,32 +52,14 @@ class GenderTab(QtWidgets.QWidget, shared.Tab):
         self.setattr(self.data.gender, "species", species)
         self.setattr(self.data.gender, "gender", gender)
 
-    def load_gender_view(self):
-        pass
-
-    def clear_genderview(self):
-        pass
-
     def context_menu(self, pos):
         context = QtWidgets.QMenu()
         delete_action = context.addAction("delete")
         action = context.exec_(self.list_gender.mapToGlobal(pos))
         if action == delete_action:
-            self.delete_ability(self.list_gender.selectedItems()[0])
+            self.delete_gender(self.list_gender.selectedItems()[0])
 
-    def _open_ability(self, _ability):
-        pass
-
-    def open_ability(self):
-        pass
-
-    def open_custom_ability(self, widget_item):
-        pass
-
-    def new_ability(self):
-        pass
-
-    def delete_ability(self, widget_item):
+    def delete_gender(self, widget_item):
         species_name = widget_item.text()
         button_reply = QtWidgets.QMessageBox.question(None, 'Delete',
                                                       "Would you like to remove {}".format(species_name),
