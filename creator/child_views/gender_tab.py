@@ -32,7 +32,7 @@ class GenderTab(QtWidgets.QWidget, shared.Tab):
         # self.list_gender.itemDoubleClicked.connect(self.open_custom_ability)
 
         self.pkmn_list = util.JsonToList(root / "res/data/pokemon.json")
-        data = self.data.container.data() if self.data.container else None
+        data = self.data.container.data() if self.data and self.data.container else None
         if data:
             self.pkmn_list.extend(data["pokemon.json"])
         self.speciesDropdown.addItems(self.pkmn_list.list)
@@ -91,7 +91,7 @@ class GenderTab(QtWidgets.QWidget, shared.Tab):
 
     def update_custom_list(self):
         data = self.data.container.data() if self.data.container else None
-        if not data:
+        if not data or "gender.json" not in data:
             return
         gender_data = data["gender.json"]
 
