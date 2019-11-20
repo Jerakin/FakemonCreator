@@ -378,7 +378,7 @@ class Steel(Type):
         self.fireAtk = 2.0
         self.grassAtk = 0.5
         self.iceAtk = 0.5
-        self.fightAtk = 2.0
+        self.fightingAtk = 2.0
         self.poisonAtk = 0.0
         self.groundAtk = 2.0
         self.flyingAtk = 0.5
