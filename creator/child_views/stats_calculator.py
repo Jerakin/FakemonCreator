@@ -20,6 +20,7 @@ class StatsCalculator(QtWidgets.QWidget):
         self.strength_overruled = False
         self.dexterity_overruled = False
         self.constitution_overruled = False
+        self.ac_overruled = False
 
         self.health.textEdited.connect(self.recalculate_stat)
         self.attack.textEdited.connect(self.recalculate_stat)
