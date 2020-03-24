@@ -141,7 +141,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.item_tab.update_list_signal.connect(self.update_user_lists)
         self.gender_tab.update_list_signal.connect(self.update_user_lists)
 
-        self.ability_tab.save_project_signal.connect(self._save)
+        self.pokemon_tab.save_project_signal.connect(self.save)
+        self.move_tab.save_project_signal.connect(self.save)
+        self.ability_tab.save_project_signal.connect(self.save)
+        self.item_tab.save_project_signal.connect(self.save)
+        self.gender_tab.save_project_signal.connect(self.save)
 
     def save_and_continue(self):
         button_reply = QtWidgets.QMessageBox.question(None, 'Save', "Save changes before continuing?",

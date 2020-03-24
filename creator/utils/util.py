@@ -104,7 +104,7 @@ def log_exception(extype, value, tb):
         'Type: {extype}\n'
         'Value: {value}\n'
         'Traceback:\n{traceback}'
-            .format(version=version, extype=str(extype), value=str(value), traceback=tb_io.getvalue())
+        .format(version=version, extype=str(extype), value=str(value), traceback=tb_io.getvalue())
     )
 
 
@@ -115,6 +115,16 @@ def tempdir():
     return p
 
 
+def random_word():
+    url = "https://random-word-api.herokuapp.com/word?number=1"
+    r = requests.get(url)
+    if r.status_code == 200:
+        return json.loads(r.content.decode())[0]
+    now = datetime.now()
+    return "{}{}{}".format(now.hour, now.minute, now.second)
+
+
 def copy_image_to_temp_dir(image, new_name):
-    shutil.copy(image, tempdir() / new_name)
-    return tempdir() / new_name
+    dst = tempdir() / new_name
+    shutil.copy(image, dst)
+    return dst

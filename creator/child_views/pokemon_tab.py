@@ -4,7 +4,7 @@ from pathlib import Path
 import logging as log
 
 from PyQt5 import QtWidgets, uic, QtGui, sip
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, pyqtSignal
 
 from creator.data import fields
 from creator.utils import util
@@ -112,35 +112,72 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.list_pokemon.itemDoubleClicked.connect(self.open_fakemon)
 
         # ComboBox Enter pressed
-        self.add_tms.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_tm", self.moves_tm_list, self.add_tms, self.add_tms.currentText()))
-        self.add_level_2_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_level2", self.moves_2_list, self.add_level_2_moves, self.add_level_2_moves.currentText()))
-        self.add_level_6_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_level6", self.moves_6_list, self.add_level_6_moves, self.add_level_6_moves.currentText()))
-        self.add_level_10_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_level10", self.moves_10_list, self.add_level_10_moves, self.add_level_10_moves.currentText()))
-        self.add_level_14_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_level14", self.moves_14_list, self.add_level_14_moves, self.add_level_14_moves.currentText()))
-        self.add_level_18_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_level18", self.moves_18_list, self.add_level_18_moves, self.add_level_18_moves.currentText()))
-        self.add_starting_moves.lineEdit().returnPressed.connect(lambda: self.set_item_list("moves_starting", self.moves_starting_list, self.add_starting_moves, self.add_starting_moves.currentText()))
-        self.add_ability.lineEdit().returnPressed.connect(lambda: self.set_item_list("abilities", self.abilities_list, self.add_ability, self.add_ability.currentText()))
-        self.add_evolution.lineEdit().returnPressed.connect(lambda: self.set_item_list("evolve_into", self.evolve_into_list, self.add_evolution, self.add_evolution.currentText()))
-        self.add_skill.lineEdit().returnPressed.connect(lambda: self.set_item_list("skills", self.skills_list, self.add_skill, self.add_skill.currentText()))
+        self.add_tms.lineEdit().returnPressed.connect(
+            lambda: self.set_item_list("moves_tm", self.moves_tm_list, self.add_tms, self.add_tms.currentText()))
+        self.add_level_2_moves.lineEdit().returnPressed.connect(
+            lambda: self.set_item_list("moves_level2", self.moves_2_list, self.add_level_2_moves,
+                                       self.add_level_2_moves.currentText()))
+        self.add_level_6_moves.lineEdit().returnPressed.connect(
+            lambda: self.set_item_list("moves_level6", self.moves_6_list, self.add_level_6_moves,
+                                       self.add_level_6_moves.currentText()))
+        self.add_level_10_moves.lineEdit().returnPressed.connect(
+            lambda: self.set_item_list("moves_level10", self.moves_10_list, self.add_level_10_moves,
+                                       self.add_level_10_moves.currentText()))
+        self.add_level_14_moves.lineEdit().returnPressed.connect(
+            lambda: self.set_item_list("moves_level14", self.moves_14_list, self.add_level_14_moves,
+                                       self.add_level_14_moves.currentText()))
+        self.add_level_18_moves.lineEdit().returnPressed.connect(
+            lambda: self.set_item_list("moves_level18", self.moves_18_list, self.add_level_18_moves,
+                                       self.add_level_18_moves.currentText()))
+        self.add_starting_moves.lineEdit().returnPressed.connect(
+            lambda: self.set_item_list("moves_starting", self.moves_starting_list, self.add_starting_moves,
+                                       self.add_starting_moves.currentText()))
+        self.add_ability.lineEdit().returnPressed.connect(
+            lambda: self.set_item_list("abilities", self.abilities_list, self.add_ability,
+                                       self.add_ability.currentText()))
+        self.add_evolution.lineEdit().returnPressed.connect(
+            lambda: self.set_item_list("evolve_into", self.evolve_into_list, self.add_evolution,
+                                       self.add_evolution.currentText()))
+        self.add_skill.lineEdit().returnPressed.connect(
+            lambda: self.set_item_list("skills", self.skills_list, self.add_skill, self.add_skill.currentText()))
 
         # Item selected with mouse
-        self.add_tms.view().pressed.connect(lambda x: self.set_item_list("moves_tm", self.moves_tm_list, self.add_tms, self.add_tms.model().itemFromIndex(x).text()))
-        self.add_level_2_moves.view().pressed.connect(lambda x: self.set_item_list("moves_level2", self.moves_2_list, self.add_level_2_moves, self.add_level_2_moves.model().itemFromIndex(x).text()))
-        self.add_level_6_moves.view().pressed.connect(lambda x: self.set_item_list("moves_level6", self.moves_6_list, self.add_level_6_moves, self.add_level_6_moves.model().itemFromIndex(x).text()))
-        self.add_level_10_moves.view().pressed.connect(lambda x: self.set_item_list("moves_level10", self.moves_10_list, self.add_level_10_moves, self.add_level_10_moves.model().itemFromIndex(x).text()))
-        self.add_level_14_moves.view().pressed.connect(lambda x: self.set_item_list("moves_level14", self.moves_14_list, self.add_level_14_moves, self.add_level_14_moves.model().itemFromIndex(x).text()))
-        self.add_level_18_moves.view().pressed.connect(lambda x: self.set_item_list("moves_level18", self.moves_18_list, self.add_level_18_moves, self.add_level_18_moves.model().itemFromIndex(x).text()))
-        self.add_starting_moves.view().pressed.connect(lambda x: self.set_item_list("moves_starting", self.moves_starting_list, self.add_starting_moves, self.add_starting_moves.model().itemFromIndex(x).text()))
-        self.add_ability.view().pressed.connect(lambda x: self.set_item_list("abilities", self.abilities_list, self.add_ability, self.add_ability.model().itemFromIndex(x).text()))
-        self.add_evolution.view().pressed.connect(lambda x: self.set_item_list("evolve_into", self.evolve_into_list, self.add_evolution, self.add_evolution.model().itemFromIndex(x).text()))
-        self.add_skill.view().pressed.connect(lambda x: self.set_item_list("skills", self.skills_list, self.add_skill, self.add_skill.model().itemFromIndex(x).text()))
+        self.add_tms.view().pressed.connect(lambda x: self.set_item_list("moves_tm", self.moves_tm_list, self.add_tms,
+                                                                         self.add_tms.model().itemFromIndex(x).text()))
+        self.add_level_2_moves.view().pressed.connect(
+            lambda x: self.set_item_list("moves_level2", self.moves_2_list, self.add_level_2_moves,
+                                         self.add_level_2_moves.model().itemFromIndex(x).text()))
+        self.add_level_6_moves.view().pressed.connect(
+            lambda x: self.set_item_list("moves_level6", self.moves_6_list, self.add_level_6_moves,
+                                         self.add_level_6_moves.model().itemFromIndex(x).text()))
+        self.add_level_10_moves.view().pressed.connect(
+            lambda x: self.set_item_list("moves_level10", self.moves_10_list, self.add_level_10_moves,
+                                         self.add_level_10_moves.model().itemFromIndex(x).text()))
+        self.add_level_14_moves.view().pressed.connect(
+            lambda x: self.set_item_list("moves_level14", self.moves_14_list, self.add_level_14_moves,
+                                         self.add_level_14_moves.model().itemFromIndex(x).text()))
+        self.add_level_18_moves.view().pressed.connect(
+            lambda x: self.set_item_list("moves_level18", self.moves_18_list, self.add_level_18_moves,
+                                         self.add_level_18_moves.model().itemFromIndex(x).text()))
+        self.add_starting_moves.view().pressed.connect(
+            lambda x: self.set_item_list("moves_starting", self.moves_starting_list, self.add_starting_moves,
+                                         self.add_starting_moves.model().itemFromIndex(x).text()))
+        self.add_ability.view().pressed.connect(
+            lambda x: self.set_item_list("abilities", self.abilities_list, self.add_ability,
+                                         self.add_ability.model().itemFromIndex(x).text()))
+        self.add_evolution.view().pressed.connect(
+            lambda x: self.set_item_list("evolve_into", self.evolve_into_list, self.add_evolution,
+                                         self.add_evolution.model().itemFromIndex(x).text()))
+        self.add_skill.view().pressed.connect(lambda x: self.set_item_list("skills", self.skills_list, self.add_skill,
+                                                                           self.add_skill.model().itemFromIndex(
+                                                                               x).text()))
 
         self.type1_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "type1", x))
         self.type2_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "type2", x))
         self.sr_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "sr", x))
         self.saving_throw1_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "saving_throw1", x))
         self.saving_throw2_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "saving_throw2", x))
-        self.hit_dice.activated[str].connect(lambda x: self.setattr(self.data.datamon,"hit_dice", x))
+        self.hit_dice.activated[str].connect(lambda x: self.setattr(self.data.datamon, "hit_dice", x))
         self.hidden_ability.activated[str].connect(lambda x: self.setattr(self.data.datamon, "hidden_ability", x))
 
         self.species.textEdited.connect(lambda x: self.setattr(self.data.datamon, "species", x))
@@ -162,7 +199,8 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.INT.textEdited.connect(lambda x: self.setattr(self.data.datamon, "INT", x))
         self.WIS.textEdited.connect(lambda x: self.setattr(self.data.datamon, "WIS", x))
         self.CHA.textEdited.connect(lambda x: self.setattr(self.data.datamon, "CHA", x))
-        self.pokedex_entry.textChanged.connect(lambda: self.setattr(self.data.datamon, "flavor", self.pokedex_entry.toPlainText()))
+        self.pokedex_entry.textChanged.connect(
+            lambda: self.setattr(self.data.datamon, "flavor", self.pokedex_entry.toPlainText()))
         self.weight.textEdited.connect(lambda x: self.setattr(self.data.datamon, "weight", x))
         self.pokemon_height.textEdited.connect(lambda x: self.setattr(self.data.datamon, "height", x))
         self.genus.textEdited.connect(lambda x: self.setattr(self.data.datamon, "genus", x))
@@ -176,8 +214,10 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.moves_10_list.itemDoubleClicked.connect(lambda x: self.remove_level_move(self.moves_10_list, "10", x))
         self.moves_14_list.itemDoubleClicked.connect(lambda x: self.remove_level_move(self.moves_14_list, "14", x))
         self.moves_18_list.itemDoubleClicked.connect(lambda x: self.remove_level_move(self.moves_18_list, "18", x))
-        self.moves_tm_list.itemDoubleClicked.connect(lambda x: self.remove_move(self.moves_tm_list, "TM", int(x.text().split(" ")[0])))
-        self.moves_starting_list.itemDoubleClicked.connect(lambda x: self.remove_move(self.moves_starting_list, "Starting Moves", x.text()))
+        self.moves_tm_list.itemDoubleClicked.connect(
+            lambda x: self.remove_move(self.moves_tm_list, "TM", int(x.text().split(" ")[0])))
+        self.moves_starting_list.itemDoubleClicked.connect(
+            lambda x: self.remove_move(self.moves_starting_list, "Starting Moves", x.text()))
 
         self.skills_list.itemDoubleClicked.connect(lambda x: self.remove_entry(self.skills_list, "Skill", x))
         self.abilities_list.itemDoubleClicked.connect(lambda x: self.remove_entry(self.abilities_list, "Abilities", x))
@@ -437,7 +477,8 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
             if util.is_png(path):
                 w, h = util.get_image_size(path)
                 if w != width or h != height:
-                    QtWidgets.QMessageBox.warning(None, "Invalid dimensions", "Image doesn't have the correct dimensions")
+                    QtWidgets.QMessageBox.warning(None, "Invalid dimensions",
+                                                  "Image doesn't have the correct dimensions")
                 else:
                     if not self.data.container:
                         button_reply = QtWidgets.QMessageBox.question(None, 'Save',
@@ -445,18 +486,20 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
                                                                       QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel,
                                                                       QtWidgets.QMessageBox.Cancel)
                         if button_reply == QtWidgets.QMessageBox.Yes:
-                            self.save(force=True)
+                            self.save_project_signal.emit()
                         else:
                             return False
                     return Path(path)
             else:
-                QtWidgets.QMessageBox.warning(None, "Invalid format", "File isn't PGN", QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.Yes)
+                QtWidgets.QMessageBox.warning(None, "Invalid format", "File isn't PGN", QtWidgets.QMessageBox.Yes,
+                                              QtWidgets.QMessageBox.Yes)
         return False
 
     def add_sprite(self):
         image = self._get_image(126, 126)
         if image:
-            new_name = "{}-{}.{}".format(self.data.datamon.species, "sprite", image.suffix[1:])
+            species = self.data.datamon.species if self.data.datamon.species else util.random_word()
+            new_name = "{}-{}.{}".format(species, "sprite", image.suffix[1:])
             image = util.copy_image_to_temp_dir(image, new_name)
             self.data.container.add(image)
             self.data.datamon.sprite = image.name
@@ -465,7 +508,8 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
     def add_icon(self):
         image = self._get_image(40, 30)
         if image:
-            new_name = "{}-{}.{}".format(self.data.datamon.species, "icon", image.suffix[1:])
+            species = self.data.datamon.species if self.data.datamon.species else util.random_word()
+            new_name = "{}-{}.{}".format(species, "icon", image.suffix[1:])
             image = util.copy_image_to_temp_dir(image, new_name)
             self.data.container.add(image)
             self.data.datamon.icon = image.name
