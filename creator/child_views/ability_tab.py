@@ -69,9 +69,9 @@ class AbilityTab(QtWidgets.QWidget, shared.Tab):
             self.child.close()
 
         self.child = list_view.ListView(util.JsonToList(root / "res/data/abilities.json"))
-        modern = qtmodern.windows.ModernWindow(self.child)
+        self.modern = qtmodern.windows.ModernWindow(self.child)
         self.child.finish_function = self._open_ability
-        modern.show()
+        self.modern.show()
 
     def open_custom_ability(self, widget_item):
         name = widget_item.text()

@@ -301,9 +301,9 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
             self.child.close()
 
         self.child = list_view.ListView(util.JsonToList(root / "res/data/pokemon.json"))
-        modern = qtmodern.windows.ModernWindow(self.child)
+        self.modern = qtmodern.windows.ModernWindow(self.child)
         self.child.finish_function = self._open_pokemon
-        modern.show()
+        self.modern.show()
 
     def clear_fakemon_view(self):
         self.sprite_image.setPixmap(QtGui.QPixmap(str(root / 'res/ui/default_sprite.png')))
