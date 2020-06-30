@@ -27,6 +27,21 @@ if getattr(sys, 'frozen', False):
     qtmodern.windows._FL_STYLESHEET = root / 'qtmodern/frameless.qss'
 
 
+class ScrollMessageBox(QtWidgets.QMessageBox):
+    def __init__(self, l, *args, **kwargs):
+        super(ScrollMessageBox, self).__init__(*args, **kwargs)
+        self.setMinimumSize(800, 400)
+        scroll = QtWidgets.QScrollArea(self)
+        scroll.setWidgetResizable(True)
+        self.content = QtWidgets.QWidget()
+        scroll.setWidget(self.content)
+        lay = QtWidgets.QVBoxLayout(self.content)
+        for item in l:
+            lay.addWidget(QtWidgets.QLabel(item, self))
+        self.layout().addWidget(scroll, 0, 0, 1, self.layout().columnCount())
+        self.setStyleSheet("QScrollArea{min-width:800 px; min-height: 400px}")
+
+
 class MainWindow(QtWidgets.QMainWindow):
     ModernWindow = None
 
@@ -351,7 +366,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def validate(self):
         errors = self.data.validate()
         if errors:
-            QtWidgets.QMessageBox.about(None, "Validate", "\n\n".join(errors))
+            msg = ScrollMessageBox(errors, None)
+            msg.exec_()
         elif not self.data.container:
             QtWidgets.QMessageBox.about(None, "Validate", "No package loaded!")
         else:
