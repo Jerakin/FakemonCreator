@@ -69,8 +69,8 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.climbing.setValidator(QtGui.QIntValidator())
         self.flying.setValidator(QtGui.QIntValidator())
         self.swimming.setValidator(QtGui.QIntValidator())
-        self.weight.setValidator(QtGui.QDoubleValidator())
-        self.pokemon_height.setValidator(QtGui.QDoubleValidator())
+        self.weight.setValidator(QtGui.QIntValidator())
+        self.pokemon_height.setValidator(QtGui.QIntValidator())
         self.total_stages.setValidator(QtGui.QIntValidator())
         self.current_stage.setValidator(QtGui.QIntValidator())
 
