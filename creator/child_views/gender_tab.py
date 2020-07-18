@@ -70,7 +70,7 @@ class GenderTab(QtWidgets.QWidget, shared.Tab):
             self.data.container.delete_entry("gender.json", species_name)
             self.list_gender.takeItem(self.list_gender.currentRow())
             self.data._edited = True
-            if species_name == self.data.gender.name:
+            if species_name == self.data.gender.species:
                 self.data.gender.new()
                 self.load_gender_view()
             self.update_list_signal.emit()
