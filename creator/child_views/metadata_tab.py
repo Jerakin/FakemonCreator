@@ -24,10 +24,24 @@ class MetaDataTab(QtWidgets.QWidget, shared.Tab):
 
         self.update_existing.clicked.connect(self.update_package)
 
-        self.package_description.textChanged.connect(
-            lambda: self.setattr(self.data.metadata, "description", self.package_description.toPlainText()))
+        self.package_description.textChanged.connect(self.description_changed)
         self.package_author.textEdited.connect(lambda x: self.setattr(self.data.metadata, "author", x))
         self.package_name.textEdited.connect(lambda x: self.setattr(self.data.metadata, "name", x))
+        self.package_author.setMaxLength(20)
+        self.package_name.setMaxLength(16)
+
+    def description_changed(self):
+        max_input = 120
+        text = self.package_description.toPlainText()
+        if len(text) > max_input:
+            text = text[:max_input]
+            self.package_description.setText(text)
+
+            cursor = self.package_description.textCursor()
+            cursor.setPosition(max_input)
+            self.package_description.setTextCursor(cursor)
+
+        self.setattr(self.data.metadata, "description", text)
 
     def reload(self):
         self.data.metadata.load(self.data.container.index())
