@@ -357,11 +357,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.hp_help_window.show()
 
     def update_user_lists(self):
-        self.pokemon_tab.update_custom_list()
-        self.move_tab.update_custom_list()
-        self.ability_tab.update_custom_list()
-        self.item_tab.update_custom_list()
-        self.gender_tab.update_custom_list()
+        if self.pokemon_tab:
+            self.pokemon_tab.update_custom_list()
+        if self.move_tab:
+            self.move_tab.update_custom_list()
+        if self.ability_tab:
+            self.ability_tab.update_custom_list()
+        if self.item_tab:
+            self.item_tab.update_custom_list()
+        if self.gender_tab:
+            self.gender_tab.update_custom_list()
 
     def validate(self):
         errors = self.data.validate()

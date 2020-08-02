@@ -75,17 +75,11 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.current_stage.setValidator(QtGui.QIntValidator())
 
         # Add default items
-        self.saving_throw1_pokemon.addItem("None")
-        self.saving_throw2_pokemon.addItem("None")
-
         self.type1_pokemon.addItems(fields.Type)
         self.type2_pokemon.addItem("None")
         self.type2_pokemon.addItems(fields.Type)
 
         self.sr_pokemon.addItems(fields.SR)
-
-        self.saving_throw1_pokemon.addItems(fields.Attributes)
-        self.saving_throw2_pokemon.addItems(fields.Attributes)
 
         self.hit_dice.addItems(fields.Dice)
 
@@ -175,8 +169,12 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.type1_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "type1", x))
         self.type2_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "type2", x))
         self.sr_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "sr", x))
-        self.saving_throw1_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "saving_throw1", x))
-        self.saving_throw2_pokemon.activated[str].connect(lambda x: self.setattr(self.data.datamon, "saving_throw2", x))
+        self.save_str.clicked[bool].connect(lambda x: self.setattr(self.data.datamon, "save_str", x))
+        self.save_dex.clicked[bool].connect(lambda x: self.setattr(self.data.datamon, "save_dex", x))
+        self.save_con.clicked[bool].connect(lambda x: self.setattr(self.data.datamon, "save_con", x))
+        self.save_int.clicked[bool].connect(lambda x: self.setattr(self.data.datamon, "save_int", x))
+        self.save_wis.clicked[bool].connect(lambda x: self.setattr(self.data.datamon, "save_wis", x))
+        self.save_cha.clicked[bool].connect(lambda x: self.setattr(self.data.datamon, "save_cha", x))
         self.hit_dice.activated[str].connect(lambda x: self.setattr(self.data.datamon, "hit_dice", x))
         self.hidden_ability.activated[str].connect(lambda x: self.setattr(self.data.datamon, "hidden_ability", x))
 
@@ -313,8 +311,12 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.sr_pokemon.setCurrentText("")
         self.type1_pokemon.setCurrentText("Normal")
         self.type2_pokemon.setCurrentText("None")
-        self.saving_throw1_pokemon.setCurrentText("None")
-        self.saving_throw2_pokemon.setCurrentText("None")
+        self.save_str.setChecked(False)
+        self.save_dex.setChecked(False)
+        self.save_con.setChecked(False)
+        self.save_int.setChecked(False)
+        self.save_wis.setChecked(False)
+        self.save_cha.setChecked(False)
         self.hidden_ability.setCurrentText("None")
         self.hit_dice.setCurrentText("6")
 
@@ -381,8 +383,12 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.type1_pokemon.setCurrentText(self.data.datamon.type1)
         self.type2_pokemon.setCurrentText(self.data.datamon.type2)
 
-        self.saving_throw1_pokemon.setCurrentText(self.data.datamon.saving_throw1)
-        self.saving_throw2_pokemon.setCurrentText(self.data.datamon.saving_throw2)
+        self.save_str.setChecked(self.data.datamon.save_str)
+        self.save_dex.setChecked(self.data.datamon.save_dex)
+        self.save_con.setChecked(self.data.datamon.save_con)
+        self.save_int.setChecked(self.data.datamon.save_int)
+        self.save_wis.setChecked(self.data.datamon.save_wis)
+        self.save_cha.setChecked(self.data.datamon.save_cha)
 
         self.hidden_ability.setCurrentText(self.data.datamon.hidden_ability)
 

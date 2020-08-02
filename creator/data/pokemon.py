@@ -37,6 +37,7 @@ _NEW_DATA = {
     "Res": [],
     "Vul": [
     ],
+    "saving_throws": [],
     "Hidden Ability": "Adaptability"
 }
 
@@ -77,10 +78,6 @@ class Pokemon:
         if not self.species and self.edited:
             now = datetime.now()
             self.species = now.strftime("%m%d%Y%H%M%S")
-        if "saving_throws" in self.data:
-            for st in self.data["saving_throws"][::-1]:
-                if st == "None":
-                    self.data["saving_throws"].remove(st)
 
     def fakemon(self, data, species):
         self.data = data["pokemon.json"][species]
@@ -97,6 +94,8 @@ class Pokemon:
         data_path = Path(root / "res/data/pokemon.json")
         with data_path.open("r", encoding="utf-8") as f:
             self.data = json.load(f)[species]
+            if "saving_throws" not in self.data:
+                self.data["saving_throws"] = []
 
         extra_path = Path(root / "res/data/pokedex_extra.json")
         with extra_path.open("r", encoding="utf-8") as f:
@@ -151,6 +150,79 @@ class Pokemon:
     @hidden_ability.setter
     def hidden_ability(self, value):
         self.data["Hidden Ability"] = value
+
+    @property
+    def save_str(self):
+        return "saving_throws" in self.data and "STR" in self.data["saving_throws"]
+
+    @property
+    def save_dex(self):
+        return "saving_throws" in self.data and "DEX" in self.data["saving_throws"]
+
+    @property
+    def save_con(self):
+        return "saving_throws" in self.data and "CON" in self.data["saving_throws"]
+
+    @property
+    def save_int(self):
+        return "saving_throws" in self.data and "INT" in self.data["saving_throws"]
+
+    @property
+    def save_wis(self):
+        return "saving_throws" in self.data and "WIS" in self.data["saving_throws"]
+
+    @property
+    def save_cha(self):
+        return "saving_throws" in self.data and "CHA" in self.data["saving_throws"]
+
+    @save_str.setter
+    def save_str(self, value):
+        if value:
+            if "STR" not in self.data["saving_throws"]:
+                self.data["saving_throws"].append("STR")
+        else:
+            self.data["saving_throws"].remove("STR")
+
+    @save_dex.setter
+    def save_dex(self, value):
+        if value:
+            if "DEX" not in self.data["saving_throws"]:
+                self.data["saving_throws"].append("DEX")
+        else:
+            self.data["saving_throws"].remove("DEX")
+
+    @save_con.setter
+    def save_con(self, value):
+        if value:
+            if "CON" not in self.data["saving_throws"]:
+                self.data["saving_throws"].append("CON")
+        else:
+            self.data["saving_throws"].remove("CON")
+
+    @save_int.setter
+    def save_int(self, value):
+        if value:
+            if "INT" not in self.data["saving_throws"]:
+                self.data["saving_throws"].append("INT")
+        else:
+            self.data["saving_throws"].remove("INT")
+
+    @save_wis.setter
+    def save_wis(self, value):
+        if value:
+            if "WIS" not in self.data["saving_throws"]:
+                self.data["saving_throws"].append("WIS")
+        else:
+            self.data["saving_throws"].remove("WIS")
+
+    @save_cha.setter
+    def save_cha(self, value):
+        if value:
+            if "CHA" not in self.data["saving_throws"]:
+                self.data["saving_throws"].append("CHA")
+        else:
+            self.data["saving_throws"].remove("CHA")
+
 
     @property
     def saving_throw2(self):
