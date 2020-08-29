@@ -622,6 +622,16 @@
            </property>
           </spacer>
          </item>
+         <item row="2" column="3">
+          <widget class="ExtendedComboBox" name="evolve_with_move"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>When knowing</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item row="2" column="0">

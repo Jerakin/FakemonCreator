@@ -204,6 +204,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.genus.textEdited.connect(lambda x: self.setattr(self.data.datamon, "genus", x))
         self.evolve_level_gain.textEdited.connect(lambda x: self.setattr(self.data.datamon, "evolve_level", x))
         self.evolve_points_gain.textEdited.connect(lambda x: self.setattr(self.data.datamon, "evolve_points", x))
+        self.evolve_with_move.activated[str].connect(lambda x: self.setattr(self.data.datamon, "evolve_with_move", x))
         self.total_stages.textEdited.connect(lambda x: self.setattr(self.data.datamon, "evolve_total_stages", x))
         self.current_stage.textEdited.connect(lambda x: self.setattr(self.data.datamon, "evolve_current_stages", x))
 
@@ -343,6 +344,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
 
         self.evolve_level_gain.setText("")
         self.evolve_points_gain.setText("")
+        self.evolve_with_move.clear()
 
         self.walking.setText("")
         self.climbing.setText("")
@@ -405,13 +407,26 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.moves_18_list.addItems(self.data.datamon.moves_level18)
 
         move_machine_path = Path(root / "res/data/move_machines.json")
+        tm_moves = [""]
         with move_machine_path.open("r") as f:
             data = json.load(f)
             for index in self.data.datamon.moves_tm:
                 name = data[index]
+                tm_moves.append(name)
                 self.moves_tm_list.addItem("{} - {}".format(index, name))
 
         self.moves_starting_list.addItems(self.data.datamon.moves_starting)
+
+        all_moves = []
+        all_moves.extend(self.data.datamon.moves_level2)
+        all_moves.extend(self.data.datamon.moves_level6)
+        all_moves.extend(self.data.datamon.moves_level10)
+        all_moves.extend(self.data.datamon.moves_level14)
+        all_moves.extend(self.data.datamon.moves_level18)
+        all_moves.extend(self.data.datamon.moves_level18)
+        all_moves.extend(self.data.datamon.moves_starting)
+        all_moves.extend(tm_moves)
+        self.evolve_with_move.addItems(all_moves)
 
         self.skills_list.addItems(self.data.datamon.skills)
         self.abilities_list.addItems(self.data.datamon.abilities)

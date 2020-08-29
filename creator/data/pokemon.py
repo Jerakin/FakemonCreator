@@ -383,6 +383,17 @@ class Pokemon:
         self.data[t].remove(entry)
 
     @property
+    def evolve_with_move(self):
+        return str(self.evolve["move"]) if "move" in self.evolve else ""
+
+    @evolve_with_move.setter
+    def evolve_with_move(self, value):
+        if value == "" and "move" in self.evolve:
+            del self.evolve["move"]
+        else:
+            self.evolve["move"] = value
+
+    @property
     def moves_level2(self):
         return self.get_level_moves("2")
 
