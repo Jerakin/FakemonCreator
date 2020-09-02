@@ -1,24 +1,16 @@
-import sys
-from pathlib import Path
-
 from PyQt5 import QtWidgets, uic
+import qtmodern.windows
+import qtmodern.styles
 
 from creator.utils import util
 from creator.child_views import shared
 from creator.child_views import list_view
 
-import qtmodern.windows
-import qtmodern.styles
-
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
-
 
 class MetaDataTab(QtWidgets.QWidget, shared.Tab):
     def __init__(self, data):
         super(MetaDataTab, self).__init__()
-        uic.loadUi(root / 'res/ui/SettingsTab.ui', self)
+        uic.loadUi(util.RESOURCE_UI / 'SettingsTab.ui', self)
         self.data = data
         self.child = None
 

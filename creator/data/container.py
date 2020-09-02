@@ -1,16 +1,13 @@
 import io
-import sys
 import json
 import zipfile
-from pathlib import Path
 import logging as log
 import datetime
-from creator.utils import validate
-from creator import __version__ as editor_version
+from pathlib import Path
 
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
+from creator.utils import validate
+import creator.utils.util as utils
+from creator import __version__ as editor_version
 
 
 class Container:
@@ -42,10 +39,10 @@ class Container:
         errors = list()
         errors.extend(validate.clean_container(self))
         data = self.data()
-        errors.extend(validate.validate(root / "res/schema/pokemon.json", data["pokemon.json"]))
-        errors.extend(validate.validate(root / "res/schema/pokedex_extra.json", data["pokedex_extra.json"]))
-        errors.extend(validate.validate(root / "res/schema/moves.json", data["moves.json"]))
-        errors.extend(validate.validate(root / "res/schema/evolve.json", data["evolve.json"]))
+        errors.extend(validate.validate(utils.SCHEMA / "pokemon.json", data["pokemon.json"]))
+        errors.extend(validate.validate(utils.SCHEMA / "pokedex_extra.json", data["pokedex_extra.json"]))
+        errors.extend(validate.validate(utils.SCHEMA / "moves.json", data["moves.json"]))
+        errors.extend(validate.validate(utils.SCHEMA / "evolve.json", data["evolve.json"]))
         errors.extend(validate.validate_package_name(self))
 
         return errors

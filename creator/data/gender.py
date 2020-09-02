@@ -1,10 +1,6 @@
-from pathlib import Path
-import sys
 import json
 
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
+import creator.utils.util as util
 
 
 class Gender:
@@ -21,7 +17,7 @@ class Gender:
         super(Gender, self).__setattr__(key, value)
 
     def load(self, name):
-        data_path = Path(root / "res/data/gender.json")
+        data_path = util.DATA / "gender.json"
         with data_path.open("r", encoding="utf-8") as f:
             self.data = json.load(f)[name]
         self.__initialized = True

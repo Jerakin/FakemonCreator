@@ -1,9 +1,8 @@
-from pathlib import Path
-import sys
 import json
 import copy
 from datetime import datetime
-from creator.utils.util import validate
+
+import creator.utils.util as util
 
 _NEW_DATA = {
     "Type": "Normal",
@@ -14,10 +13,6 @@ _NEW_DATA = {
     "Range": "",
     "Description": ""
   }
-
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
 
 
 class Move:
@@ -41,7 +36,7 @@ class Move:
     def load(self, name):
         self.name = name
 
-        data_path = Path(root / "res/data/moves.json")
+        data_path = util.DATA / "moves.json"
         with data_path.open("r", encoding="utf-8") as f:
             self.data = json.load(f)[name]
         self.__initialized = True
@@ -179,4 +174,4 @@ class Move:
             del self.data["Damage"]
 
     def validate(self):
-        validate(self.data, "res/schema/moves.json")
+        util.validate(self.data, util.DATA / "moves.json")

@@ -1,3 +1,4 @@
+import sys
 import json
 from pathlib import Path
 import struct
@@ -14,6 +15,23 @@ import tempfile
 import shutil
 
 from creator import __version__ as version
+
+import qtmodern.windows
+import qtmodern.styles
+
+ROOT = Path(__file__).parent.parent.parent
+if getattr(sys, 'frozen', False):
+    ROOT = Path(sys._MEIPASS)
+    qtmodern.styles._STYLESHEET = ROOT / 'qtmodern/style.qss'
+    qtmodern.windows._FL_STYLESHEET = ROOT / 'qtmodern/frameless.qss'
+
+RESOURCE = ROOT / "creator" / "res"
+RESOURCE_UI = RESOURCE / "ui"
+SCHEMA = RESOURCE / "schema"
+DATA = ROOT / "creator" / "res" / "data"
+HOME = Path().home()
+
+
 
 
 class SimpleList:

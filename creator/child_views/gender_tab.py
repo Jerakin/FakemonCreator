@@ -1,5 +1,3 @@
-import sys
-from pathlib import Path
 import logging as log
 
 from PyQt5 import QtWidgets, uic
@@ -9,13 +7,6 @@ from creator.utils import util
 from creator.child_views import shared
 from creator.child_views import list_view
 
-import qtmodern.windows
-import qtmodern.styles
-
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
-
 GENDERLESS = 0
 MALE = 1
 FEMALE = 2
@@ -24,13 +15,13 @@ FEMALE = 2
 class GenderTab(QtWidgets.QWidget, shared.Tab):
     def __init__(self, data):
         super(GenderTab, self).__init__()
-        uic.loadUi(root / 'res/ui/GenderTab.ui', self)
+        uic.loadUi(util.RESOURCE_UI / 'GenderTab.ui', self)
         self.data = data
         self.extended = False
         self.list_gender.setContextMenuPolicy(Qt.CustomContextMenu)
         self.list_gender.customContextMenuRequested.connect(self.context_menu)
 
-        self.pkmn_list = util.JsonToList(root / "res/data/pokemon.json")
+        self.pkmn_list = util.JsonToList(util.DATA / "pokemon.json")
 
         self.speciesDropdown.addItems(self.pkmn_list.list)
         self.speciesDropdown.activated.connect(self.extend_dropdown)

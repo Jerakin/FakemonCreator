@@ -1,5 +1,3 @@
-import sys
-from pathlib import Path
 import logging as log
 
 from PyQt5 import QtWidgets, uic
@@ -12,17 +10,13 @@ from creator.child_views import list_view
 import qtmodern.windows
 import qtmodern.styles
 
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
-
 
 class ItemTab(QtWidgets.QWidget, shared.Tab):
     def __init__(self, data):
         super(ItemTab, self).__init__()
-        uic.loadUi(root / 'res/ui/ItemTab.ui', self)
+        uic.loadUi(util.RESOURCE_UI / 'ItemTab.ui', self)
         self.data = data
-        self.item_list = util.JsonToList(root / "res/data/items.json")
+        self.item_list = util.JsonToList(util.DATA / "items.json")
         self.child = None
 
         self.list_items.setContextMenuPolicy(Qt.CustomContextMenu)
@@ -68,7 +62,7 @@ class ItemTab(QtWidgets.QWidget, shared.Tab):
         if self.child:
             self.child.close()
 
-        self.child = list_view.ListView(util.JsonToList(root / "res/data/items.json"))
+        self.child = list_view.ListView(util.JsonToList(util.DATA / "items.json"))
         self.modern = qtmodern.windows.ModernWindow(self.child)
         self.child.finish_function = self._open_item
         self.modern.show()

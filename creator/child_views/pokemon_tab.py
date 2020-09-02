@@ -1,6 +1,4 @@
-import sys
 import json
-from pathlib import Path
 import logging as log
 
 from PyQt5 import QtWidgets, uic, QtGui, sip
@@ -16,27 +14,23 @@ import creator.components  ## This needs to be here for the promoted QComboBoxes
 import qtmodern.windows
 import qtmodern.styles
 
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
-
 
 class PokemonTab(QtWidgets.QWidget, shared.Tab):
     def __init__(self, data):
         super(PokemonTab, self).__init__()
-        uic.loadUi(root / 'res/ui/PokemonTab.ui', self)
+        uic.loadUi(util.RESOURCE_UI / 'PokemonTab.ui', self)
         self.data = data
 
         # Forward Declare
         self.child = None
 
         # List of all entries
-        self.pkmn_list = util.JsonToList(root / "res/data/pokemon.json")
-        self.move_list = util.JsonToList(root / "res/data/moves.json")
-        self.ability_list = util.JsonToList(root / "res/data/abilities.json")
+        self.pkmn_list = util.JsonToList(util.DATA / "pokemon.json")
+        self.move_list = util.JsonToList(util.DATA / "moves.json")
+        self.ability_list = util.JsonToList(util.DATA / "abilities.json")
 
         self.tm_list = [""]
-        move_machine_path = Path(root / "res/data/move_machines.json")
+        move_machine_path = util.DATA / "move_machines.json"
         with move_machine_path.open("r", encoding="utf-8") as f:
             data = json.load(f)
             for index, name in data.items():
@@ -45,8 +39,8 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         context_menu = QtWidgets.QMenu("context")
         context_menu.addAction("Delete")
 
-        self.sprite_image.setPixmap(QtGui.QPixmap(str(root / 'res/ui/default_sprite.png')))
-        self.icon_image.setPixmap(QtGui.QPixmap(str(root / 'res/ui/default_icon.png')))
+        self.sprite_image.setPixmap(QtGui.QPixmap(str(util.RESOURCE_UI / 'default_sprite.png')))
+        self.icon_image.setPixmap(QtGui.QPixmap(str(util.RESOURCE_UI / 'default_icon.png')))
 
         # Restrict text inputs
         self.index_number.setValidator(QtGui.QIntValidator())
@@ -221,6 +215,11 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.skills_list.itemDoubleClicked.connect(lambda x: self.remove_entry(self.skills_list, "Skill", x))
         self.abilities_list.itemDoubleClicked.connect(lambda x: self.remove_entry(self.abilities_list, "Abilities", x))
         self.evolve_into_list.itemDoubleClicked.connect(lambda x: self.remove_evolution(self.evolve_into_list, x))
+    #     self.remove_pokemon.stateChanged.connect(self.pokemon_enabled)
+    #
+    # def pokemon_enabled(self):
+    #     delete_pokemon = not self.remove_pokemon.isChecked()
+    #     self.pokemon_content.setEnabled(delete_pokemon)
 
     def set_attributes(self, attributes):
         self.setattr(self.data.datamon, "STR", attributes[0])
@@ -299,14 +298,14 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         if self.child and not sip.isdeleted(self.child):
             self.child.close()
 
-        self.child = list_view.ListView(util.JsonToList(root / "res/data/pokemon.json"))
+        self.child = list_view.ListView(util.JsonToList(util.DATA / "pokemon.json"))
         self.modern = qtmodern.windows.ModernWindow(self.child)
         self.child.finish_function = self._open_pokemon
         self.modern.show()
 
     def clear_fakemon_view(self):
-        self.sprite_image.setPixmap(QtGui.QPixmap(str(root / 'res/ui/default_sprite.png')))
-        self.icon_image.setPixmap(QtGui.QPixmap(str(root / 'res/ui/default_icon.png')))
+        self.sprite_image.setPixmap(QtGui.QPixmap(str(util.RESOURCE_UI / 'default_sprite.png')))
+        self.icon_image.setPixmap(QtGui.QPixmap(str(util.RESOURCE_UI / 'default_icon.png')))
 
         self.species.setText("")
         self.sr_pokemon.setCurrentText("")
@@ -406,7 +405,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.moves_14_list.addItems(self.data.datamon.moves_level14)
         self.moves_18_list.addItems(self.data.datamon.moves_level18)
 
-        move_machine_path = Path(root / "res/data/move_machines.json")
+        move_machine_path = util.DATA / "move_machines.json"
         tm_moves = [""]
         with move_machine_path.open("r") as f:
             data = json.load(f)
@@ -493,7 +492,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
             dropdown.setCurrentText("")
 
     def _get_image(self, width, height):
-        path = QtWidgets.QFileDialog.getOpenFileName(None, "Open Selected file", str(Path().home()), 'PNG(*.png)')[0]
+        path = QtWidgets.QFileDialog.getOpenFileName(None, "Open Selected file", str(util.HOME), 'PNG(*.png)')[0]
         if path != '':
             if util.is_png(path):
                 w, h = util.get_image_size(path)
@@ -510,7 +509,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
                             self.save_project_signal.emit()
                         else:
                             return False
-                    return Path(path)
+                    return util.Path(path)
             else:
                 QtWidgets.QMessageBox.warning(None, "Invalid format", "File isn't PGN", QtWidgets.QMessageBox.Yes,
                                               QtWidgets.QMessageBox.Yes)

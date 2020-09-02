@@ -1,20 +1,16 @@
-import sys
-from pathlib import Path
-from PyQt5 import QtWidgets, uic, QtGui, QtCore
-import qtmodern.windows
-import qtmodern.styles
 import logging as log
 
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
+from PyQt5 import QtWidgets, uic, QtGui, QtCore
+import qtmodern.styles
+import qtmodern.windows
 
+import creator.utils.util as util
 
 class StatsCalculator(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super(StatsCalculator, self).__init__()
         self.parent = parent
-        uic.loadUi(root / 'res/ui/StatsCalculator.ui', self)  # Load the .ui file
+        uic.loadUi(util.RESOURCE_UI / 'StatsCalculator.ui', self)  # Load the .ui file
         exit_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("Esc"), self)
         exit_shortcut.activated.connect(self.close)
         self.strength_overruled = False
@@ -101,15 +97,15 @@ def static_remap(value):
     return int(remap(value, 0, 240, 5, 30))
 
 
-def main():
-    app = QtWidgets.QApplication(sys.argv)
-    win = StatsCalculator()
-    mw = qtmodern.windows.ModernWindow(win)
-    mw.show()
-    sys.exit(app.exec_())
-
-
-if __name__ == "__main__":
-    log.getLogger().setLevel(log.INFO)
-    root = Path().cwd().parent
-    main()
+# def main():
+#     app = QtWidgets.QApplication(sys.argv)
+#     win = StatsCalculator()
+#     mw = qtmodern.windows.ModernWindow(win)
+#     mw.show()
+#     sys.exit(app.exec_())
+#
+#
+# if __name__ == "__main__":
+#     log.getLogger().setLevel(log.INFO)
+#     root = Path().cwd().parent
+#     main()

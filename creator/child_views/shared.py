@@ -1,17 +1,12 @@
-import sys
-from pathlib import Path
-
 from PyQt5 import QtWidgets, uic, QtGui, QtCore
 
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
+import creator.utils.util as util
 
 
 class HPHelp(QtWidgets.QWidget):
     def __init__(self, parent):
         super(HPHelp, self).__init__()
-        uic.loadUi(root / 'res/ui/CalculateHP.ui', self)
+        uic.loadUi(util.RESOURCE_UI / 'CalculateHP.ui', self)
         exit_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("Esc"), self)
         exit_shortcut.activated.connect(self.close)
         self.parent = parent

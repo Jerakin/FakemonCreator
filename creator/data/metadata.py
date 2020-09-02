@@ -1,7 +1,6 @@
 import copy
-import sys
-from pathlib import Path
-from creator.utils.util import validate
+
+from creator.utils.util import validate, SCHEMA
 
 _PACKAGE_INDEX_TEMPLATE = {
     "name": "",
@@ -9,10 +8,6 @@ _PACKAGE_INDEX_TEMPLATE = {
     "description": "",
     "version": 1
 }
-
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
 
 
 class Metadata:
@@ -73,4 +68,4 @@ class Metadata:
         self.data["version"] = int(value)
 
     def validate(self):
-        validate(self.data, root / "res/schema/index.json")
+        validate(self.data, SCHEMA / "index.json")

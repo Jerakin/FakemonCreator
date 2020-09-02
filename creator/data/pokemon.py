@@ -1,9 +1,10 @@
 import sys
 import json
-from pathlib import Path
-import creator.utils.PokemonType.model as PokemonType
 import copy
 from datetime import datetime
+
+import creator.utils.PokemonType.model as PokemonType
+import creator.utils.util as util
 
 _NEW_DATA = {
     "Moves": {
@@ -53,10 +54,6 @@ _NEW_EVOLVE = {
     "total_stages": 1
 }
 
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
-
 
 class Pokemon:
     __initialized = False
@@ -91,17 +88,17 @@ class Pokemon:
     def load(self, species):
         self.species = species
 
-        data_path = Path(root / "res/data/pokemon.json")
+        data_path = util.DATA / "pokemon.json"
         with data_path.open("r", encoding="utf-8") as f:
             self.data = json.load(f)[species]
             if "saving_throws" not in self.data:
                 self.data["saving_throws"] = []
 
-        extra_path = Path(root / "res/data/pokedex_extra.json")
+        extra_path = util.DATA / "pokedex_extra.json"
         with extra_path.open("r", encoding="utf-8") as f:
             self.extra = json.load(f)[self.index]
 
-        evolve_path = Path(root / "res/data/evolve.json")
+        evolve_path = util.DATA / "evolve.json"
         with evolve_path.open("r", encoding="utf-8") as f:
             data = json.load(f)
             if species in data:

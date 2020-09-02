@@ -1,7 +1,10 @@
-import sys
-from pathlib import Path
 import logging as log
 from PyQt5 import QtWidgets, uic, QtGui, QtCore
+import sys
+from pathlib import Path
+
+import qtmodern.windows
+import qtmodern.styles
 
 from creator.data import Data
 from creator.utils import util
@@ -14,17 +17,9 @@ from creator.child_views import item_tab
 from creator.child_views import stats_calculator
 from creator.child_views import shared
 from creator.child_views import exception
-import qtmodern.windows
-import qtmodern.styles
 
 from zipfile import BadZipFile
 from creator import __version__ as version
-
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
-    qtmodern.styles._STYLESHEET = root / 'qtmodern/style.qss'
-    qtmodern.windows._FL_STYLESHEET = root / 'qtmodern/frameless.qss'
 
 
 class ScrollMessageBox(QtWidgets.QMessageBox):
@@ -48,7 +43,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         sys.excepthook = self.handle_exception
-        uic.loadUi(root / 'res/ui/FakemonCreator.ui', self)
+        uic.loadUi(util.RESOURCE_UI / 'FakemonCreator.ui', self)
         exit_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("Esc"), self)
         exit_shortcut.activated.connect(self.close)
         debug_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("."), self)

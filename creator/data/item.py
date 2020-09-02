@@ -1,16 +1,12 @@
-from pathlib import Path
 import json
 import copy
-import sys
 from datetime import datetime
+
+import creator.utils.util as util
 
 _NEW_DATA = {
     "Description": ""
 }
-
-root = Path()
-if getattr(sys, 'frozen', False):
-    root = Path(sys._MEIPASS)
 
 
 class Item:
@@ -39,7 +35,7 @@ class Item:
     def load(self, name):
         self.name = name
 
-        data_path = Path(root / "res/data/items.json")
+        data_path = util.DATA / "items.json"
         with data_path.open("r", encoding="utf-8") as f:
             self.data = json.load(f)[name]
         self.__initialized = True
