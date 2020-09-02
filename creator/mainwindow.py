@@ -60,6 +60,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.metadata_tab = None
         self.item_tab = None
         self.gender_tab = None
+        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.removeTab(5)
 
         self.setWindowTitle("untitled | Fakemon Creator")
         self.menubar.setNativeMenuBar(False)

@@ -63,7 +63,6 @@ class GenderTab(QtWidgets.QWidget, shared.Tab):
             self.data._edited = True
             if species_name == self.data.gender.species:
                 self.data.gender.new()
-                self.load_gender_view()
             self.update_list_signal.emit()
             log.info("Deleted {}".format(species_name))
 
