@@ -44,4 +44,4 @@ class Gender:
 
     @gender.setter
     def gender(self, gender):
-        self.data[self.species] = gender
+        self.data[self.species] = int(gender)

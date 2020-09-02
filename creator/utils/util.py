@@ -19,16 +19,16 @@ from creator import __version__ as version
 import qtmodern.windows
 import qtmodern.styles
 
-ROOT = Path(__file__).parent.parent.parent
+ROOT = Path(__file__).parent.parent.parent / "creator"
 if getattr(sys, 'frozen', False):
     ROOT = Path(sys._MEIPASS)
     qtmodern.styles._STYLESHEET = ROOT / 'qtmodern/style.qss'
     qtmodern.windows._FL_STYLESHEET = ROOT / 'qtmodern/frameless.qss'
 
-RESOURCE = ROOT / "creator" / "res"
+RESOURCE = ROOT / "res"
 RESOURCE_UI = RESOURCE / "ui"
 SCHEMA = RESOURCE / "schema"
-DATA = ROOT / "creator" / "res" / "data"
+DATA = ROOT / "res" / "data"
 HOME = Path().home()
 
 

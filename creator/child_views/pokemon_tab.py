@@ -198,7 +198,13 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.genus.textEdited.connect(lambda x: self.setattr(self.data.datamon, "genus", x))
         self.evolve_level_gain.textEdited.connect(lambda x: self.setattr(self.data.datamon, "evolve_level", x))
         self.evolve_points_gain.textEdited.connect(lambda x: self.setattr(self.data.datamon, "evolve_points", x))
-        self.evolve_with_move.activated[str].connect(lambda x: self.setattr(self.data.datamon, "evolve_with_move", x))
+
+        def _evolve_with_move(x):
+            self.setattr(self.data.datamon, "evolve_with_move", x)
+            self.evolve_level_gain.setText("")
+            self.setattr(self.data.datamon, "evolve_level", "")
+
+        self.evolve_with_move.activated[str].connect(lambda x: _evolve_with_move(x))
         self.total_stages.textEdited.connect(lambda x: self.setattr(self.data.datamon, "evolve_total_stages", x))
         self.current_stage.textEdited.connect(lambda x: self.setattr(self.data.datamon, "evolve_current_stages", x))
 
@@ -416,7 +422,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
 
         self.moves_starting_list.addItems(self.data.datamon.moves_starting)
 
-        all_moves = []
+        all_moves = [""]
         all_moves.extend(self.data.datamon.moves_level2)
         all_moves.extend(self.data.datamon.moves_level6)
         all_moves.extend(self.data.datamon.moves_level10)
@@ -424,7 +430,6 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         all_moves.extend(self.data.datamon.moves_level18)
         all_moves.extend(self.data.datamon.moves_level18)
         all_moves.extend(self.data.datamon.moves_starting)
-        all_moves.extend(tm_moves)
         self.evolve_with_move.addItems(all_moves)
 
         self.skills_list.addItems(self.data.datamon.skills)
@@ -460,6 +465,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
 
         self.total_stages.setText(self.data.datamon.evolve_total_stages)
         self.current_stage.setText(self.data.datamon.evolve_current_stages)
+        self.evolve_with_move.setCurrentText(self.data.datamon.evolve_with_move)
 
     def remove_level_move(self, current_list, level, item):
         self.data.datamon.remove_level_move(level, item.text())

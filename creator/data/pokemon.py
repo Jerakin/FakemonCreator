@@ -492,7 +492,10 @@ class Pokemon:
 
     @evolve_level.setter
     def evolve_level(self, value):
-        self.evolve["level"] = int(value if value else 0)
+        if "level" in self.evolve and not value:
+            del self.evolve["level"]
+        elif value:
+            self.evolve["level"] = int(value)
 
     @property
     def evolve_points(self):

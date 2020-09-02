@@ -11,7 +11,7 @@ class ListView(QtWidgets.QWidget):
         self.setAttribute(QtCore.Qt.WA_DeleteOnClose, True)
         self.finish_function = None
         # Skip the error entries
-        for entry in list_class.list:
+        for entry in list_class:
             if entry:
                 self.listWidget.addItem(entry)
 
