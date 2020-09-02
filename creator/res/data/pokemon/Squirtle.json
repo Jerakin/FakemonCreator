@@ -1,0 +1,90 @@
+{
+  "AC": 14,
+  "Abilities": [
+    "Torrent"
+  ],
+  "Evolve": "Wartortle",
+  "HP": 18,
+  "Hidden Ability": "Rain Dish",
+  "Hit Dice": 6,
+  "MIN LVL FD": 1,
+  "Moves": {
+    "Level": {
+      "10": [
+        "Protect",
+        "Water Pulse"
+      ],
+      "14": [
+        "Aqua Tail",
+        "Skull Bash",
+        "Iron Defense"
+      ],
+      "18": [
+        "Rain Dance",
+        "Hydro Pump"
+      ],
+      "2": [
+        "Water Gun",
+        "Withdraw"
+      ],
+      "6": [
+        "Bubble",
+        "Bite",
+        "Rapid Spin"
+      ]
+    },
+    "Starting Moves": [
+      "Tackle",
+      "Tail Whip"
+    ],
+    "TM": [
+      1,
+      6,
+      7,
+      10,
+      13,
+      14,
+      17,
+      18,
+      21,
+      27,
+      31,
+      32,
+      39,
+      42,
+      44,
+      48,
+      55,
+      56,
+      74,
+      87,
+      88,
+      90,
+      94,
+      98,
+      100
+    ]
+  },
+  "SR": 0.5,
+  "Skill": [
+    "Survival"
+  ],
+  "Ssp": 20,
+  "Type": [
+    "Water"
+  ],
+  "WSp": 30,
+  "attributes": {
+    "CHA": 10,
+    "CON": 14,
+    "DEX": 11,
+    "INT": 6,
+    "STR": 12,
+    "WIS": 10
+  },
+  "index": 7,
+  "saving_throws": [
+    "CON"
+  ],
+  "size": "Small"
+}

@@ -25,8 +25,8 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.child = None
 
         # List of all entries
-        self.pkmn_list = util.JsonToList(util.DATA / "pokemon.json")
-        self.move_list = util.JsonToList(util.DATA / "moves.json")
+        self.pkmn_list = util.pokemon_list()
+        self.move_list = util.move_list()
         self.ability_list = util.JsonToList(util.DATA / "abilities.json")
 
         self.tm_list = [""]
@@ -79,16 +79,16 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
 
         self.add_skill.addItems(fields.SKILLS)
 
-        self.add_level_2_moves.addItems(self.move_list.list)
-        self.add_level_6_moves.addItems(self.move_list.list)
-        self.add_starting_moves.addItems(self.move_list.list)
-        self.add_level_10_moves.addItems(self.move_list.list)
-        self.add_level_14_moves.addItems(self.move_list.list)
-        self.add_level_18_moves.addItems(self.move_list.list)
+        self.add_level_2_moves.addItems(self.move_list)
+        self.add_level_6_moves.addItems(self.move_list)
+        self.add_starting_moves.addItems(self.move_list)
+        self.add_level_10_moves.addItems(self.move_list)
+        self.add_level_14_moves.addItems(self.move_list)
+        self.add_level_18_moves.addItems(self.move_list)
 
-        self.add_evolution.addItems(self.pkmn_list.list)
-        self.add_ability.addItems(self.ability_list.list)
-        self.hidden_ability.addItems(self.ability_list.list)
+        self.add_evolution.addItems(self.pkmn_list)
+        self.add_ability.addItems(self.ability_list)
+        self.hidden_ability.addItems(self.ability_list)
         self.add_tms.addItems(self.tm_list)
 
         # add interactions
@@ -298,7 +298,7 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         if self.child and not sip.isdeleted(self.child):
             self.child.close()
 
-        self.child = list_view.ListView(util.JsonToList(util.DATA / "pokemon.json"))
+        self.child = list_view.ListView(util.pokemon_list())
         self.modern = qtmodern.windows.ModernWindow(self.child)
         self.child.finish_function = self._open_pokemon
         self.modern.show()
@@ -564,12 +564,12 @@ class PokemonTab(QtWidgets.QWidget, shared.Tab):
         self.add_ability.clear()
         self.hidden_ability.clear()
 
-        self.add_level_2_moves.addItems(self.move_list.list)
-        self.add_level_6_moves.addItems(self.move_list.list)
-        self.add_starting_moves.addItems(self.move_list.list)
-        self.add_level_10_moves.addItems(self.move_list.list)
-        self.add_level_14_moves.addItems(self.move_list.list)
-        self.add_level_18_moves.addItems(self.move_list.list)
-        self.add_evolution.addItems(self.pkmn_list.list)
-        self.add_ability.addItems(self.ability_list.list)
-        self.hidden_ability.addItems(self.ability_list.list)
+        self.add_level_2_moves.addItems(self.move_list)
+        self.add_level_6_moves.addItems(self.move_list)
+        self.add_starting_moves.addItems(self.move_list)
+        self.add_level_10_moves.addItems(self.move_list)
+        self.add_level_14_moves.addItems(self.move_list)
+        self.add_level_18_moves.addItems(self.move_list)
+        self.add_evolution.addItems(self.pkmn_list)
+        self.add_ability.addItems(self.ability_list)
+        self.hidden_ability.addItems(self.ability_list)

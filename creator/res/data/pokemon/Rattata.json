@@ -1,0 +1,96 @@
+{
+  "AC": 12,
+  "Abilities": [
+    "Run Away",
+    "Guts"
+  ],
+  "Climbing Speed": 30,
+  "Evolve": "Raticate",
+  "HP": 16,
+  "Hidden Ability": "Hustle",
+  "Hit Dice": 6,
+  "MIN LVL FD": 1,
+  "Moves": {
+    "Level": {
+      "10": [
+        "Crunch",
+        "Sucker Punch"
+      ],
+      "14": [
+        "Super Fang",
+        "Double-Edge",
+        "Endeavor"
+      ],
+      "2": [
+        "Quick Attack",
+        "Focus Energy",
+        "Bite"
+      ],
+      "6": [
+        "Pursuit",
+        "Hyper Fang",
+        "Assurance"
+      ]
+    },
+    "Starting Moves": [
+      "Tackle",
+      "Tail Whip"
+    ],
+    "TM": [
+      1,
+      6,
+      10,
+      11,
+      12,
+      13,
+      14,
+      17,
+      18,
+      21,
+      24,
+      25,
+      27,
+      30,
+      32,
+      42,
+      44,
+      45,
+      46,
+      48,
+      57,
+      73,
+      86,
+      87,
+      88,
+      89,
+      90,
+      93,
+      100
+    ]
+  },
+  "SR": 0.25,
+  "Senses": [
+    "Darkvision 30ft."
+  ],
+  "Skill": [
+    "Perception",
+    "Stealth"
+  ],
+  "Type": [
+    "Normal"
+  ],
+  "WSp": 30,
+  "attributes": {
+    "CHA": 8,
+    "CON": 11,
+    "DEX": 14,
+    "INT": 6,
+    "STR": 10,
+    "WIS": 10
+  },
+  "index": 19,
+  "saving_throws": [
+    "DEX"
+  ],
+  "size": "Tiny"
+}

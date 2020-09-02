@@ -1,0 +1,49 @@
+{
+  "AC": 11,
+  "Abilities": [
+    "Shield Dust",
+    "Compound Eyes"
+  ],
+  "Climbing Speed": 15,
+  "Evolve": "Spewpa",
+  "HP": 16,
+  "Hidden Ability": "Friend Guard",
+  "Hit Dice": 6,
+  "MIN LVL FD": 1,
+  "Moves": {
+    "Level": {
+      "2": [
+        "Stun Spore"
+      ],
+      "6": [
+        "Bug Bite"
+      ]
+    },
+    "Starting Moves": [
+      "Tackle",
+      "String Shot"
+    ]
+  },
+  "SR": 0.125,
+  "Skill": [
+    "Survival",
+    "Stealth"
+  ],
+  "Type": [
+    "Bug"
+  ],
+  "WSp": 15,
+  "attributes": {
+    "CHA": 10,
+    "CON": 10,
+    "DEX": 8,
+    "INT": 6,
+    "STR": 9,
+    "WIS": 10
+  },
+  "index": 664,
+  "saving_throws": [
+    "CON"
+  ],
+  "size": "Tiny"
+}

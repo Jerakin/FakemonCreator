@@ -12,13 +12,12 @@ import qtmodern.windows
 import qtmodern.styles
 
 
-
 class MoveTab(QtWidgets.QWidget, shared.Tab):
     def __init__(self, data):
         super(MoveTab, self).__init__()
         uic.loadUi(util.RESOURCE_UI / 'MoveTab.ui', self)
         self.data = data
-        self.move_list = util.JsonToList(util.DATA / "moves.json")
+        self.move_list =util.move_list()
         self.child = None
 
         self.move_pp.setValidator(QtGui.QIntValidator())
@@ -132,7 +131,7 @@ class MoveTab(QtWidgets.QWidget, shared.Tab):
         if self.child:
             self.child.close()
 
-        self.child = list_view.ListView(util.JsonToList(util.DATA / "moves.json"))
+        self.child = list_view.ListView(util.move_list())
         self.modern = qtmodern.windows.ModernWindow(self.child)
         self.child.finish_function = self._open_move
         self.modern.show()

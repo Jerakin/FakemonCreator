@@ -88,11 +88,9 @@ class Pokemon:
     def load(self, species):
         self.species = species
 
-        data_path = util.DATA / "pokemon.json"
-        with data_path.open("r", encoding="utf-8") as f:
-            self.data = json.load(f)[species]
-            if "saving_throws" not in self.data:
-                self.data["saving_throws"] = []
+        self.data = util.load_pokemon(species)
+        if "saving_throws" not in self.data:
+            self.data["saving_throws"] = []
 
         extra_path = util.DATA / "pokedex_extra.json"
         with extra_path.open("r", encoding="utf-8") as f:

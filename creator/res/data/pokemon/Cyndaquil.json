@@ -1,0 +1,89 @@
+{
+  "AC": 13,
+  "Abilities": [
+    "Blaze"
+  ],
+  "Evolve": "Quilava",
+  "HP": 16,
+  "Hidden Ability": "Flash Fire",
+  "Hit Dice": 6,
+  "MIN LVL FD": 1,
+  "Moves": {
+    "Level": {
+      "10": [
+        "Flame Charge",
+        "Swift"
+      ],
+      "14": [
+        "Lava Plume",
+        "Flamethrower",
+        "Inferno"
+      ],
+      "18": [
+        "Rollout",
+        "Double-Edge",
+        "Eruption"
+      ],
+      "2": [
+        "Smokescreen",
+        "Ember",
+        "Quick Attack"
+      ],
+      "6": [
+        "Flame Wheel",
+        "Defense Curl"
+      ]
+    },
+    "Starting Moves": [
+      "Leer",
+      "Tackle"
+    ],
+    "TM": [
+      1,
+      6,
+      10,
+      11,
+      17,
+      21,
+      27,
+      32,
+      35,
+      38,
+      40,
+      42,
+      43,
+      44,
+      45,
+      48,
+      50,
+      61,
+      87,
+      88,
+      90,
+      93,
+      96,
+      100
+    ]
+  },
+  "SR": 0.5,
+  "Skill": [
+    "Athletics"
+  ],
+  "Type": [
+    "Fire"
+  ],
+  "WSp": 30,
+  "attributes": {
+    "CHA": 10,
+    "CON": 11,
+    "DEX": 14,
+    "INT": 6,
+    "STR": 12,
+    "WIS": 10
+  },
+  "index": 155,
+  "saving_throws": [
+    "DEX"
+  ],
+  "size": "Tiny"
+}

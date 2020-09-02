@@ -1,0 +1,101 @@
+{
+  "AC": 15,
+  "Abilities": [
+    "Rock Head",
+    "Sturdy"
+  ],
+  "Evolve": "Golem",
+  "HP": 55,
+  "Hidden Ability": "Sand Veil",
+  "Hit Dice": 8,
+  "MIN LVL FD": 5,
+  "Moves": {
+    "Level": {
+      "10": [
+        "Bulldoze",
+        "Self-Destruct"
+      ],
+      "14": [
+        "Stealth Rock",
+        "Rock Blast",
+        "Earthquake"
+      ],
+      "18": [
+        "Explosion",
+        "Double-Edge",
+        "Stone Edge"
+      ],
+      "6": [
+        "Magnitude",
+        "Rock Throw",
+        "Smack Down"
+      ]
+    },
+    "Starting Moves": [
+      "Defense Curl",
+      "Mud Sport",
+      "Rock Polish",
+      "Tackle",
+      "Rollout"
+    ],
+    "TM": [
+      6,
+      10,
+      11,
+      17,
+      21,
+      23,
+      26,
+      27,
+      31,
+      32,
+      35,
+      37,
+      38,
+      39,
+      42,
+      44,
+      45,
+      48,
+      56,
+      64,
+      69,
+      71,
+      74,
+      78,
+      80,
+      87,
+      88,
+      90,
+      96,
+      100
+    ]
+  },
+  "SR": 6.0,
+  "Senses": [
+    "Tremorsense 50ft."
+  ],
+  "Skill": [
+    "Athletics",
+    "Survival"
+  ],
+  "Type": [
+    "Rock",
+    "Ground"
+  ],
+  "WSp": 25,
+  "attributes": {
+    "CHA": 10,
+    "CON": 16,
+    "DEX": 10,
+    "INT": 6,
+    "STR": 16,
+    "WIS": 12
+  },
+  "index": 75,
+  "saving_throws": [
+    "CON",
+    "STR"
+  ],
+  "size": "Small"
+}

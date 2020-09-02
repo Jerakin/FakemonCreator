@@ -32,6 +32,24 @@ DATA = ROOT / "creator" / "res" / "data"
 HOME = Path().home()
 
 
+def load_pokemon(species):
+    data_path = DATA / "pokemon" / species
+    with data_path.with_suffix(".json").open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_move(move):
+    data_path = DATA / "moves" / move
+    with data_path.with_suffix(".json").open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def pokemon_list():
+    return [x.with_suffix("").stem for x in (DATA / "pokemon").iterdir() if x.suffix == ".json"]
+
+
+def move_list():
+    return [x.with_suffix("").stem for x in (DATA / "moves").iterdir() if x.suffix == ".json"]
 
 
 class SimpleList:
@@ -44,6 +62,9 @@ class JsonToList:
     def __init__(self, file_path):
         self.list = [""]
         self.load(file_path)
+
+    def __getitem__(self, item):
+        return self.list[item]
 
     def load(self, file_path):
         extra_path = Path(file_path)

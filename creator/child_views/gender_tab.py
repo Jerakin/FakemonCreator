@@ -21,9 +21,9 @@ class GenderTab(QtWidgets.QWidget, shared.Tab):
         self.list_gender.setContextMenuPolicy(Qt.CustomContextMenu)
         self.list_gender.customContextMenuRequested.connect(self.context_menu)
 
-        self.pkmn_list = util.JsonToList(util.DATA / "pokemon.json")
+        self.pkmn_list = util.pokemon_list()
 
-        self.speciesDropdown.addItems(self.pkmn_list.list)
+        self.speciesDropdown.addItems(self.pkmn_list)
         self.speciesDropdown.activated.connect(self.extend_dropdown)
         self.add_button.clicked.connect(self.add)
 
@@ -33,7 +33,7 @@ class GenderTab(QtWidgets.QWidget, shared.Tab):
             self.pkmn_list.extend(data["pokemon.json"])
             self.extended = True
             self.speciesDropdown.clear()
-            self.speciesDropdown.addItems(self.pkmn_list.list)
+            self.speciesDropdown.addItems(self.pkmn_list)
 
     def add(self):
         species = self.speciesDropdown.currentText()

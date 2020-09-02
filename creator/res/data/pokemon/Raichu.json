@@ -1,0 +1,71 @@
+{
+  "AC": 15,
+  "Abilities": [
+    "Static"
+  ],
+  "HP": 50,
+  "Hidden Ability": "Lightning Rod",
+  "Hit Dice": 10,
+  "MIN LVL FD": 5,
+  "Moves": {
+    "Level": {},
+    "Starting Moves": [
+      "Quick Attack",
+      "Tail Whip",
+      "Thunder Shock",
+      "Thunderbolt"
+    ],
+    "TM": [
+      6,
+      10,
+      15,
+      16,
+      17,
+      19,
+      21,
+      24,
+      25,
+      27,
+      31,
+      32,
+      42,
+      44,
+      45,
+      46,
+      48,
+      52,
+      56,
+      57,
+      68,
+      72,
+      73,
+      86,
+      87,
+      88,
+      90,
+      93,
+      100
+    ]
+  },
+  "SR": 7.0,
+  "Skill": [
+    "Acrobatics"
+  ],
+  "Type": [
+    "Electric"
+  ],
+  "WSp": 30,
+  "attributes": {
+    "CHA": 10,
+    "CON": 15,
+    "DEX": 18,
+    "INT": 6,
+    "STR": 12,
+    "WIS": 12
+  },
+  "index": 26,
+  "saving_throws": [
+    "DEX"
+  ],
+  "size": "Small"
+}

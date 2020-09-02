@@ -35,10 +35,7 @@ class Move:
 
     def load(self, name):
         self.name = name
-
-        data_path = util.DATA / "moves.json"
-        with data_path.open("r", encoding="utf-8") as f:
-            self.data = json.load(f)[name]
+        self.data = util.load_move(name)
         self.__initialized = True
 
     def new(self):
@@ -174,4 +171,4 @@ class Move:
             del self.data["Damage"]
 
     def validate(self):
-        util.validate(self.data, util.DATA / "moves.json")
+        util.validate(self.data, util.SCHEMA / "moves.json")

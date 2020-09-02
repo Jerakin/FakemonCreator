@@ -580,16 +580,12 @@
     "points": 8,
     "level": 15
   },
-  "Farfetch'd": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Doduo": {
     "into": [
       "Dodrio"
     ],
     "current_stage": 1,
-    "total_stages": 1,
+    "total_stages": 2,
     "points": 11,
     "level": 9
   },
@@ -747,7 +743,6 @@
     "current_stage": 1,
     "total_stages": 2,
     "points": 12,
-    "level": 0,
     "move": "Rollout"
   },
   "Koffing": {
@@ -768,7 +763,7 @@
       "Rhydon"
     ],
     "current_stage": 1,
-    "total_stages": 2,
+    "total_stages": 3,
     "points": 8,
     "level": 11
   },
@@ -777,7 +772,7 @@
       "Rhyperior"
     ],
     "current_stage": 2,
-    "total_stages": 2,
+    "total_stages": 3,
     "points": 8,
     "level": 16
   },
@@ -797,12 +792,7 @@
     "current_stage": 1,
     "total_stages": 2,
     "points": 5,
-    "level": 0,
     "move": "Ancient Power"
-  },
-  "Kangaskhan": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Horsea": {
     "into": [
@@ -820,8 +810,7 @@
     "current_stage": 2,
     "total_stages": 3,
     "points": 8,
-    "level": 0,
-    "holding": "Dragon Scale. When it evolves, its health increases by double its level, and it gains 8 points to add to its ability scores (max 20)"
+    "level": 14
   },
   "Goldeen": {
     "into": [
@@ -884,14 +873,6 @@
     "points": 4,
     "level": 15
   },
-  "Pinsir": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Tauros": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Magikarp": {
     "into": [
       "Gyarados"
@@ -899,19 +880,11 @@
     "current_stage": 1,
     "total_stages": 2,
     "points": 16,
-    "level": 6
+    "level": 8
   },
   "Gyarados": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Lapras": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Ditto": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Eevee": {
     "into": [
@@ -921,7 +894,8 @@
       "Espeon",
       "Umbreon",
       "Leafeon",
-      "Glaceon"
+      "Glaceon",
+      "Sylveon"
     ],
     "current_stage": 1,
     "total_stages": 2,
@@ -975,25 +949,9 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Aerodactyl": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Snorlax": {
     "current_stage": 1,
     "total_stages": 2
-  },
-  "Articuno": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Zapdos": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Moltres": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Dratini": {
     "into": [
@@ -1016,14 +974,6 @@
   "Dragonite": {
     "current_stage": 3,
     "total_stages": 3
-  },
-  "Mewtwo": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Mew": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Chikorita": {
     "into": [
@@ -1192,7 +1142,7 @@
       "Togetic"
     ],
     "current_stage": 1,
-    "total_stages": 2,
+    "total_stages": 3,
     "points": 8,
     "level": 7
   },
@@ -1201,7 +1151,7 @@
       "Togekiss"
     ],
     "current_stage": 2,
-    "total_stages": 2,
+    "total_stages": 3,
     "points": 15,
     "level": 15
   },
@@ -1294,7 +1244,6 @@
     "current_stage": 1,
     "total_stages": 2,
     "points": 8,
-    "level": 0,
     "move": "Double Hit"
   },
   "Sunkern": {
@@ -1317,7 +1266,6 @@
     "current_stage": 1,
     "total_stages": 2,
     "points": 8,
-    "level": 0,
     "move": "Ancient Power"
   },
   "Wooper": {
@@ -1363,17 +1311,9 @@
     "points": 9,
     "level": 10
   },
-  "Unown": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Wobbuffet": {
     "current_stage": 1,
     "total_stages": 2
-  },
-  "Girafarig": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Pineco": {
     "into": [
@@ -1387,10 +1327,6 @@
   "Forretress": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Dunsparce": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Gligar": {
     "into": [
@@ -1418,21 +1354,9 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Qwilfish": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Scizor": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Shuckle": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Heracross": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Sneasel": {
     "into": [
@@ -1483,14 +1407,9 @@
       "Mamoswine"
     ],
     "current_stage": 2,
-    "total_stages": 2,
+    "total_stages": 3,
     "points": 10,
-    "level": 0,
     "move": "Ancient Power"
-  },
-  "Corsola": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Remoraid": {
     "into": [
@@ -1505,17 +1424,9 @@
     "current_stage": 1,
     "total_stages": 2
   },
-  "Delibird": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Mantine": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Skarmory": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Houndour": {
     "into": [
@@ -1556,14 +1467,6 @@
     "points": 10,
     "level": 14
   },
-  "Stantler": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Smeargle": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Tyrogue": {
     "into": [
       "Hitmonlee",
@@ -1593,7 +1496,7 @@
       "Electabuzz"
     ],
     "current_stage": 1,
-    "total_stages": 2,
+    "total_stages": 3,
     "points": 4,
     "level": 8
   },
@@ -1602,29 +1505,13 @@
       "Magmar"
     ],
     "current_stage": 1,
-    "total_stages": 2,
+    "total_stages": 3,
     "points": 4,
     "level": 8
-  },
-  "Miltank": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Blissey": {
     "current_stage": 2,
     "total_stages": 3
-  },
-  "Raikou": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Entei": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Suicune": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Larvitar": {
     "into": [
@@ -1647,18 +1534,6 @@
   "Tyranitar": {
     "current_stage": 3,
     "total_stages": 3
-  },
-  "Lugia": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Ho-oh": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Celebi": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Treecko": {
     "into": [
@@ -2013,14 +1888,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Sableye": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Mawile": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Aron": {
     "into": [
       "Lairon"
@@ -2068,22 +1935,6 @@
   "Manectric": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Plusle": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Minun": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Volbeat": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Illumise": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Roselia": {
     "into": [
@@ -2146,10 +1997,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Torkoal": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Spoink": {
     "into": [
       "Grumpig"
@@ -2162,10 +2009,6 @@
   "Grumpig": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Spinda": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Trapinch": {
     "into": [
@@ -2214,22 +2057,6 @@
   "Altaria": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Zangoose": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Seviper": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Lunatone": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Solrock": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Barboach": {
     "into": [
@@ -2309,26 +2136,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Castform": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Castform Sunny": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Castform Rainy": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Castform Snowy": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Kecleon": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Shuppet": {
     "into": [
       "Banette"
@@ -2360,17 +2167,9 @@
     "points": 6,
     "level": 16
   },
-  "Tropius": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Chimecho": {
     "current_stage": 1,
     "total_stages": 2
-  },
-  "Absol": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Wynaut": {
     "into": [
@@ -2383,7 +2182,8 @@
   },
   "Snorunt": {
     "into": [
-      "Glalie"
+      "Glalie",
+      "Froslass"
     ],
     "current_stage": 1,
     "total_stages": 2,
@@ -2434,14 +2234,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Relicanth": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Luvdisc": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Bagon": {
     "into": [
       "Shelgon"
@@ -2485,46 +2277,6 @@
   "Metagross": {
     "current_stage": 3,
     "total_stages": 3
-  },
-  "Regirock": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Regice": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Registeel": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Latias": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Latios": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Kyogre": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Groudon": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Rayquaza": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Jirachi": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Deoxys": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Turtwig": {
     "into": [
@@ -2703,6 +2455,9 @@
   },
   "Burmy": {
     "into": [
+      "Wormadam Plant Cloak",
+      "Wormadam Sand Cloak",
+      "Wormadam Trash Cloak",
       "Mothim"
     ],
     "current_stage": 1,
@@ -2739,10 +2494,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Pachirisu": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Buizel": {
     "into": [
       "Floatzel"
@@ -2764,6 +2515,10 @@
     "total_stages": 2,
     "points": 15,
     "level": 7
+  },
+  "Cherrim": {
+    "current_stage": 2,
+    "total_stages": 2
   },
   "Shellos": {
     "into": [
@@ -2871,7 +2626,6 @@
     "current_stage": 1,
     "total_stages": 2,
     "points": 8,
-    "level": 0,
     "move": "Mimic"
   },
   "Mime Jr.": {
@@ -2881,7 +2635,6 @@
     "current_stage": 1,
     "total_stages": 2,
     "points": 8,
-    "level": 0,
     "move": "Mimic"
   },
   "Happiny": {
@@ -2889,17 +2642,9 @@
       "Chansey"
     ],
     "current_stage": 1,
-    "total_stages": 2,
+    "total_stages": 3,
     "points": 8,
     "level": 8
-  },
-  "Chatot": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Spiritomb": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Gible": {
     "into": [
@@ -2983,10 +2728,6 @@
   "Toxicroak": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Carnivine": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Finneon": {
     "into": [
@@ -3095,54 +2836,6 @@
   "Froslass": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Uxie": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Mesprit": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Azelf": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Dialga": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Palkia": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Heatran": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Regigigas": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Cresselia": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Phione": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Manaphy": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Darkrai": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Victini": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Snivy": {
     "into": [
@@ -3393,10 +3086,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Audino": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Timburr": {
     "into": [
       "Gurdurr"
@@ -3440,14 +3129,6 @@
   "Seismitoad": {
     "current_stage": 3,
     "total_stages": 3
-  },
-  "Throh": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Sawk": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Sewaddle": {
     "into": [
@@ -3519,10 +3200,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Basculin": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Sandile": {
     "into": [
       "Krokorok"
@@ -3558,10 +3235,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Maractus": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Dwebble": {
     "into": [
       "Crustle"
@@ -3587,10 +3260,6 @@
   "Scrafty": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Sigilyph": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Yamask": {
     "into": [
@@ -3762,10 +3431,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Emolga": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Karrablast": {
     "into": [
       "Escavalier"
@@ -3804,10 +3469,6 @@
   "Jellicent": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Alomomola": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Joltik": {
     "into": [
@@ -3949,10 +3610,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Cryogonal": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Shelmet": {
     "into": [
       "Accelgor"
@@ -3966,10 +3623,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Stunfisk": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Mienfoo": {
     "into": [
       "Mienshao"
@@ -3982,10 +3635,6 @@
   "Mienshao": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Druddigon": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Golett": {
     "into": [
@@ -4013,10 +3662,6 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Bouffalant": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
   "Rufflet": {
     "into": [
       "Braviary"
@@ -4042,14 +3687,6 @@
   "Mandibuzz": {
     "current_stage": 2,
     "total_stages": 2
-  },
-  "Heatmor": {
-    "current_stage": 1,
-    "total_stages": 1
-  },
-  "Durant": {
-    "current_stage": 1,
-    "total_stages": 1
   },
   "Deino": {
     "into": [
@@ -4086,36 +3723,423 @@
     "current_stage": 2,
     "total_stages": 2
   },
-  "Cobalion": {
+  "Chespin": {
+    "into": [
+      "Quilladin"
+    ],
     "current_stage": 1,
-    "total_stages": 1
+    "total_stages": 3,
+    "points": 6,
+    "level": 6
   },
-  "Terrakion": {
-    "current_stage": 1,
-    "total_stages": 1
+  "Quilladin": {
+    "into": [
+      "Chesnaught"
+    ],
+    "current_stage": 2,
+    "total_stages": 3,
+    "points": 10,
+    "level": 14
   },
-  "Virizion": {
-    "current_stage": 1,
-    "total_stages": 1
+  "Chesnaught": {
+    "current_stage": 3,
+    "total_stages": 3
   },
-  "Reshiram": {
+  "Fennekin": {
+    "into": [
+      "Braixen"
+    ],
     "current_stage": 1,
-    "total_stages": 1
+    "total_stages": 3,
+    "points": 6,
+    "level": 6
   },
-  "Zekrom": {
-    "current_stage": 1,
-    "total_stages": 1
+  "Braixen": {
+    "into": [
+      "Delphox"
+    ],
+    "current_stage": 2,
+    "total_stages": 3,
+    "points": 10,
+    "level": 14
   },
-  "White Kyurem": {
-    "current_stage": 1,
-    "total_stages": 1
+  "Delphox": {
+    "current_stage": 3,
+    "total_stages": 3
   },
-  "Black Kyurem": {
+  "Froakie": {
+    "into": [
+      "Frogadier"
+    ],
     "current_stage": 1,
-    "total_stages": 1
+    "total_stages": 3,
+    "points": 6,
+    "level": 6
   },
-  "Genesect": {
+  "Frogadier": {
+    "into": [
+      "Greninja"
+    ],
+    "current_stage": 2,
+    "total_stages": 3,
+    "points": 10,
+    "level": 14
+  },
+  "Greninja": {
+    "current_stage": 3,
+    "total_stages": 3
+  },
+  "Bunnelby": {
+    "into": [
+      "Diggersby"
+    ],
     "current_stage": 1,
-    "total_stages": 1
+    "total_stages": 2,
+    "points": 15,
+    "level": 6
+  },
+  "Diggersby": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Fletchling": {
+    "into": [
+      "Fletchinder"
+    ],
+    "current_stage": 1,
+    "total_stages": 3,
+    "points": 10,
+    "level": 6
+  },
+  "Fletchinder": {
+    "into": [
+      "Talonflame"
+    ],
+    "current_stage": 2,
+    "total_stages": 3,
+    "points": 10,
+    "level": 13
+  },
+  "Talonflame": {
+    "current_stage": 3,
+    "total_stages": 3
+  },
+  "Scatterbug": {
+    "into": [
+      "Spewpa"
+    ],
+    "current_stage": 1,
+    "total_stages": 3,
+    "points": 5,
+    "level": 4
+  },
+  "Spewpa": {
+    "into": [
+      "Vivillon"
+    ],
+    "current_stage": 2,
+    "total_stages": 3,
+    "points": 18,
+    "level": 7
+  },
+  "Vivillon": {
+    "current_stage": 3,
+    "total_stages": 3
+  },
+  "Litleo": {
+    "into": [
+      "Pyroar"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 11,
+    "level": 9
+  },
+  "Pyroar": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Flabébé": {
+    "into": [
+      "Floette"
+    ],
+    "current_stage": 1,
+    "total_stages": 3,
+    "points": 8,
+    "level": 6
+  },
+  "Floette": {
+    "into": [
+      "Florges"
+    ],
+    "current_stage": 2,
+    "total_stages": 3,
+    "points": 12,
+    "level": 12
+  },
+  "Florges": {
+    "current_stage": 3,
+    "total_stages": 3
+  },
+  "Skiddo": {
+    "into": [
+      "Gogoat"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 12,
+    "level": 9
+  },
+  "Gogoat": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Pancham": {
+    "into": [
+      "Pangoro"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 11,
+    "level": 9
+  },
+  "Pangoro": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Espurr": {
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 12,
+    "into": [
+      "Meowstic ♂",
+      "Meowstic ♀"
+    ],
+    "level": 7
+  },
+  "Meowstic ♂": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Meowstic ♀": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Honedge": {
+    "into": [
+      "Doublade"
+    ],
+    "current_stage": 1,
+    "total_stages": 3,
+    "points": 6,
+    "level": 9
+  },
+  "Doublade": {
+    "into": [
+      "Aegislash"
+    ],
+    "current_stage": 2,
+    "total_stages": 3,
+    "points": 12,
+    "level": 15
+  },
+  "Aegislash": {
+    "current_stage": 3,
+    "total_stages": 3
+  },
+  "Spritzee": {
+    "into": [
+      "Aromatisse"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 11,
+    "level": 9
+  },
+  "Aromatisse": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Swirlix": {
+    "into": [
+      "Slurpuff"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 12,
+    "level": 9
+  },
+  "Slurpuff": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Inkay": {
+    "into": [
+      "Malamar"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 19,
+    "level": 8
+  },
+  "Malamar": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Binacle": {
+    "into": [
+      "Barbaracle"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 13,
+    "level": 10
+  },
+  "Barbaracle": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Skrelp": {
+    "into": [
+      "Dragalge"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 12,
+    "level": 12
+  },
+  "Dragalge": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Clauncher": {
+    "into": [
+      "Clawitzer"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 11,
+    "level": 10
+  },
+  "Clawitzer": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Helioptile": {
+    "into": [
+      "Heliolisk"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 15,
+    "level": 9
+  },
+  "Heliolisk": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Tyrunt": {
+    "into": [
+      "Tyrantrum"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 11,
+    "level": 10
+  },
+  "Tyrantrum": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Amaura": {
+    "into": [
+      "Aurorus"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 10,
+    "level": 10
+  },
+  "Aurorus": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Sylveon": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Goomy": {
+    "into": [
+      "Sliggoo"
+    ],
+    "current_stage": 1,
+    "total_stages": 3,
+    "points": 9,
+    "level": 12
+  },
+  "Sliggoo": {
+    "into": [
+      "Goodra"
+    ],
+    "current_stage": 2,
+    "total_stages": 3,
+    "points": 12,
+    "level": 16
+  },
+  "Goodra": {
+    "current_stage": 3,
+    "total_stages": 3
+  },
+  "Phantump": {
+    "into": [
+      "Trevenant"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 11,
+    "level": 10
+  },
+  "Trevenant": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Pumpkaboo": {
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 9,
+    "level": 9,
+    "into": [
+      "Gourgeist"
+    ]
+  },
+  "Gourgeist": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Bergmite": {
+    "into": [
+      "Avalugg"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 11,
+    "level": 10
+  },
+  "Avalugg": {
+    "current_stage": 2,
+    "total_stages": 2
+  },
+  "Noibat": {
+    "into": [
+      "Noivern"
+    ],
+    "current_stage": 1,
+    "total_stages": 2,
+    "points": 18,
+    "level": 12
+  },
+  "Noivern": {
+    "current_stage": 2,
+    "total_stages": 2
   }
 }

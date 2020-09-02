@@ -1,0 +1,104 @@
+{
+  "AC": 16,
+  "Abilities": [
+    "Stench",
+    "Sticky Hold"
+  ],
+  "HP": 80,
+  "Hidden Ability": "Poison Touch",
+  "Hit Dice": 10,
+  "MIN LVL FD": 8,
+  "Moves": {
+    "Level": {
+      "10": [
+        "Minimize",
+        "Fling"
+      ],
+      "14": [
+        "Sludge Bomb",
+        "Sludge Wave",
+        "Screech"
+      ],
+      "18": [
+        "Gunk Shot",
+        "Acid Armor",
+        "Memento",
+        "Belch"
+      ]
+    },
+    "Starting Moves": [
+      "Harden",
+      "Mud-Slap",
+      "Poison Gas",
+      "Pound",
+      "Disable",
+      "Sludge",
+      "Mud Bomb",
+      "Venom Drench"
+    ],
+    "TM": [
+      6,
+      9,
+      10,
+      11,
+      12,
+      15,
+      17,
+      18,
+      21,
+      24,
+      25,
+      27,
+      30,
+      31,
+      32,
+      34,
+      35,
+      36,
+      39,
+      41,
+      42,
+      44,
+      45,
+      46,
+      48,
+      52,
+      56,
+      64,
+      66,
+      68,
+      80,
+      83,
+      84,
+      87,
+      88,
+      90,
+      97,
+      100
+    ]
+  },
+  "SR": 8.0,
+  "Senses": [
+    "Darkvision 40ft."
+  ],
+  "Skill": [
+    "Stealth"
+  ],
+  "Type": [
+    "Poison"
+  ],
+  "WSp": 20,
+  "attributes": {
+    "CHA": 8,
+    "CON": 20,
+    "DEX": 13,
+    "INT": 6,
+    "STR": 17,
+    "WIS": 12
+  },
+  "index": 89,
+  "saving_throws": [
+    "CON"
+  ],
+  "size": "Small"
+}
