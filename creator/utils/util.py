@@ -104,13 +104,18 @@ def get_package_index():
         return None
 
 
-def validate(_data, schema_url):
+def validate_data(_data, _schema):
     try:
-        with open(Path(schema_url)) as f:
-            schema = json.load(f)
-        jsonschema.validate(_data, schema)
+        jsonschema.validate(_data, _schema)
+        return True, "valid"
     except jsonschema.ValidationError as e:
-        return e.schema["error"]
+        return False, e.schema["error"] if "error" in e.schema else e.schema
+
+
+def validate(_data, schema_url):
+    with open(Path(schema_url)) as f:
+        schema = json.load(f)
+    return validate_data(_data, schema)
 
 
 def get_recovery_file_name():

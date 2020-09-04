@@ -117,7 +117,6 @@ class MoveTab(QtWidgets.QWidget, shared.Tab):
             log.info("Deleted {}".format(move_name))
 
     def _open_move(self, _move):
-        self.data.new_move()
         self.data.move.load(_move)
         self.load_move_view()
         self.child = None
@@ -143,7 +142,6 @@ class MoveTab(QtWidgets.QWidget, shared.Tab):
             if response == QtWidgets.QMessageBox.Cancel:
                 return
 
-        self.data.new_move()
         self.data.move.custom(self.data.container.data(), name)
         self.load_move_view()
 

@@ -3,6 +3,15 @@ from PyQt5 import QtWidgets, uic, QtGui, QtCore
 import creator.utils.util as util
 
 
+def show_dialog(title, message):
+    msg = QtWidgets.QMessageBox()
+    msg.setIcon(QtWidgets.QMessageBox.Information)
+
+    msg.setText(message)
+    msg.setWindowTitle(title)
+    msg.exec_()
+
+
 class HPHelp(QtWidgets.QWidget):
     def __init__(self, parent):
         super(HPHelp, self).__init__()

@@ -3,6 +3,7 @@ import copy
 from datetime import datetime
 
 import creator.utils.util as util
+import creator.child_views.shared as shared
 
 _NEW_DATA = {
     "Type": "Normal",
@@ -24,18 +25,20 @@ class Move:
         self.edited = False
 
     def __setattr__(self, key, value):
-        if self.__initialized:
+        if self.__initialized and key != "_Move__initialized":
             self.__dict__["edited"] = True
         super(Move, self).__setattr__(key, value)
 
     def custom(self, data, name):
         self.data = data["moves.json"][name]
         self._name = name
+        self.edited = False
         self.__initialized = True
 
     def load(self, name):
         self.name = name
         self.data = util.load_move(name)
+        self.edited = False
         self.__initialized = True
 
     def new(self):
@@ -44,6 +47,24 @@ class Move:
         self.edited = False
         self.__initialized = True
 
+    def _clear(self):
+        if "Damage" in self.data:
+            for level, d in self.data["Damage"].items():
+                if "amount" not in d:
+                    del self.data["Damage"]
+                    return True
+                else:
+                    if d["amount"] == "":
+                        del self.data["Damage"]
+                if "dice_max" not in d:
+                    del self.data["Damage"]
+                    return True
+                else:
+                    if d["dice_max"] == "":
+                        del self.data["Damage"]
+                        return True
+        return False
+
     def serialize(self):
         if not self.name:
             now = datetime.now()
@@ -51,6 +72,8 @@ class Move:
         for move in self.data["Move Power"][::-1]:
             if move == "None":
                 self.data["Move Power"].remove(move)
+        if self._clear():
+            shared.show_dialog("Error", f"Move Damage of {self.name} information invalid, skipping saving it.")
 
     @property
     def name(self):
@@ -158,6 +181,7 @@ class Move:
         return str(self.data["Damage"][level][p]) if "Damage" in self.data and p in self.data["Damage"][level] else ""
 
     def set_damage_die_property(self, p, level, amount):
+        self.edited = True
         if "Damage" not in self.data:
             self.data["Damage"] = {"1": {}, "5": {}, "10": {}, "17": {}}
             if p in ["move", "level"]:
