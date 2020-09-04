@@ -52,12 +52,6 @@ def move_list():
     return [x.with_suffix("").stem for x in (DATA / "moves").iterdir() if x.suffix == ".json"]
 
 
-class SimpleList:
-    # To be able to use the  list_view.ListView interface
-    def __init__(self, _list):
-        self.list = _list
-
-
 class JsonToList:
     def __init__(self, file_path):
         self.list = [""]

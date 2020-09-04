@@ -59,10 +59,8 @@ class MetaDataTab(QtWidgets.QWidget, shared.Tab):
         self.data.package_index = util.get_package_index()
         if self.data.package_index is None:
             return
-        _list = [entry["name"] for entry in self.data.package_index]
-        list_class = util.SimpleList(_list)
 
-        self.child = list_view.ListView(list_class)
+        self.child = list_view.ListView([entry["name"] for entry in self.data.package_index])
         self.modern = qtmodern.windows.ModernWindow(self.child)
         self.child.finish_function = self._update_package
         self.modern.show()
