@@ -41,6 +41,8 @@ def validate_package_name(container):
     index = util.get_package_index()
     if index:
         metadata = container.index()
+        if metadata is None:
+            return errors
         for entry in index:
             if entry["name"] == metadata["name"]:
                 if entry["version"] >= metadata["version"]:

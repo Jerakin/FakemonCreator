@@ -1,4 +1,4 @@
-pyqt5==5.11.3
+pyqt5==5.12.3
 https://github.com/Jerakin/qtmodern/archive/0.1.5a0.zip
 https://github.com/pyinstaller/pyinstaller/archive/46286a1f455d8e0837f7c2b9e1bbdff1ef858f0f.zip
 requests==2.21.0

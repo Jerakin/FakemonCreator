@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="_tab_pokemon">
        <attribute name="title">
@@ -31,6 +31,12 @@
         <string>Moves</string>
        </attribute>
        <layout class="QVBoxLayout" name="tab_move_layout"/>
+      </widget>
+      <widget class="QWidget" name="_tab_variants">
+       <attribute name="title">
+        <string>Variants</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="tab_variants_layout"/>
       </widget>
       <widget class="QWidget" name="_tab_abilities">
        <attribute name="title">

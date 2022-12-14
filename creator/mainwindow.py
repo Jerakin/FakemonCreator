@@ -13,6 +13,7 @@ from creator.child_views import ability_tab
 from creator.child_views import pokemon_tab
 from creator.child_views import metadata_tab
 from creator.child_views import gender_tab
+from creator.child_views import variants_tab
 from creator.child_views import item_tab
 from creator.child_views import stats_calculator
 from creator.child_views import shared
@@ -20,6 +21,14 @@ from creator.child_views import exception
 
 from zipfile import BadZipFile
 from creator import __version__ as version
+
+POKEMON = 0
+MOVES = 1
+VARIANTS = 2
+ABILITIES = 3
+ITEMS = 4
+METADATA = 5
+GENDERS = 6
 
 
 class ScrollMessageBox(QtWidgets.QMessageBox):
@@ -60,8 +69,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.metadata_tab = None
         self.item_tab = None
         self.gender_tab = None
-        self.tabWidget.setCurrentIndex(0)
-        self.tabWidget.removeTab(5)
+        self.variants_tab = None
+        self.tabWidget.setCurrentIndex(POKEMON)
+        self.tabWidget.removeTab(GENDERS)
 
         self.setWindowTitle("untitled | Fakemon Creator")
         self.menubar.setNativeMenuBar(False)
@@ -132,6 +142,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.metadata_tab = metadata_tab.MetaDataTab(self.data)
         self.item_tab = item_tab.ItemTab(self.data)
         self.gender_tab = gender_tab.GenderTab(self.data)
+        self.variants_tab = variants_tab.VariantTab(self.data)
 
         self.tab_pokemon_layout.addWidget(self.pokemon_tab)
         self.tab_move_layout.addWidget(self.move_tab)
@@ -139,6 +150,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.tab_settings_layout.addWidget(self.metadata_tab)
         self.tab_items_layout.addWidget(self.item_tab)
         self.tab_gender_layout.addWidget(self.gender_tab)
+        self.tab_variants_layout.addWidget(self.variants_tab)
 
         self.pokemon_tab.attribute_changed_signal.connect(self.update_tab_names)
         self.move_tab.attribute_changed_signal.connect(self.update_tab_names)
@@ -146,18 +158,21 @@ class MainWindow(QtWidgets.QMainWindow):
         self.metadata_tab.attribute_changed_signal.connect(self.update_tab_names)
         self.item_tab.attribute_changed_signal.connect(self.update_tab_names)
         self.gender_tab.attribute_changed_signal.connect(self.update_tab_names)
+        self.variants_tab.attribute_changed_signal.connect(self.update_tab_names)
 
         self.pokemon_tab.update_list_signal.connect(self.update_user_lists)
         self.move_tab.update_list_signal.connect(self.update_user_lists)
         self.ability_tab.update_list_signal.connect(self.update_user_lists)
         self.item_tab.update_list_signal.connect(self.update_user_lists)
         self.gender_tab.update_list_signal.connect(self.update_user_lists)
+        self.variants_tab.update_list_signal.connect(self.update_user_lists)
 
         self.pokemon_tab.save_project_signal.connect(self.save)
         self.move_tab.save_project_signal.connect(self.save)
         self.ability_tab.save_project_signal.connect(self.save)
         self.item_tab.save_project_signal.connect(self.save)
         self.gender_tab.save_project_signal.connect(self.save)
+        self.variants_tab.save_project_signal.connect(self.save)
 
     def save_and_continue(self):
         button_reply = QtWidgets.QMessageBox.question(None, 'Save', "Save changes before continuing?",
@@ -297,7 +312,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def open_stat_calculator(self):
         if not self.started:
             self.start()
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(POKEMON)
         self.hp_help_window = qtmodern.windows.ModernWindow(stats_calculator.StatsCalculator(self.pokemon_tab))
         self.hp_help_window.show()
 
@@ -305,49 +320,49 @@ class MainWindow(QtWidgets.QMainWindow):
         if not self.started:
             self.start()
         self.pokemon_tab.open_pokemon()
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(POKEMON)
 
     def new_fakemon(self):
         if not self.started:
             self.start()
         self.pokemon_tab.new_fakemon()
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(POKEMON)
 
     def open_ability(self):
         if not self.started:
             self.start()
         self.ability_tab.open_ability()
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(ABILITIES)
 
     def new_ability(self):
         if not self.started:
             self.start()
         self.ability_tab.new_ability()
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(ABILITIES)
 
     def open_move(self):
         if not self.started:
             self.start()
         self.move_tab.open_move()
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(MOVES)
 
     def new_move(self):
         if not self.started:
             self.start()
         self.move_tab.new_move()
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(MOVES)
 
     def open_item(self):
         if not self.started:
             self.start()
         self.item_tab.open_item()
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(ITEMS)
 
     def new_item(self):
         if not self.started:
             self.start()
         self.item_tab.new_item()
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(ITEMS)
 
     def hp_help(self):
         self.hp_help_window = qtmodern.windows.ModernWindow(shared.HPHelp(self))
@@ -364,6 +379,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.item_tab.update_custom_list()
         if self.gender_tab:
             self.gender_tab.update_custom_list()
+        if self.variants_tab:
+            self.variants_tab.update_custom_list()
 
     def validate(self):
         errors = self.data.validate()
