@@ -4,9 +4,9 @@
     "Hustle",
     "Natural Cure"
   ],
-  "HP": 19,
+  "HP": 21,
   "Hidden Ability": "Regenerator",
-  "Hit Dice": 6,
+  "Hit Dice": 8,
   "MIN LVL FD": 1,
   "Moves": {
     "Level": {
@@ -78,6 +78,22 @@
       94,
       96,
       100
+    ],
+    "egg": [
+      "Amnesia",
+      "Aqua Ring",
+      "Barrier",
+      "Camouflage",
+      "Confuse Ray",
+      "Curse",
+      "Head Smash",
+      "Icicle Spear",
+      "Ingrain",
+      "Mist",
+      "Nature Power",
+      "Rock Slide",
+      "Screech",
+      "Water Pulse"
     ]
   },
   "SR": 3.0,
@@ -101,7 +117,7 @@
   },
   "index": 222,
   "saving_throws": [
-    "CON"
+    "Constitution"
   ],
   "size": "Tiny"
 }

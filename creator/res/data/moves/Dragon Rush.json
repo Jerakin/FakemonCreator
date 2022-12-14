@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You rush at an opponent with overwhelming menace. Make a melee attack, dealing dragon damage on a hit. On natural attack rolls of 17 or higher, the target flinches.",
+  "Description": "You rush at a creature with overwhelming menace. Make a melee attack, dealing dragon damage on a hit. On natural attack rolls of 17 or higher, the target flinches.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR"
@@ -29,6 +29,7 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d12 at level 5, 4d8 at level 10, and 8d6 at level 17.",
   "Type": "Dragon",
   "atk": true
 }

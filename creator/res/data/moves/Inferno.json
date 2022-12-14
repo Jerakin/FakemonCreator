@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 3,
   "Range": "15ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d12 at level 5, 4d8 at level 10, and 8d6 at level 17.",
   "Type": "Fire",
   "atk": true
 }

@@ -29,6 +29,7 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "50ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 1d6 at level 5, 1d8 at level 10, and 2d6 at level 17.",
   "Type": "Water",
   "atk": true
 }

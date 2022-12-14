@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "When you use this move, you charge up a ball of rock-hard ice. On your next turn’s action, if you keep your concentration, you fire your electrically charged ice at an opponent. Make a ranged attack roll, dealing ice damage on a hit. On natural attack rolls of 15 or more, the target is paralyzed.",
+  "Description": "When you use this move, you charge up a ball of rock-hard ice. On your next turn's action, if you keep your concentration, you fire your electrically charged ice at a creature. Make a ranged attack roll, dealing ice damage on a hit. On natural attack rolls of 15 or more, the target is paralyzed.",
   "Duration": "1 round, Concentration",
   "Move Power": [
     "DEX"
@@ -29,6 +29,7 @@
   "Move Time": "1 action, charge",
   "PP": 3,
   "Range": "50ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 5d6 at level 5, 4d12 at level 10, and 8d8 at level 17.",
   "Type": "Ice",
   "atk": true
 }

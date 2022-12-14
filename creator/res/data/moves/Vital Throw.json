@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "A slow fighting attack that pummels your foes. As an action on your turn, you can choose to hold this move until next turn, where it will automatically hit for fighting damage as long as the opponent remains in melee range.",
+  "Description": "A slow fighting attack that pummels a creature. As an action on your turn, you hold this move until next turn, where it will automatically hit for fighting damage as long as the target remains in melee range.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR"
@@ -29,5 +29,6 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d8 at level 5, 2d12 at level 10, and 6d6 at level 17.",
   "Type": "Fighting"
 }

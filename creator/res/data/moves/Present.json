@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You send a booby-trapped gift to an opponent. Make a ranged attack on an opponent in range. On a hit, the present explodes, doing normal damage. If the natural attack roll is 2 or lower, however, regardless if it hits, the present provides the target with hit points instead.",
+  "Description": "You send a booby-trapped gift to a creature. Make a ranged attack on a creature in range. On a hit, the present explodes, doing normal damage. If the natural attack roll is 2 or lower, however, regardless if it hits, the present provides the target with hit points instead.",
   "Duration": "Instantaneous",
   "Move Power": [
     "DEX",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "50ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d4 at level 5, 1d12 at level 10, and 4d4 at level 17.",
   "Type": "Normal",
   "atk": true
 }

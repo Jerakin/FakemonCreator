@@ -21,15 +21,16 @@
       "move": true
     }
   },
-  "Description": "You lash out quickly with two strikes. Make two melee attacks, dealing on each hit.",
+  "Description": "You lash out quickly with two strikes. Make two melee attacks, dealing normal damage \\on each hit.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
     "DEX"
   ],
   "Move Time": "1 action",
-  "PP": 5,
+  "PP": 10,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 1d10 at level 5, 2d8 at level 10, and 5d4 at level 17.",
   "Type": "Normal",
   "atk": true
 }

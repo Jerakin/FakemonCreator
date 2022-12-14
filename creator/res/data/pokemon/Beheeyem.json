@@ -4,6 +4,7 @@
     "Telepathy",
     "Synchronize"
   ],
+  "Fsp": 25,
   "HP": 80,
   "Hidden Ability": "Analytic",
   "Hit Dice": 10,
@@ -35,7 +36,8 @@
       "Miracle Eye",
       "Psybeam",
       "Headbutt",
-      "Hidden Power"
+      "Hidden Power",
+      "Psychic Terrain"
     ],
     "TM": [
       3,
@@ -100,8 +102,8 @@
   },
   "index": 606,
   "saving_throws": [
-    "WIS",
-    "CON"
+    "Wisdom",
+    "Constitution"
   ],
   "size": "Small"
 }

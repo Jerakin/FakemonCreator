@@ -4,5 +4,6 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "Self",
+  "Scaling": "Higher Levels: Add +2 to your AC at level 10 and above",
   "Type": "Bug"
 }

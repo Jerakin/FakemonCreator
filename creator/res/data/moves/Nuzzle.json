@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You touch an opponent with your electrified cheeks, sending electricity coursing through their veins. Make an attack roll against an opponent. On a hit, the target takes electric damage and is forced to make a CON save against your Move DC, becoming paralyzed on a failure.",
+  "Description": "You touch a creature with your electrified cheeks, sending electricity coursing through their veins. Make an attack roll against a creature. On a hit, the target takes electric damage and is forced to make a CON save against your Move DC, becoming paralyzed on a failure.",
   "Duration": "Instantaneous",
   "Move Power": [
     "DEX"
@@ -30,5 +30,6 @@
   "PP": 10,
   "Range": "Melee",
   "Save": "CON",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d4 at level 5, 1d12 at level 10, and 4d4 at level 17.",
   "Type": "Electric"
 }

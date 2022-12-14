@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You lunge at an opponent with a devastating sting attack. Make a melee attack on an opponent, dealing bug damage on a hit. If this attack causes the opponent to faint, double your ability modifier to hit and deal damage on your next turn.",
+  "Description": "You lunge at a creature with a devastating sting attack. Make a melee attack on a creature, dealing bug damage on a hit. If this attack causes the target to faint, double your ability modifier for attack rolls and damage on your next turn.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d6 at level 5, 4d4 at level 10, and 3d10 at level 17.",
   "Type": "Bug",
   "atk": true
 }

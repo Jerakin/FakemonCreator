@@ -1,8 +1,13 @@
 {
-  "Description": "You send mixed signals to an opponent. Select a target in range. They become confused, but during this confusion, they double their proficiency bonus when making attack rolls.",
+  "Description": "You send mixed signals to an creature in range. Force a target in range to make a WIS save against your Move DC. On a fail, the target is confused, but it adds +2 to its attack rolls while confused.",
   "Duration": "Instantaneous",
+  "Move Power": [
+    "WIS",
+    "CHA"
+  ],
   "Move Time": "1 action",
   "PP": 10,
-  "Range": "30ft",
+  "Range": "40ft",
+  "Save": "WIS",
   "Type": "Dark"
 }

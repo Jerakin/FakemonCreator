@@ -65,7 +65,6 @@
   "Type": [
     "Water"
   ],
-  "WSp": 0,
   "attributes": {
     "CHA": 20,
     "CON": 16,
@@ -76,8 +75,8 @@
   },
   "index": 489,
   "saving_throws": [
-    "WIS",
-    "CHA"
+    "Wisdom",
+    "Charisma"
   ],
   "size": "Tiny"
 }

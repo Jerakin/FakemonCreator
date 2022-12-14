@@ -29,6 +29,7 @@
   "Move Time": "1 action",
   "PP": 3,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The dice used for this move changes to a d8 at level 5, a d10 at level 10, and a d12 at level 17.",
   "Type": "Dragon",
   "auto_hit": true
 }

@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You send a wave of poisonous sludge at an opponent in range. Make a ranged attack, dealing poison damage on a hit. On a natural attack roll of 19 or 20, the target is poisoned.",
+  "Description": "You summon a wave of poisonous sludge that crashes down on creatures in a 30 foot cone. Any creature caught in the blast must make a CON saving throw against your Move DC, taking poison damage on a failure, or half as much on a success. If a creature fails the saving throw by 5 or more, it becomes poisoned.",
   "Duration": "Instantaneous",
   "Move Power": [
     "DEX",
@@ -29,7 +29,8 @@
   ],
   "Move Time": "1 action",
   "PP": 5,
-  "Range": "30ft",
-  "Type": "Poison",
-  "atk": true
+  "Range": "Self (30ft cone)",
+  "Save": "CON",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d10 at level 5, 3d10 at level 10, and 4d12 at level 17.",
+  "Type": "Poison"
 }

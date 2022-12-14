@@ -30,6 +30,7 @@
   "PP": 10,
   "Range": "Self",
   "Save": "CON",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d6 at level 10",
   "Type": "Poison",
   "atk": true
 }

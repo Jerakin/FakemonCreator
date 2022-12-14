@@ -21,14 +21,15 @@
       "move": true
     }
   },
-  "Description": "You whip your dragon tail at an opponent in an attempt to send them away. Force a target to make a CON save against your Move DC. On a failure, they take dragon damage and are too frightened by you to remain in battle. In trainer battles, the target must be switched out if another creature is available. In wild battles, the target only flees if it a lower level than the user.",
+  "Description": "You whip your dragon tail at a creature in an attempt to send them away. Make a melee attack roll against a target, dealing dragon damage. In wild battles, the target takes the damage and flees from battle if its level is lower than that of the user. In trainer battles, the target takes the damage and must be immediately switched out for another creature in the trainer's party, if any remain.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR"
   ],
   "Move Time": "1 action",
-  "PP": 3,
+  "PP": 5,
   "Range": "Melee",
-  "Save": "CON",
-  "Type": "Dragon"
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d8 at level 5, 5d4 at level 10, and 4d8 at level 17.",
+  "Type": "Dragon",
+  "atk": true
 }

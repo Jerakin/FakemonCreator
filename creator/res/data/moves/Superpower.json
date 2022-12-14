@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You strike a foe with incredible power - but with great power comes great responsibility. Make a melee attack against an opponent, dealing fighting damage on a hit. This move exhausts you, and your STR and DEX ability scores are both reduced by 10 until after the end of your next turn.",
+  "Description": "You strike a target with incredible power - but with great power comes great responsibility. Make a melee attack against a creature, dealing fighting damage on a hit. This move exhausts you, and your STR and DEX ability scores are both reduced by 10 until after the end of your next turn.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 3,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 5d6 at level 5, 6d8 at level 10, and 6d12 at level 17.",
   "Type": "Fighting",
   "atk": true
 }

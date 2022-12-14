@@ -4,6 +4,7 @@
     "Contrary",
     "Suction Cups"
   ],
+  "Fsp": 25,
   "HP": 57,
   "Hidden Ability": "Infiltrator",
   "Hit Dice": 12,
@@ -101,8 +102,8 @@
   },
   "index": 687,
   "saving_throws": [
-    "DEX",
-    "WIS"
+    "Dexterity",
+    "Wisdom"
   ],
   "size": "Medium"
 }

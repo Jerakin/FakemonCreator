@@ -26,5 +26,6 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "5ft",
+  "Scaling": "Higher Levels: The bonus dice roll for this move changes to a 1d6 at level 10",
   "Type": "Fairy"
 }

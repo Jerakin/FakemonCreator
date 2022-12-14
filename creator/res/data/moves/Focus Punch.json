@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "When activating this move, you spend your action focusing your next attack. If you keep concentration, as an action on your next turn, make an attack roll against an opponent, doing fighting damage on a hit.",
+  "Description": "When activating this move, you spend your action focusing your next attack. If you keep concentration, as an action on your next turn, make an attack roll against a creature, doing fighting damage on a hit.",
   "Duration": "1 round, Concentration",
   "Move Power": [
     "STR",
@@ -30,5 +30,6 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 5d6 at level 5, 4d12 at level 10, and 8d8 at level 17.",
   "Type": "Fighting"
 }

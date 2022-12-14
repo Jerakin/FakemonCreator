@@ -80,7 +80,7 @@
   },
   "SR": 5.0,
   "Senses": [
-    "Darkvision 50ft."
+    "Darkvision 50ft"
   ],
   "Skill": [
     "Stealth",
@@ -90,7 +90,6 @@
     "Ghost",
     "Poison"
   ],
-  "WSp": 0,
   "attributes": {
     "CHA": 10,
     "CON": 13,
@@ -101,7 +100,7 @@
   },
   "index": 93,
   "saving_throws": [
-    "CON"
+    "Constitution"
   ],
   "size": "Medium"
 }

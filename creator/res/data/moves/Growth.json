@@ -26,5 +26,6 @@
   "Move Time": "1 action",
   "PP": 20,
   "Range": "30ft",
+  "Scaling": "Higher Levels: The dice to add increases to 1d6 at level 10.",
   "Type": "Normal"
 }

@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You violently whirl your tentacles or vines towards a foe. Make a melee attack against an opponent, dealing grass damage on a hit",
+  "Description": "You violently whirl your tentacles or vines towards a target. Make a melee attack against a creature, dealing grass damage on a hit",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 3d8 at level 5, 4d10 at level 10, and 7d8 at level 17.",
   "Type": "Grass",
   "atk": true
 }

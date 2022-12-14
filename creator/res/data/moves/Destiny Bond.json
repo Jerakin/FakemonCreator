@@ -1,6 +1,6 @@
 {
-  "Description": "You create a dark, internal bond with an opponent. Select a target in range, who must make a WIS save against your Move DC. On a fail, if you faint during the combat, the opponent must take damage equal to twice the damage of the same type that caused you to faint.",
-  "Duration": "Rest of encounter",
+  "Description": "You create a dark, internal bond with a creature. Select a target in range, who must make a WIS save against your Move DC. On a fail, half of any damage dealt to the user is also dealt as typeless damage to the target creature.",
+  "Duration": "1 minute, Concentration",
   "Move Power": [
     "WIS",
     "CHA"

@@ -58,6 +58,7 @@
   },
   "SR": 10.0,
   "Skill": [
+    "Acrobatics",
     "Survival"
   ],
   "Type": [
@@ -74,7 +75,7 @@
   },
   "index": 514,
   "saving_throws": [
-    "DEX"
+    "Dexterity"
   ],
   "size": "Small"
 }

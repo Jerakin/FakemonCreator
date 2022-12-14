@@ -32,6 +32,7 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "30ft",
+  "Scaling": "Higher Levels: Each projectile that hits deals 1d6 at level 5, 2d4 at level 10, and 2d6 at level 17.",
   "Type": "Normal",
   "atk": true
 }

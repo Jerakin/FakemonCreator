@@ -1,5 +1,5 @@
 {
-  "AC": 16,
+  "AC": 18,
   "Abilities": [
     "Sturdy"
   ],
@@ -93,8 +93,8 @@
   },
   "index": 205,
   "saving_throws": [
-    "CON",
-    "STR"
+    "Constitution",
+    "Strength"
   ],
   "size": "Small"
 }

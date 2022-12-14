@@ -21,15 +21,16 @@
       "move": true
     }
   },
-  "Description": "Your forehead burns like hot coals as you slam your head into an opponent. Make a melee attack roll, dealing fire damage on a hit. After activating this move, your AC decreases by 2 until the beginning of your next turn.",
+  "Description": "Your forehead burns like hot coals as you slam your head into a creature. Make a melee attack roll, dealing fire damage on a hit. After activating this move, your AC decreases by 2 until the beginning of your next turn.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
     "DEX"
   ],
   "Move Time": "1 action",
-  "PP": 3,
+  "PP": 10,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 6d6 at level 5, 8d6 at level 10, and 7d12 at level 17.",
   "Type": "Fire",
   "atk": true
 }

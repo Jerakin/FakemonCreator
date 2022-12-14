@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You rush forward and slam into an opponent. Make a melee attack roll against a target, doing normal damage on a hit.",
+  "Description": "You rush forward and slam into a creature. Make a melee attack roll against a target, doing normal damage on a hit.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 20,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 1d10 at level 5, 2d8 at level 10, and 5d4 at level 17.",
   "Type": "Normal",
   "atk": true
 }

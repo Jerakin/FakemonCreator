@@ -76,7 +76,7 @@
       100
     ]
   },
-  "SR": 10.0,
+  "SR": 8.0,
   "Skill": [
     "Athletics",
     "Acrobatics"
@@ -95,7 +95,7 @@
   },
   "index": 620,
   "saving_throws": [
-    "DEX"
+    "Dexterity"
   ],
-  "size": "Medium"
+  "size": "Small"
 }

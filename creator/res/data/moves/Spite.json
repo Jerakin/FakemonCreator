@@ -21,7 +21,7 @@
       "move": false
     }
   },
-  "Description": "When hit with an attack, you can spend a reaction to attempt to drain the attacker’s PP, if they are in range. Force the attacker to make a WIS save against your Move DC. On a fail, roll a d4. The PP of the move that attacked you is decreased by that number.",
+  "Description": "When hit with an attack, you can spend a reaction to attempt to drain the attacker's PP, if they are in range. Force the attacker to make a WIS save against your Move DC. On a fail, roll a d4. The PP of the move that attacked you is decreased by that number.",
   "Duration": "Instantaneous",
   "Move Power": [
     "WIS"
@@ -30,5 +30,6 @@
   "PP": 3,
   "Range": "30ft",
   "Save": "WIS",
+  "Scaling": "Higher Levels: PP is drained by 1d6 at level 5, 1d8 at level 10, and 1d10 at level 17.",
   "Type": "Ghost"
 }

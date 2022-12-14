@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You lash out at an opponent(s) with two quick strikes. Make two melee attack rolls, dealing dragon damage with each hit.",
+  "Description": "You lash out at a creature(s) with two quick strikes. Make two melee attack rolls, dealing dragon damage with each hit.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 1d12 at level 5, 2d8 at level 10, and 4d6 at level 17.",
   "Type": "Dragon",
   "atk": true
 }

@@ -73,7 +73,6 @@
     "Fairy",
     "Flying"
   ],
-  "WSp": 0,
   "attributes": {
     "CHA": 15,
     "CON": 16,
@@ -84,8 +83,8 @@
   },
   "index": 468,
   "saving_throws": [
-    "WIS",
-    "CHA"
+    "Wisdom",
+    "Charisma"
   ],
   "size": "Medium"
 }

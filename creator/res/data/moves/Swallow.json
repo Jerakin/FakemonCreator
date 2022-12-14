@@ -29,6 +29,7 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "Self",
+  "Scaling": "Higher Levels: The base healing dice roll for this move changes to 1d12 at level 5, 2d8 at level 10, and 4d6 at level 17.",
   "Type": "Normal",
   "atk": false
 }

@@ -112,14 +112,14 @@
     "CHA": 10,
     "CON": 18,
     "DEX": 18,
-    "INT": 6,
+    "INT": 10,
     "STR": 20,
     "WIS": 14
   },
   "index": 475,
   "saving_throws": [
-    "WIS",
-    "STR"
+    "Wisdom",
+    "Strength"
   ],
   "size": "Medium"
 }

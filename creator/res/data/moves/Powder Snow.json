@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You send a blast of cold snow at an opponent. Make a ranged attack roll on an opponent, doing ice damage on a hit. If the natural attack roll is 18 or higher, the target is frozen.",
+  "Description": "You send a blast of cold snow at a creature. Make a ranged attack roll on a creature, doing ice damage on a hit. If the natural attack roll is 18 or higher, the target is frozen.",
   "Duration": "Instantaneous",
   "Move Power": [
     "DEX"
@@ -29,6 +29,7 @@
   "Move Time": "1 action",
   "PP": 15,
   "Range": "40ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 1d12 at level 5, 2d8 at level 10, and 4d6 at level 17.",
   "Type": "Ice",
   "atk": true
 }

@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You loose a damaging flash of light from your polished body. Make a ranged attack on an opponent, dealing steel damage on a hit. On a hit, the target must make a CON save against your Move DC. On a failure, the target has disadvantage on its next attack roll.",
+  "Description": "You loose a damaging flash of light from your polished body. Make a ranged attack on a creature, dealing steel damage on a hit. On a hit, the target must make a CON save against your Move DC. On a failure, the target has disadvantage on its next attack roll.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
@@ -31,6 +31,7 @@
   "PP": 5,
   "Range": "40ft",
   "Save": "CON",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d8 at level 5, 5d4 at level 10, and 4d8 at level 17.",
   "Type": "Steel",
   "atk": true
 }

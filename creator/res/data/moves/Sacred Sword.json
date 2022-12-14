@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You attempt to pierce an enemy with one of your sharp appendages. Make a melee attack, dealing fighting damage on a hit. This move ignores any boosts affecting the target's AC.",
+  "Description": "You attempt to pierce a creature with one of your sharp appendages. Make a melee attack, dealing fighting damage on a hit. This move ignores any boosts affecting the target's AC.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d10 at level 5, 3d10 at level 10, and 4d12 at level 17.",
   "Type": "Fighting",
   "atk": true
 }

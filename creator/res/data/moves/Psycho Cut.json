@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You tear at a foe with blades formed by psychic power. Make a ranged attack on an opponent, dealing psychic damage on a hit. This move scores a critical hit on natural rolls of 19 or 20.",
+  "Description": "You tear at a target with blades formed by psychic power. Make a ranged attack on a creature, dealing psychic damage on a hit. This move scores a critical hit on natural rolls of 19 or 20.",
   "Duration": "Instantaneous",
   "Move Power": [
     "DEX",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "30ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d8 at level 5, 2d12 at level 10, and 6d6 at level 17.",
   "Type": "Psychic",
   "atk": true
 }

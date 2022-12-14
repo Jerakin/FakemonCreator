@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You send a powerful ball of energy that changes type based on the surrounding weather, dealing damage of that type. |Weather|Type| |Harsh Sunlight|Fire |Rain|Water |Sandstorm|Rock |Hail or Snow|Ice |Foggy or Cloudy|Normal",
+  "Description": "You send a powerful ball of energy that changes type based on the surrounding weather, dealing damage of that type. |Weather|Type| |:--:|:--: |Harsh Sunlight|Fire |Rain|Water |Sandstorm|Rock |Hail or Snow|Ice |Foggy or Cloudy|Normal",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
@@ -30,5 +30,6 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "30ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d6 at level 5, 4d4 at level 10, and 3d10 at level 17.",
   "Type": "Normal"
 }

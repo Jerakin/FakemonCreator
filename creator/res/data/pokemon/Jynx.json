@@ -92,16 +92,16 @@
   ],
   "WSp": 30,
   "attributes": {
-    "CHA": 14,
-    "CON": 12,
+    "CHA": 16,
+    "CON": 14,
     "DEX": 16,
     "INT": 8,
     "STR": 12,
-    "WIS": 12
+    "WIS": 16
   },
   "index": 124,
   "saving_throws": [
-    "CHA"
+    "Charisma"
   ],
   "size": "Medium"
 }

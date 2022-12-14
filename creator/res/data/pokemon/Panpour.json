@@ -72,10 +72,24 @@
       94,
       98,
       100
+    ],
+    "egg": [
+      "Aqua Ring",
+      "Aqua Tail",
+      "Astonish",
+      "Covet",
+      "Disarming Voice",
+      "Hydro Pump",
+      "Low Kick",
+      "Mud Sport",
+      "Nasty Plot",
+      "Role Play",
+      "Tickle"
     ]
   },
   "SR": 1.0,
   "Skill": [
+    "Acrobatics",
     "Survival"
   ],
   "Type": [
@@ -92,7 +106,7 @@
   },
   "index": 515,
   "saving_throws": [
-    "DEX"
+    "Dexterity"
   ],
   "size": "Tiny"
 }

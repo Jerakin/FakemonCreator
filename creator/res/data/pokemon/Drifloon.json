@@ -73,6 +73,18 @@
       88,
       90,
       100
+    ],
+    "egg": [
+      "Body Slam",
+      "Clear Smog",
+      "Defog",
+      "Destiny Bond",
+      "Disable",
+      "Haze",
+      "Hypnosis",
+      "Memento",
+      "Tailwind",
+      "Weather Ball"
     ]
   },
   "SR": 2.0,
@@ -83,7 +95,6 @@
     "Ghost",
     "Flying"
   ],
-  "WSp": 0,
   "attributes": {
     "CHA": 10,
     "CON": 16,
@@ -94,7 +105,7 @@
   },
   "index": 425,
   "saving_throws": [
-    "CON"
+    "Constitution"
   ],
   "size": "Tiny"
 }

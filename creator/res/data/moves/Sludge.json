@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You spew poisonous sludge at an enemy creature in range. Make a ranged attack, doing poison damage on a hit. The creature must make a CON save against your Move DC or become poisoned.",
+  "Description": "You spew poisonous sludge at a target creature in range. Make a ranged attack, doing poison damage on a hit. The creature must make a CON save against your Move DC or become poisoned.",
   "Duration": "Instantaneous",
   "Move Power": [
     "DEX",
@@ -31,6 +31,7 @@
   "PP": 10,
   "Range": "20ft",
   "Save": "CON",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d8 at level 5, 5d4 at level 10, and 4d8 at level 17.",
   "Type": "Poison",
   "atk": true
 }

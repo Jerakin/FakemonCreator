@@ -21,7 +21,7 @@
       "move": false
     }
   },
-  "Description": "You flash freeze chunks of ice and quickly hurl them at an opponent. As a bonus action, you fire a shard of ice at an opponent in range. Make a ranged attack roll, dealing ice damage on a hit.",
+  "Description": "You flash freeze chunks of ice and quickly hurl them at a creature. As a bonus action, you fire a shard of ice at a creature in range. Make a ranged attack roll, dealing ice damage on a hit.",
   "Duration": "Instantaneous",
   "Move Power": [
     "DEX"
@@ -29,6 +29,7 @@
   "Move Time": "1 bonus action",
   "PP": 15,
   "Range": "50ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 1d6 at level 5, 1d10 at level 10, and 1d12 at level 17.",
   "Type": "Ice",
   "atk": true
 }

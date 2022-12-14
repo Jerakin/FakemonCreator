@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You stir up a gust of repulsive wind that strikes an opponent in range. Make a ranged attack, dealing ghost damage on a hit. On a natural attack roll of 19 or 20, increase all of your ability scores by +1 for three rounds.",
+  "Description": "You stir up a gust of repulsive wind that strikes a creature in range. Make a ranged attack, dealing ghost damage on a hit. On a natural attack roll of 19 or 20, increase all of your ability scores by +1 while you remain in battle.",
   "Duration": "Instantaneous",
   "Move Power": [
     "WIS",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 3,
   "Range": "40ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d8 at level 5, 5d4 at level 10, and 4d8 at level 17.",
   "Type": "Ghost",
   "atk": true
 }

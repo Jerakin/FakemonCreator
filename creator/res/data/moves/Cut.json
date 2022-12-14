@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You lash out at an enemy with vine or claw or blade. Make a melee roll on an enemy, doing on a successful hit.",
+  "Description": "You lash out at a target with vine or claw or blade. Make a melee roll on a target, doing on a successful hit.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
@@ -30,5 +30,6 @@
   "Move Time": "1 action",
   "PP": 15,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d6 at level 5, 4d4 at level 10, and 3d10 at level 17.",
   "Type": "Normal"
 }

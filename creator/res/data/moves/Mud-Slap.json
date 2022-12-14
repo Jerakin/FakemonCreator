@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "40ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d4 at level 5, 1d12 at level 10, and 4d4 at level 17.",
   "Type": "Ground",
   "atk": true
 }

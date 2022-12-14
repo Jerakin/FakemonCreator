@@ -82,7 +82,6 @@
     "Electric",
     "Steel"
   ],
-  "WSp": 0,
   "attributes": {
     "CHA": 10,
     "CON": 17,
@@ -93,8 +92,8 @@
   },
   "index": 462,
   "saving_throws": [
-    "CON",
-    "STR"
+    "Constitution",
+    "Strength"
   ],
-  "size": "Small"
+  "size": "Medium"
 }

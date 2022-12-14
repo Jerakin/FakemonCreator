@@ -68,6 +68,17 @@
       95,
       97,
       100
+    ],
+    "egg": [
+      "Captivate",
+      "Destiny Bond",
+      "Foul Play",
+      "Grudge",
+      "Imprison",
+      "Nightmare",
+      "Pain Split",
+      "Shadow Sneak",
+      "Smokescreen"
     ]
   },
   "SR": 11.0,
@@ -83,7 +94,6 @@
     "Ghost",
     "Dark"
   ],
-  "WSp": 0,
   "attributes": {
     "CHA": 12,
     "CON": 13,
@@ -94,8 +104,8 @@
   },
   "index": 442,
   "saving_throws": [
-    "WIS",
-    "STR"
+    "Wisdom",
+    "Strength"
   ],
   "size": "Small"
 }

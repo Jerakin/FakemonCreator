@@ -21,14 +21,16 @@
       "move": true
     }
   },
-  "Description": "Poisonous barbs sprout from your tail as you swing it at an opponent. Make a melee attack against an opponent, dealing poison damage on a hit. If the natural attack roll is a 19 or 20, the move scores a critical hit and the target is poisoned.",
+  "Description": "Poisonous barbs sprout from your tail as you swing it at a creature. Make a melee attack against a creature, dealing poison damage on a hit. If the natural attack roll is a 19 or 20, the move scores a critical hit and the target is poisoned.",
   "Duration": "Instantaneous",
   "Move Power": [
+    "STR",
     "DEX"
   ],
   "Move Time": "1 action",
   "PP": 15,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d6 at level 5, 4d4 at level 10, and 3d10 at level 17.",
   "Type": "Poison",
   "atk": true
 }

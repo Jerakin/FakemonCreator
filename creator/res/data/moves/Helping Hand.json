@@ -26,5 +26,6 @@
   "Move Time": "1 bonus action",
   "PP": 5,
   "Range": "60ft",
+  "Scaling": "Higher Levels: The helping dice for this move changes to d8 at level 5, d10 at level 10, and d12 at level 17.",
   "Type": "Normal"
 }

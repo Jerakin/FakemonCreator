@@ -88,7 +88,7 @@
   },
   "SR": 1.0,
   "Skill": [
-    "Insight",
+    "Performance",
     "Persuasion"
   ],
   "Type": [
@@ -106,8 +106,8 @@
   },
   "index": 39,
   "saving_throws": [
-    "WIS",
-    "CHA"
+    "Wisdom",
+    "Charisma"
   ],
   "size": "Tiny"
 }

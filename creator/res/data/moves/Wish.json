@@ -30,5 +30,6 @@
   "Move Time": "1 action, charge",
   "PP": 5,
   "Range": "50ft",
+  "Scaling": "Higher Levels: The healing dice roll for this move changes to 5d6 at level 5, 4d12 at level 10, and 8d8 at level 17.",
   "Type": "Normal"
 }

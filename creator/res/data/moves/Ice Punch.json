@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d8 at level 5, 2d12 at level 10, and 6d6 at level 17.",
   "Type": "Ice",
   "atk": true
 }

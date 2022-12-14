@@ -18,12 +18,11 @@
         "Hurricane",
         "Moonblast"
       ],
-      "2": [
-        "Gust"
+      "6": [
+        "Cotton Spore"
       ]
     },
     "Starting Moves": [
-      "Cotton Spore",
       "Growth",
       "Leech Seed",
       "Mega Drain",
@@ -84,7 +83,7 @@
   },
   "index": 547,
   "saving_throws": [
-    "CHA"
+    "Charisma"
   ],
   "size": "Small"
 }

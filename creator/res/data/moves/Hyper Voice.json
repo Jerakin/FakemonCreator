@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You release a loud and startling, high-pitched sound that only an opponent can hear. Make a ranged attack roll against an opponent in range, doing normal damage on a hit.",
+  "Description": "You release a loud and startling, high-pitched sound that only a creature can hear. Make a ranged attack roll against a creature in range, doing normal damage on a hit.",
   "Duration": "Instantaneous",
   "Move Power": [
     "DEX",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "30ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d10 at level 5, 3d10 at level 10, and 4d12 at level 17.",
   "Type": "Normal",
   "atk": true
 }

@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "60ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d10 at level 5, 3d10 at level 10, and 4d12 at level 17.",
   "Type": "Electric",
   "atk": true
 }

@@ -29,6 +29,7 @@
   "Move Time": "1 action",
   "PP": 3,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 5d6 at level 5, 4d12 at level 10, and 8d8 at level 17.",
   "Type": "Rock",
   "atk": true
 }

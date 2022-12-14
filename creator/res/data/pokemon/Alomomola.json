@@ -6,7 +6,7 @@
   ],
   "HP": 65,
   "Hidden Ability": "Regenerator",
-  "Hit Dice": 20,
+  "Hit Dice": 12,
   "MIN LVL FD": 5,
   "Moves": {
     "Level": {
@@ -67,6 +67,14 @@
       94,
       98,
       100
+    ],
+    "egg": [
+      "Endure",
+      "Mirror Coat",
+      "Mist",
+      "Pain Split",
+      "Refresh",
+      "Tickle"
     ]
   },
   "SR": 9.0,
@@ -78,9 +86,10 @@
   "Type": [
     "Water"
   ],
+  "WSp": 5,
   "attributes": {
     "CHA": 14,
-    "CON": 23,
+    "CON": 22,
     "DEX": 14,
     "INT": 6,
     "STR": 12,
@@ -88,8 +97,8 @@
   },
   "index": 594,
   "saving_throws": [
-    "CON",
-    "WIS"
+    "Constitution",
+    "Wisdom"
   ],
   "size": "Small"
 }

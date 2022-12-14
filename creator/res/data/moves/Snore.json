@@ -22,7 +22,7 @@
     }
   },
   "Description": "While you are asleep, you may activate this move to create a harsh noise that damages all creature within range for normal damage.",
-  "Duration": "instantaneous",
+  "Duration": "Instantaneous",
   "Move Power": [
     "STR",
     "WIS"
@@ -30,5 +30,6 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "50ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d6 at level 5, 4d4 at level 10, and 3d10 at level 17.",
   "Type": "Normal"
 }

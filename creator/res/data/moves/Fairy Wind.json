@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You stir up a series of vicious fairy winds that fly towards an opponent in range. Make a ranged attack roll against a target, dealing fairy damage on a hit.",
+  "Description": "You stir up a series of vicious fairy winds that fly towards a creature in range. Make a ranged attack roll against a target, dealing fairy damage on a hit.",
   "Duration": "Instantaneous",
   "Move Power": [
     "DEX",
@@ -30,6 +30,7 @@
   "Move Time": "1 action",
   "PP": 15,
   "Range": "30ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 1d12 at level 5, 2d8 at level 10, and 4d6 at level 17.",
   "Type": "Fairy",
   "atk": true
 }

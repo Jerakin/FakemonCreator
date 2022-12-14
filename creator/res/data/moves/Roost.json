@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You land on the ground to rest your body. Regain hit points, but lose your ground-type immunity until beginning of your next turn.",
+  "Description": "You land on the ground to rest your body. When activated, your flying speed decreases to zero, and you lose your flying type for as long as you remain on the ground. At the beginning of your next turn, if you have not left the ground, recover hit points",
   "Duration": "1 round",
   "Move Power": [
     "CON"
@@ -29,5 +29,6 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "Self",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 3d6 at level 5, 5d6 at level 10, and 8d6 at level 17.",
   "Type": "Flying"
 }

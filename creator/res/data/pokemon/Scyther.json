@@ -5,7 +5,7 @@
     "Technician"
   ],
   "Evolve": "Scizor",
-  "Fsp": 30,
+  "Fsp": 35,
   "HP": 58,
   "Hidden Ability": "Steadfast",
   "Hit Dice": 10,
@@ -72,6 +72,21 @@
       89,
       90,
       100
+    ],
+    "egg": [
+      "Baton Pass",
+      "Bug Buzz",
+      "Counter",
+      "Defog",
+      "Endure",
+      "Light Screen",
+      "Night Slash",
+      "Quick Guard",
+      "Razor Wind",
+      "Reversal",
+      "Safeguard",
+      "Silver Wind",
+      "Steel Wing"
     ]
   },
   "SR": 8.0,
@@ -93,7 +108,7 @@
   },
   "index": 123,
   "saving_throws": [
-    "DEX"
+    "Dexterity"
   ],
   "size": "Medium"
 }

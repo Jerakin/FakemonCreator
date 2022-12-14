@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You get in close for a devastating strike, sacrificing your defenses. Make a melee attack on an opponent, dealing fighting damage on a hit. After activating this move, the target has advantage on any attack it makes against you before the beginning of your next turn.",
+  "Description": "You get in close for a devastating strike, sacrificing your defenses. Make a melee attack on a creature, dealing fighting damage on a hit. After activating this move, the target has advantage on any attack it makes against you before the beginning of your next turn.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR"
@@ -29,6 +29,7 @@
   "Move Time": "1 action",
   "PP": 3,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 3d8 at level 5, 4d10 at level 10, and 7d8 at level 17.",
   "Type": "Fighting",
   "atk": true
 }

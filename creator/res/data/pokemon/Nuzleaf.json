@@ -74,10 +74,10 @@
   },
   "SR": 4.0,
   "Senses": [
-    "Tremorsense 30ft."
+    "Tremorsense 30ft"
   ],
   "Skill": [
-    "Nature"
+    "Sleight of Hand"
   ],
   "Type": [
     "Grass",
@@ -94,7 +94,7 @@
   },
   "index": 274,
   "saving_throws": [
-    "DEX"
+    "Dexterity"
   ],
   "size": "Small"
 }

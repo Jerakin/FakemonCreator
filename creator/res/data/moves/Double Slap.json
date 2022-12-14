@@ -31,6 +31,7 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice rolls for this move change to 1d6 at level 5, 1d8 at level 10, and 2d6 at level 17.",
   "Type": "Normal",
   "atk": true
 }

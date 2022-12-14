@@ -29,7 +29,8 @@
   ],
   "Move Time": "1 action",
   "PP": 5,
-  "Range": "60ft cone",
+  "Range": "Self (60ft cone)",
   "Save": "DEX",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d10 at level 5, 3d10 at level 10, and 4d12 at level 17.",
   "Type": "Ground"
 }

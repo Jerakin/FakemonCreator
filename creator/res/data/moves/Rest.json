@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You put yourself to sleep, but recover hit points in the process.",
+  "Description": "When you activate this move, you fall asleep after the end of your turn, but recover hit points in the process. You do not regain health if you do not fall asleep.",
   "Duration": "Instantaneous",
   "Move Power": [
     "WIS",
@@ -30,5 +30,6 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "Self",
+  "Scaling": "Higher Levels: The dice roll for healing increases to 6d6 at level 5, 8d6 at level 10, and 8d10 at level 17.",
   "Type": "Psychic"
 }

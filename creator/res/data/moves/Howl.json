@@ -1,8 +1,9 @@
 {
-  "Description": "You increase your adrenaline with a menacing howl. For the duration, add +1 to any attack roll you make. This move can be stacked for a maximum of +5.",
-  "Duration": "1 minute",
+  "Description": "You pierce the air with an intimidating howl. Until the end of your next turn, allies (and you) have advantage on any melee attack rolls they make against a creature within 5 feet of you.",
+  "Duration": "1 round",
   "Move Time": "1 action",
-  "PP": 20,
+  "PP": 10,
   "Range": "Self",
-  "Type": "Normal"
+  "Type": "Normal",
+  "atk": true
 }

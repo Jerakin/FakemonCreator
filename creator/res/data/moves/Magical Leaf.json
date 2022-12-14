@@ -21,15 +21,15 @@
       "move": true
     }
   },
-  "Description": "You summon a sharp, magical leaf that strikes an opponent. This move is guaranteed to hit for grass damage, unless during the invulnerable stage of Fly, Dig, Bounce, Dive, etc. moves.",
+  "Description": "You summon a sharp, magical leaf that strikes a creature. This move is guaranteed to hit for grass damage, unless during the invulnerable stage of Fly, Dig, Bounce, Dive, etc. moves.",
   "Duration": "Instantaneous",
   "Move Power": [
-    "WIS",
     "DEX"
   ],
   "Move Time": "1 action",
   "PP": 5,
   "Range": "30ft",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 1d10 at level 5, 2d8 at level 10, and 5d4 at level 17.",
   "Type": "Grass",
   "auto_hit": true
 }

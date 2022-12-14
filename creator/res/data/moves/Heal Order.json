@@ -29,5 +29,6 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "Self",
+  "Scaling": "Higher Levels: The healing dice roll for this move changes to 3d6 at level 5, 5d6 at level 10, and 8d6 at level 17.",
   "Type": "Bug"
 }

@@ -93,7 +93,6 @@
     "Steel",
     "Psychic"
   ],
-  "WSp": 0,
   "attributes": {
     "CHA": 10,
     "CON": 16,
@@ -104,7 +103,7 @@
   },
   "index": 436,
   "saving_throws": [
-    "CON"
+    "Constitution"
   ],
   "size": "Tiny"
 }

@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You bring an opponent close and hit it with a sucker punch. Make a melee attack on an opponent, always with advantage, doing dark damage on a hit.",
+  "Description": "You bring a creature close and hit it with a sucker punch. Make a melee attack on a creature, at advantage, dealing dark damage on a hit.",
   "Duration": "Instantaneous",
   "Move Power": [
     "STR",
@@ -31,6 +31,7 @@
   "Move Time": "1 action",
   "PP": 10,
   "Range": "Melee",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 2d8 at level 5, 5d4 at level 10, and 4d8 at level 17.",
   "Type": "Dark",
   "atk": true
 }

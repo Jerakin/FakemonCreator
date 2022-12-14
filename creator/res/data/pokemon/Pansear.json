@@ -72,10 +72,24 @@
       88,
       90,
       100
+    ],
+    "egg": [
+      "Astonish",
+      "Covet",
+      "Disarming Voice",
+      "Fire Punch",
+      "Fire Spin",
+      "Heat Wave",
+      "Low Kick",
+      "Nasty Plot",
+      "Role Play",
+      "Sleep Talk",
+      "Tickle"
     ]
   },
   "SR": 1.0,
   "Skill": [
+    "Acrobatics",
     "Survival"
   ],
   "Type": [
@@ -92,7 +106,7 @@
   },
   "index": 513,
   "saving_throws": [
-    "DEX"
+    "Dexterity"
   ],
   "size": "Tiny"
 }

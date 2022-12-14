@@ -4,7 +4,7 @@
     "Levitate"
   ],
   "Evolve": "Haunter",
-  "Fsp": 30,
+  "Fsp": 25,
   "HP": 16,
   "Hit Dice": 6,
   "MIN LVL FD": 1,
@@ -74,11 +74,27 @@
       97,
       99,
       100
+    ],
+    "egg": [
+      "Astonish",
+      "Clear Smog",
+      "Disable",
+      "Explosion",
+      "Fire Punch",
+      "Grudge",
+      "Haze",
+      "Ice Punch",
+      "Perish Song",
+      "Psywave",
+      "Reflect Type",
+      "Scary Face",
+      "Thunder Punch",
+      "Will-O-Wisp"
     ]
   },
   "SR": 0.5,
   "Senses": [
-    "Darkvision 30ft."
+    "Darkvision 30ft"
   ],
   "Skill": [
     "Stealth",
@@ -88,7 +104,6 @@
     "Ghost",
     "Poison"
   ],
-  "WSp": 0,
   "attributes": {
     "CHA": 10,
     "CON": 11,
@@ -99,7 +114,7 @@
   },
   "index": 92,
   "saving_throws": [
-    "CON"
+    "Constitution"
   ],
-  "size": "Medium"
+  "size": "Small"
 }

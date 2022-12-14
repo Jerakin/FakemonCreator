@@ -28,7 +28,8 @@
   ],
   "Move Time": "1 action",
   "PP": 10,
-  "Range": "15ft cone",
+  "Range": "Self (15ft cone)",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 1d6 at level 5, 1d8 at level 10, and 2d6 at level 17.",
   "Type": "Electric",
   "auto_hit": true
 }

@@ -76,7 +76,7 @@
   },
   "SR": 13.0,
   "Skill": [
-    "Survival",
+    "Stealth",
     "Acrobatics"
   ],
   "Ssp": 40,
@@ -95,7 +95,7 @@
   },
   "index": 658,
   "saving_throws": [
-    "DEX"
+    "Dexterity"
   ],
   "size": "Medium"
 }

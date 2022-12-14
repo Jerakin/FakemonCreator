@@ -29,7 +29,8 @@
   ],
   "Move Time": "1 action",
   "PP": 5,
-  "Range": "20 ft circle",
+  "Range": "Self (20ft radius)",
   "Save": "CON",
+  "Scaling": "Higher Levels: The damage dice roll for this move changes to 3d10 at level 5, 7d6 at level 10, and 8d8 at level 17.",
   "Type": "Normal"
 }

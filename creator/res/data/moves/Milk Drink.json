@@ -21,7 +21,7 @@
       "move": true
     }
   },
-  "Description": "You create a tasty drink that heals your or an ally’s wounds. The recipient gains hit points.",
+  "Description": "You create a tasty drink that heals your or an ally's wounds. The recipient gains hit points.",
   "Duration": "Instantaneous",
   "Move Power": [
     "CON"
@@ -29,6 +29,7 @@
   "Move Time": "1 action",
   "PP": 5,
   "Range": "10ft",
+  "Scaling": "Higher Levels: The dice roll for this move changes to 3d6 at level 5, 5d6 at level 10, and 8d6 at level 17.",
   "Type": "Normal",
   "atk": false
 }

@@ -29,7 +29,8 @@
   "Duration": "Instantaneous",
   "Move Time": "1 action",
   "PP": 10,
-  "Range": "100ft",
+  "Range": "60ft",
+  "Scaling": "Higher Levels: You fire 4 projectiles at level 5, 5 projectiles at level 10, and 6 projectiles at level 17.",
   "Type": "Normal",
   "auto_hit": true
 }
