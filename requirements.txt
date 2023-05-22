@@ -1,5 +1,5 @@
 pyqt5==5.12.3
 https://github.com/Jerakin/qtmodern/archive/0.1.5a0.zip
 pyinstaller
-requests==2.21.0
+requests==2.31.0
 jsonschema==3.0.2
