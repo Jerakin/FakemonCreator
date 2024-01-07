@@ -37,7 +37,7 @@ class Data:
 
     def validate(self):
         if self.container:
-            return self.container.validate()
+            return self.container.validate() + self.metadata.validate()
         return []
 
     def new_container(self):
@@ -163,8 +163,11 @@ class Data:
                 data["gender.json"] = {}
             data["gender.json"] = self.gender.data
 
+        if not self.container.contains("index.json"):
+            self.new_metadata()
+            self.metadata.edited = True
+
         if self.metadata.edited:
-            self.metadata.validate()
             self.container.add("index.json", self.metadata.data)
             self.metadata.edited = False
 

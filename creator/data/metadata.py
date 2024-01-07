@@ -1,6 +1,7 @@
 import copy
 
-from creator.utils.util import validate, SCHEMA
+from creator.utils.util import SCHEMA
+from creator.utils import validate
 
 _PACKAGE_INDEX_TEMPLATE = {
     "name": "",
@@ -68,4 +69,4 @@ class Metadata:
         self.data["version"] = int(value)
 
     def validate(self):
-        validate(self.data, SCHEMA / "index.json")
+        return validate.validate(SCHEMA / "index.json", self.data)

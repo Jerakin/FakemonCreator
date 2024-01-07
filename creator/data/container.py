@@ -88,6 +88,13 @@ class Container:
                 log.info("  Writing json {} to zip".format(path))
                 f.writestr(str(path), json.dumps(data, ensure_ascii=False))
 
+    def contains(self, path):
+        filename = path
+        if isinstance(path, Path):
+            filename = path.name
+
+        return filename in [x.filename for x in zipfile.ZipFile(self.__DATA).filelist]
+
     def remove(self, filename):
         log.info("Removing file")
         __TEMP = io.BytesIO()
