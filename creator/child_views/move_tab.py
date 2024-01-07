@@ -204,14 +204,14 @@ class MoveTab(QtWidgets.QWidget, shared.Tab):
 
         self.move_type.setCurrentText(self.data.move.type)
 
-        self.move_1.setChecked(bool(self.data.move.get_damage_die_property("move", "1")))
-        self.move_5.setChecked(bool(self.data.move.get_damage_die_property("move", "5")))
-        self.move_10.setChecked(bool(self.data.move.get_damage_die_property("move", "10")))
-        self.move_17.setChecked(bool(self.data.move.get_damage_die_property("move", "17")))
-        self.level_1.setChecked(bool(self.data.move.get_damage_die_property("level", "1")))
-        self.level_5.setChecked(bool(self.data.move.get_damage_die_property("level", "5")))
-        self.level_10.setChecked(bool(self.data.move.get_damage_die_property("level", "10")))
-        self.level_17.setChecked(bool(self.data.move.get_damage_die_property("level", "17")))
+        self.move_1.setChecked(bool(int(self.data.move.get_damage_die_property("move", "1"))))
+        self.move_5.setChecked(bool(int(self.data.move.get_damage_die_property("move", "5"))))
+        self.move_10.setChecked(bool(int(self.data.move.get_damage_die_property("move", "10"))))
+        self.move_17.setChecked(bool(int(self.data.move.get_damage_die_property("move", "17"))))
+        self.level_1.setChecked(bool(int(self.data.move.get_damage_die_property("level", "1"))))
+        self.level_5.setChecked(bool(int(self.data.move.get_damage_die_property("level", "5"))))
+        self.level_10.setChecked(bool(int(self.data.move.get_damage_die_property("level", "10"))))
+        self.level_17.setChecked(bool(int(self.data.move.get_damage_die_property("level", "17"))))
 
     def clear_move_view(self):
         self.move_name.setText("")
