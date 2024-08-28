@@ -189,7 +189,8 @@ class Move:
         self.data["Save"] = value
 
     def get_damage_die_property(self, p, level):
-        return str(self.data["Damage"][level][p]) if "Damage" in self.data and p in self.data["Damage"][level] else "0"
+        data = self.data["Damage"][level][p] if "Damage" in self.data and p in self.data["Damage"][level] else "0"
+        return "0" if data is False or data is True else str(data)
 
     def set_damage_die_property(self, p, level, amount):
         self.edited = True
