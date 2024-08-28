@@ -18,12 +18,12 @@ class Data:
         self.window = window
 
         self._edited = False
-        self.container = None
-        self.move = None
-        self.ability = None
-        self.datamon = None
-        self.metadata = None
-        self.item = None
+        self.container: container.Container | None = None
+        self.move: move.Move | None = None
+        self.ability: ability.Ability | None = None
+        self.datamon: pokemon.Pokemon | None = None
+        self.metadata: metadata.Metadata | None = None
+        self.item: item.Item | None = None
         self.gender = None
 
         self.package_index = util.get_package_index()

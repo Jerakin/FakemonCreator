@@ -25,23 +25,26 @@ class Move:
         self.edited = False
 
     def __setattr__(self, key, value):
-        if self.__initialized and key != "_Move__initialized":
+        if self.__initialized and key not in ["_Move__initialized", "data", "edited"]:
             self.__dict__["edited"] = True
         super(Move, self).__setattr__(key, value)
 
     def custom(self, data, name):
+        self.__initialized = False
         self.data = data["moves.json"][name]
         self._name = name
         self.edited = False
         self.__initialized = True
 
     def load(self, name):
+        self.__initialized = False
         self.name = name
         self.data = util.load_move(name)
         self.edited = False
         self.__initialized = True
 
     def new(self):
+        self.__initialized = False
         self.data = copy.deepcopy(_NEW_DATA)
         self._name = None
         self.edited = False
@@ -136,6 +139,14 @@ class Move:
     @PP.setter
     def PP(self, value):
         self.data["PP"] = int(value or 0)
+
+    @property
+    def atk(self):
+        return self.data["atk"] if "atk" in self.data else None
+
+    @atk.setter
+    def atk(self, value):
+        self.data["atk"] = value
 
     @property
     def casting_time(self):

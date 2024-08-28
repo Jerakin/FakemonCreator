@@ -1,9 +1,9 @@
 import logging as log
 
 from PyQt5 import QtWidgets, uic, QtGui
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QSignalBlocker
 
-from creator.data import fields
+from creator.data import fields, move
 from creator.utils import util
 from creator.child_views import shared
 from creator.child_views import list_view
@@ -13,11 +13,11 @@ import qtmodern.styles
 
 
 class MoveTab(QtWidgets.QWidget, shared.Tab):
-    def __init__(self, data):
+    def __init__(self, data: move):
         super(MoveTab, self).__init__()
         uic.loadUi(util.RESOURCE_UI / 'MoveTab.ui', self)
         self.data = data
-        self.move_list =util.move_list()
+        self.move_list = util.move_list()
         self.child = None
 
         self.move_pp.setValidator(QtGui.QIntValidator())
@@ -53,6 +53,11 @@ class MoveTab(QtWidgets.QWidget, shared.Tab):
         self.list_moves.customContextMenuRequested.connect(self.move_context_menu)
         self.delete_damage.clicked.connect(self.clear_damage)
         self.list_moves.itemDoubleClicked.connect(self.open_custom_move)
+
+        self.invalid_damage_healing.setVisible(False)
+
+        self.damage_move.toggled.connect(lambda x: self.setattr(self.data.move, "atk", True))
+        self.healing_move.toggled.connect(lambda x: self.setattr(self.data.move, "atk", False))
 
         self.move_name.textEdited.connect(lambda x: self.setattr(self.data.move, "name", x))
         self.move_entry.textChanged.connect(
@@ -176,80 +181,194 @@ class MoveTab(QtWidgets.QWidget, shared.Tab):
     def load_move_view(self):
         self.clear_move_view()
 
-        self.move_name.setText(self.data.move.name)
-        self.move_entry.blockSignals(True)
-        self.move_entry.setText(self.data.move.description)
-        self.move_entry.blockSignals(False)
-        self.move_duration.setText(self.data.move.duration)
-        self.move_casting_time.setText(self.data.move.casting_time)
-        self.move_range.setText(self.data.move.range)
-        self.move_pp.setText(self.data.move.PP)
-        self.die_at_1.setText(self.data.move.get_damage_die_property("amount", "1"))
-        self.die_at_5.setText(self.data.move.get_damage_die_property("amount", "5"))
-        self.die_at_10.setText(self.data.move.get_damage_die_property("amount", "10"))
-        self.die_at_17.setText(self.data.move.get_damage_die_property("amount", "17"))
-        self.times_1.setText(self.data.move.get_damage_die_property("times", "1"))
-        self.times_5.setText(self.data.move.get_damage_die_property("times", "5"))
-        self.times_10.setText(self.data.move.get_damage_die_property("times", "10"))
-        self.times_17.setText(self.data.move.get_damage_die_property("times", "17"))
+        with QSignalBlocker(self.move_name):
+            self.move_name.setText(self.data.move.name)
 
-        self.die_type_1.setCurrentText(self.data.move.get_damage_die_property("dice_max", "1"))
-        self.die_type_5.setCurrentText(self.data.move.get_damage_die_property("dice_max", "5"))
-        self.die_type_10.setCurrentText(self.data.move.get_damage_die_property("dice_max", "10"))
-        self.die_type_17.setCurrentText(self.data.move.get_damage_die_property("dice_max", "17"))
+        with QSignalBlocker(self.move_entry):
+            self.move_entry.setText(self.data.move.description)
 
-        self.move_save.setCurrentText(self.data.move.save)
-        self.move_power1.setCurrentText(self.data.move.move_power1)
-        self.move_power2.setCurrentText(self.data.move.move_power2)
+        with QSignalBlocker(self.move_duration):
+            self.move_duration.setText(self.data.move.duration)
 
-        self.move_type.setCurrentText(self.data.move.type)
+        with QSignalBlocker(self.move_casting_time):
+            self.move_casting_time.setText(self.data.move.casting_time)
 
-        self.move_1.setChecked(bool(int(self.data.move.get_damage_die_property("move", "1"))))
-        self.move_5.setChecked(bool(int(self.data.move.get_damage_die_property("move", "5"))))
-        self.move_10.setChecked(bool(int(self.data.move.get_damage_die_property("move", "10"))))
-        self.move_17.setChecked(bool(int(self.data.move.get_damage_die_property("move", "17"))))
-        self.level_1.setChecked(bool(int(self.data.move.get_damage_die_property("level", "1"))))
-        self.level_5.setChecked(bool(int(self.data.move.get_damage_die_property("level", "5"))))
-        self.level_10.setChecked(bool(int(self.data.move.get_damage_die_property("level", "10"))))
-        self.level_17.setChecked(bool(int(self.data.move.get_damage_die_property("level", "17"))))
+        with QSignalBlocker(self.move_range):
+            self.move_range.setText(self.data.move.range)
+
+        with QSignalBlocker(self.move_pp):
+            self.move_pp.setText(self.data.move.PP)
+
+        with QSignalBlocker(self.die_at_1):
+            self.die_at_1.setText(self.data.move.get_damage_die_property("amount", "1"))
+
+        with QSignalBlocker(self.die_at_5):
+            self.die_at_5.setText(self.data.move.get_damage_die_property("amount", "5"))
+
+        with QSignalBlocker(self.die_at_10):
+            self.die_at_10.setText(self.data.move.get_damage_die_property("amount", "10"))
+
+        with QSignalBlocker(self.die_at_17):
+            self.die_at_17.setText(self.data.move.get_damage_die_property("amount", "17"))
+
+        with QSignalBlocker(self.times_1):
+            self.times_1.setText(self.data.move.get_damage_die_property("times", "1"))
+
+        with QSignalBlocker(self.times_5):
+            self.times_5.setText(self.data.move.get_damage_die_property("times", "5"))
+
+        with QSignalBlocker(self.times_10):
+            self.times_10.setText(self.data.move.get_damage_die_property("times", "10"))
+
+        with QSignalBlocker(self.die_at_17):
+            self.times_17.setText(self.data.move.get_damage_die_property("times", "17"))
+
+        with QSignalBlocker(self.die_at_17):
+            self.die_type_1.setCurrentText(self.data.move.get_damage_die_property("dice_max", "1"))
+
+        with QSignalBlocker(self.die_type_5):
+            self.die_type_5.setCurrentText(self.data.move.get_damage_die_property("dice_max", "5"))
+
+        with QSignalBlocker(self.die_type_10):
+            self.die_type_10.setCurrentText(self.data.move.get_damage_die_property("dice_max", "10"))
+
+        with QSignalBlocker(self.die_type_17):
+            self.die_type_17.setCurrentText(self.data.move.get_damage_die_property("dice_max", "17"))
+
+        with QSignalBlocker(self.healing_move), QSignalBlocker(self.damage_move):
+            self.healing_move.setChecked(self.data.move.atk is False)
+            self.damage_move.setChecked(self.data.move.atk is True)
+            self.invalid_damage_healing.setChecked(self.data.move.atk is None)
+
+        with QSignalBlocker(self.move_save):
+            self.move_save.setCurrentText(self.data.move.save)
+
+        with QSignalBlocker(self.move_power1):
+            self.move_power1.setCurrentText(self.data.move.move_power1)
+
+        with QSignalBlocker(self.move_power2):
+            self.move_power2.setCurrentText(self.data.move.move_power2)
+
+        with QSignalBlocker(self.move_type):
+            self.move_type.setCurrentText(self.data.move.type)
+
+        with QSignalBlocker(self.move_1):
+            self.move_1.setChecked(bool(int(self.data.move.get_damage_die_property("move", "1"))))
+
+        with QSignalBlocker(self.move_5):
+            self.move_5.setChecked(bool(int(self.data.move.get_damage_die_property("move", "5"))))
+
+        with QSignalBlocker(self.move_10):
+            self.move_10.setChecked(bool(int(self.data.move.get_damage_die_property("move", "10"))))
+
+        with QSignalBlocker(self.move_17):
+            self.move_17.setChecked(bool(int(self.data.move.get_damage_die_property("move", "17"))))
+
+        with QSignalBlocker(self.level_1):
+            self.level_1.setChecked(bool(int(self.data.move.get_damage_die_property("level", "1"))))
+
+        with QSignalBlocker(self.level_5):
+            self.level_5.setChecked(bool(int(self.data.move.get_damage_die_property("level", "5"))))
+
+        with QSignalBlocker(self.level_10):
+            self.level_10.setChecked(bool(int(self.data.move.get_damage_die_property("level", "10"))))
+
+        with QSignalBlocker(self.level_17):
+            self.level_17.setChecked(bool(int(self.data.move.get_damage_die_property("level", "17"))))
 
     def clear_move_view(self):
-        self.move_name.setText("")
-        self.move_entry.blockSignals(True)
-        self.move_entry.setText("")
-        self.move_entry.blockSignals(False)
-        self.move_duration.setText("")
-        self.move_casting_time.setText("")
-        self.move_range.setText("")
-        self.move_pp.setText("")
-        self.die_at_1.setText("")
-        self.die_at_5.setText("")
-        self.die_at_10.setText("")
-        self.die_at_17.setText("")
-        self.times_1.setText("")
-        self.times_5.setText("")
-        self.times_10.setText("")
-        self.times_17.setText("")
+        with QSignalBlocker(self.move_name):
+            self.move_name.setText("")
 
-        self.die_type_1.setCurrentText("")
-        self.die_type_5.setCurrentText("")
-        self.die_type_10.setCurrentText("")
-        self.die_type_17.setCurrentText("")
+        with QSignalBlocker(self.move_entry):
+            self.move_entry.setText("")
 
-        self.move_save.setCurrentText("None")
-        self.move_power1.setCurrentText("None")
-        self.move_power2.setCurrentText("None")
+        with QSignalBlocker(self.move_duration):
+            self.move_duration.setText("")
 
-        self.move_type.setCurrentText("None")
+        with QSignalBlocker(self.move_casting_time):
+            self.move_casting_time.setText("")
 
-        self.move_1.setChecked(False)
-        self.move_5.setChecked(False)
-        self.move_10.setChecked(False)
-        self.move_17.setChecked(False)
-        self.level_1.setChecked(False)
-        self.level_5.setChecked(False)
-        self.level_10.setChecked(False)
-        self.level_17.setChecked(False)
+        with QSignalBlocker(self.move_range):
+            self.move_range.setText("")
+
+        with QSignalBlocker(self.move_pp):
+            self.move_pp.setText("")
+
+        with QSignalBlocker(self.die_at_1):
+            self.die_at_1.setText("")
+
+        with QSignalBlocker(self.die_at_5):
+            self.die_at_5.setText("")
+
+        with QSignalBlocker(self.die_at_10):
+            self.die_at_10.setText("")
+
+        with QSignalBlocker(self.die_at_17):
+            self.die_at_17.setText("")
+
+        with QSignalBlocker(self.times_1):
+            self.times_1.setText("")
+
+        with QSignalBlocker(self.times_5):
+            self.times_5.setText("")
+
+        with QSignalBlocker(self.times_10):
+            self.times_10.setText("")
+
+        with QSignalBlocker(self.times_17):
+            self.times_17.setText("")
+
+        with QSignalBlocker(self.die_type_1):
+            self.die_type_1.setCurrentText("")
+
+        with QSignalBlocker(self.die_type_5):
+            self.die_type_5.setCurrentText("")
+
+        with QSignalBlocker(self.die_type_10):
+            self.die_type_10.setCurrentText("")
+
+        with QSignalBlocker(self.die_type_17):
+            self.die_type_17.setCurrentText("")
+
+        with QSignalBlocker(self.move_save):
+            self.move_save.setCurrentText("None")
+
+        with QSignalBlocker(self.healing_move), QSignalBlocker(self.damage_move):
+            self.invalid_damage_healing.setChecked(True)
+
+        with QSignalBlocker(self.move_power1):
+            self.move_power1.setCurrentText("None")
+
+        with QSignalBlocker(self.move_power2):
+            self.move_power2.setCurrentText("None")
+
+        with QSignalBlocker(self.move_type):
+            self.move_type.setCurrentText("None")
+
+        with QSignalBlocker(self.move_1):
+            self.move_1.setChecked(False)
+
+        with QSignalBlocker(self.move_5):
+            self.move_5.setChecked(False)
+
+        with QSignalBlocker(self.move_10):
+            self.move_10.setChecked(False)
+
+        with QSignalBlocker(self.move_17):
+            self.move_17.setChecked(False)
+
+        with QSignalBlocker(self.level_1):
+            self.level_1.setChecked(False)
+
+        with QSignalBlocker(self.level_5):
+            self.level_5.setChecked(False)
+
+        with QSignalBlocker(self.level_10):
+            self.level_10.setChecked(False)
+
+        with QSignalBlocker(self.level_17):
+            self.level_17.setChecked(False)
 
     def update_custom_list(self):
         data = self.data.container.data() if self.data.container else None
